@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
+  <rect width="120" height="40" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+  <!-- Diamond gem prism icon -->
+  <polygon points="12,20 19,10 26,20 19,30" fill="#84BD00"/>
+  <polygon points="19,10 26,20 33,14" fill="#00A3E0"/>
+  <polygon points="19,30 26,20 33,26" fill="#002D62"/>
+  <text x="74" y="22" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" fill="#002D62">Permata</text>
+  <text x="74" y="32" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#84BD00">Bank</text>
+</svg>

@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class Address extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'label',
+        'recipient_name',
+        'phone',
+        'province',
+        'city',
+        'district',
+        'postal_code',
+        'address_line',
+        'biteship_area_id',
+        'latitude',
+        'longitude',
+        'is_default',
+    ];
+
+    protected $casts = [
+        'is_default' => 'boolean',
+        'latitude' => 'decimal:7',
+        'longitude' => 'decimal:7',
+    ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+}
