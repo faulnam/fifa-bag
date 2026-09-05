@@ -61,11 +61,11 @@
         <div class="absolute top-2.5 left-2.5 z-10 flex flex-col gap-1 pointer-events-none">
             @if ($isDiscounted)
                 <span class="inline-block bg-charcoal text-canvas px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wide10 rounded-pill">
-                    Sale
+                    Diskon
                 </span>
             @elseif ($isNew)
                 <span class="inline-block bg-sand text-charcoal px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wide10 rounded-pill">
-                    New
+                    Baru
                 </span>
             @endif
         </div>
@@ -94,7 +94,7 @@
                      class="w-full h-full object-contain object-center transition-all duration-300 group-hover:scale-105 {{ $secondaryImage && $secondaryImage->id !== $primaryImage->id ? 'lg:group-hover:opacity-0' : '' }}">
             @else
                 <div class="w-full h-full flex items-center justify-center bg-sand/30 text-stone text-caption uppercase tracking-wide10">
-                    No Image
+                    Tanpa Gambar
                 </div>
             @endif
 
@@ -113,7 +113,7 @@
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = !quickAddOpen"
                         class="btn-pill-light w-full py-2.5 text-center text-[11px] font-bold uppercase tracking-wide10 shadow-sm bg-canvas/95 hover:bg-canvas">
-                    <span x-text="quickAddOpen ? 'Tutup Ukuran' : '+ Quick Add'"></span>
+                    <span x-text="quickAddOpen ? 'Tutup Ukuran' : '+ Tambah Cepat'"></span>
                 </button>
             </div>
         @endif
@@ -173,7 +173,7 @@
 
         <!-- Category label -->
         <span class="text-caption text-iron line-clamp-1">
-            {{ $product->category->name ?? 'fifa Shoes' }}
+            {{ $product->category->name ?? 'Sepatu fifa' }}
         </span>
 
         <!-- Price -->
@@ -194,7 +194,7 @@
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = !quickAddOpen"
                         class="w-full py-2 px-3 border border-sand rounded-pill text-[11px] font-bold uppercase tracking-wide10 text-charcoal bg-sand/20 hover:bg-sand/40 min-h-[38px] flex items-center justify-center">
-                    <span x-text="quickAddOpen ? 'Tutup Ukuran' : '+ Quick Add'"></span>
+                    <span x-text="quickAddOpen ? 'Tutup Ukuran' : '+ Tambah Cepat'"></span>
                 </button>
             </div>
         @endif

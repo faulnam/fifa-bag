@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@hasSection('title')@yield('title') - fifa@else{{ $title ?? 'fifa — Natural Materials, Sustainable Comfort' }}@endif</title>
+    <title>@hasSection('title')@yield('title') - fifa@else{{ $title ?? 'fifa — Material Alami, Kenyamanan Berkelanjutan' }}@endif</title>
     <meta name="description" content="@hasSection('description')@yield('description')@else{{ $metaDescription ?? 'Temukan kenyamanan luar biasa dari sepatu dan pakaian berbahan alami ramah lingkungan seperti wol ZQ Merino dan serat pohon eukaliptus.' }}@endif">
     <link rel="canonical" href="{{ url()->current() }}">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="@hasSection('title')@yield('title') - fifa@else{{ $title ?? 'fifa — Natural Materials, Sustainable Comfort' }}@endif">
+    <meta property="og:title" content="@hasSection('title')@yield('title') - fifa@else{{ $title ?? 'fifa — Material Alami, Kenyamanan Berkelanjutan' }}@endif">
     <meta property="og:description" content="@hasSection('description')@yield('description')@else{{ $metaDescription ?? 'Temukan kenyamanan luar biasa dari sepatu dan pakaian berbahan alami ramah lingkungan seperti wol ZQ Merino dan serat pohon eukaliptus.' }}@endif">
     <meta property="og:image" content="@yield('og_image', asset('images/og-default.jpg'))">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ url()->current() }}">
-    <meta name="twitter:title" content="@hasSection('title')@yield('title') - fifa@else{{ $title ?? 'fifa — Natural Materials, Sustainable Comfort' }}@endif">
+    <meta name="twitter:title" content="@hasSection('title')@yield('title') - fifa@else{{ $title ?? 'fifa — Material Alami, Kenyamanan Berkelanjutan' }}@endif">
     <meta name="twitter:description" content="@hasSection('description')@yield('description')@else{{ $metaDescription ?? 'Temukan kenyamanan luar biasa dari sepatu dan pakaian berbahan alami ramah lingkungan seperti wol ZQ Merino dan serat pohon eukaliptus.' }}@endif">
     <meta name="twitter:image" content="@yield('og_image', asset('images/og-default.jpg'))">
 
@@ -192,7 +192,7 @@
         }
     }" 
     @toast.window="addToast($event.detail.message, $event.detail.type || 'success')"
-    class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none max-w-sm w-full px-4 sm:px-0">
+    class="fixed bottom-24 right-6 z-50 flex flex-col gap-2 pointer-events-none max-w-sm w-full px-4 sm:px-0">
         <template x-for="t in toasts" :key="t.id">
             <div x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 translate-y-2 scale-95"
@@ -228,9 +228,13 @@
     <!-- Slide-over Cart Drawer -->
     @include('partials.cart-drawer')
 
+    <!-- Interactive AI Assistant Chatbot Widget -->
+    @include('partials.chatbot')
+
     <!-- Global Footer -->
     @include('partials.footer')
 
     @stack('scripts')
 </body>
 </html>
+

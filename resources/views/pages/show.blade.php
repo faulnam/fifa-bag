@@ -8,7 +8,7 @@
         <h1 class="font-display font-normal text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight">
             {{ $page->title }}
         </h1>
-        <p class="text-caption font-bold uppercase tracking-wide10 text-stone mt-3">fifa Journal & Story</p>
+        <p class="text-caption font-bold uppercase tracking-wide10 text-stone mt-3">Jurnal & Cerita fifa</p>
     </div>
 </div>
 

@@ -5,7 +5,7 @@
     
     <!-- Breadcrumbs -->
     <nav class="flex items-center gap-2 text-caption text-stone uppercase tracking-wide10 mb-6">
-        <a href="{{ route('home') }}" class="hover:text-charcoal">Home</a>
+        <a href="{{ route('home') }}" class="hover:text-charcoal">Beranda</a>
         <span>/</span>
         <span class="text-charcoal">Keranjang Belanja</span>
     </nav>

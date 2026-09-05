@@ -1,5 +1,5 @@
 @php
-    $rawAnnouncements = \App\Models\SiteSetting::get('announcement_text', 'Due to increased demand, orders may take up to 30 days to ship. | Free shipping on orders over Rp 500.000 | 30-Day trial run on all shoes | 100% Natural Materials');
+    $rawAnnouncements = \App\Models\SiteSetting::get('announcement_text', 'Gratis ongkir untuk pesanan di atas Rp 500.000 | Garansi uji coba 30 hari untuk semua sepatu | 100% Bahan Alami & Ramah Lingkungan | Pengiriman cepat ke seluruh Indonesia');
     $messages = array_map('trim', explode('|', $rawAnnouncements));
 @endphp
 

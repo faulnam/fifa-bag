@@ -135,7 +135,7 @@
                                     <span class="w-2.5 h-2.5 rounded-full border border-stone/40 inline-block" :style="'background-color: ' + item.color_hex"></span>
                                     <span x-text="item.color_name"></span>
                                     <span>•</span>
-                                    <span>Size <span x-text="item.size"></span> EU</span>
+                                    <span>Ukuran <span x-text="item.size"></span> EU</span>
                                 </div>
                             </div>
 

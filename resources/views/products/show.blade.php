@@ -102,7 +102,7 @@
 
     <!-- Breadcrumbs -->
     <nav class="flex items-center gap-2 text-caption text-stone uppercase tracking-wide10 mb-6">
-        <a href="{{ route('home') }}" class="hover:text-charcoal">Home</a>
+        <a href="{{ route('home') }}" class="hover:text-charcoal">Beranda</a>
         <span>/</span>
         <a href="{{ route('collections.show', $product->category->slug ?? 'all') }}" class="hover:text-charcoal">
             {{ $product->category->name ?? 'Sepatu' }}
@@ -151,7 +151,7 @@
             <div class="space-y-2 border-b border-sand pb-4">
                 @if ($product->collections->contains('slug', 'new-arrivals'))
                     <span class="inline-block text-caption font-medium uppercase tracking-wide10 text-charcoal">
-                        New Arrival
+                        Produk Terbaru
                     </span>
                 @endif
                 <h1 class="font-sans font-bold text-2xl sm:text-3xl text-charcoal leading-tight">
@@ -441,11 +441,11 @@
 
     </div>
 
-    <!-- Related Products ("You May Also Like") -->
+    <!-- Related Products ("Produk Rekomendasi Lainnya") -->
     @if ($relatedProducts->isNotEmpty())
         <section class="mt-20 pt-12 border-t border-sand">
             <div class="text-center mb-10">
-                <h2 class="section-title">You May Also Like</h2>
+                <h2 class="section-title">Produk Rekomendasi Lainnya</h2>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                 @foreach ($relatedProducts as $relProduct)

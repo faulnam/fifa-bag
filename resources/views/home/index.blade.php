@@ -1,30 +1,45 @@
 @extends('layouts.app')
 
-@section('title', 'fifa — Natural Materials, Sustainable Comfort')
+@section('title', 'fifa — Material Alami, Kenyamanan Berkelanjutan')
 
 @section('content')
     <!-- 1. Hero Editorial Lifestyle Banner (Inset Card matching fifa design) -->
     <section class="max-w-[1400px] mx-auto px-3 sm:px-6 pt-1 pb-4">
-        <div class="relative w-full h-[500px] sm:h-[600px] lg:h-[680px] rounded-[24px] sm:rounded-[32px] overflow-hidden bg-[#2d2926] shadow-sm select-none">
-            <!-- Hero Photography -->
-            <img src="{{ asset('images/home/hero-dasher.jpg') }}" 
-                 alt="All New Dasher NZ Collection" 
-                 class="w-full h-full object-cover object-[62%_center] sm:object-center">
+        <div class="relative w-full h-[700px] min-h-[650px] sm:h-[640px] lg:h-[680px] rounded-[24px] sm:rounded-[32px] overflow-hidden bg-[#2d2926] shadow-sm select-none">
+            <!-- Hero Photography: Responsive Picture for Perfect Mobile & Desktop Rendering -->
+            <picture class="w-full h-full block">
+                <source media="(max-width: 767px)" srcset="{{ asset('images/home/hero-dasher-mobile.jpg') }}">
+                <img src="{{ asset('images/home/hero-dasher.jpg') }}" 
+                     alt="Koleksi Terbaru Dasher NZ" 
+                     class="w-full h-full object-cover object-center">
+            </picture>
 
             <!-- Subtle Shadow Overlay for Text Readability -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 via-45% to-transparent pointer-events-none"></div>
 
-            <!-- Vertical Ribbon Divider (DASHER NZ repeating) -->
+            <!-- Vertical Ribbon Divider (DASHER NZ repeating) - Desktop Only -->
             <div class="absolute top-0 bottom-0 left-[35%] lg:left-[36%] hidden md:flex flex-col justify-between items-center bg-[#252220]/95 text-white/95 text-[11px] lg:text-[12px] font-bold tracking-[0.25em] z-10 w-9 sm:w-11 border-x border-white/10 select-none py-6">
                 <span class="[writing-mode:vertical-rl] rotate-180 uppercase">
                     DASHER NZ &nbsp;&bull;&nbsp; DASHER NZ &nbsp;&bull;&nbsp; DASHER NZ &nbsp;&bull;&nbsp; DASHER NZ &nbsp;&bull;&nbsp; DASHER NZ &nbsp;&bull;&nbsp; DASHER NZ
                 </span>
             </div>
 
-            <!-- Doodle Annotation Scribble ("EVER HAVE A TREE HUG YOU BACK?") -->
-            <div class="absolute left-[38%] md:left-[43%] lg:left-[45%] top-[40%] md:top-[38%] z-20 text-white select-none pointer-events-none">
-                <p class="font-sans font-extrabold uppercase text-[12px] sm:text-[14px] lg:text-[16px] tracking-wider drop-shadow-md text-white max-w-[160px] sm:max-w-[190px] leading-tight">
-                    EVER HAVE A TREE HUG YOU BACK?
+            <!-- Radiating Sketch Lines Doodle around Sneaker (Matching Gambar 1) -->
+            <div class="absolute right-[4%] sm:right-[15%] md:right-[20%] top-[30%] sm:top-[20%] md:top-[22%] z-20 pointer-events-none select-none text-white/90 drop-shadow-md">
+                <svg class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 transform -rotate-12" viewBox="0 0 160 160" fill="none" stroke="currentColor">
+                    <path d="M70 12 L85 32" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M100 22 L112 48" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M125 45 L132 75" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M135 82 L146 112" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M124 118 L138 138" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M94 136 L104 156" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <!-- Doodle Annotation Scribble ("PERNAH MERASAKAN PELUKAN DARI POHON?") - Desktop Only -->
+            <div class="absolute left-[38%] md:left-[43%] lg:left-[45%] top-[40%] md:top-[38%] z-20 text-white select-none pointer-events-none hidden md:block">
+                <p class="font-sans font-extrabold uppercase text-[12px] sm:text-[14px] lg:text-[16px] tracking-wider drop-shadow-md text-white max-w-[170px] sm:max-w-[200px] leading-tight">
+                    PERNAH MERASAKAN PELUKAN DARI POHON?
                 </p>
                 <!-- Hand-drawn curved arrow doodle SVG -->
                 <svg class="w-12 h-12 sm:w-16 sm:h-16 text-white drop-shadow-lg mt-1 transform -rotate-12" viewBox="0 0 80 80" fill="none" stroke="currentColor">
@@ -32,159 +47,209 @@
                 </svg>
             </div>
 
-            <!-- Hero Editorial Headline & CTAs (Bottom Right) -->
-            <div class="absolute bottom-8 sm:bottom-12 right-4 sm:right-8 lg:right-16 z-20 text-right max-w-xl">
+            <!-- Hero Editorial Headline & CTAs (Bottom Left on Mobile, Bottom Right on Desktop) -->
+            <div class="absolute bottom-8 sm:bottom-12 left-4 right-4 sm:left-auto sm:right-8 lg:right-16 z-20 text-left sm:text-right max-w-xl">
                 <span class="block text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em] text-white/90 mb-2 drop-shadow">
-                    ALL NEW DASHER NZ COLLECTION
+                    KOLEKSI TERBARU DASHER NZ
                 </span>
-                <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-normal text-white drop-shadow-md mb-6 leading-tight">
-                    Wildly Comfortable. Super Natural.
+                <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-normal text-white drop-shadow-md mb-5 sm:mb-6 leading-tight">
+                    Sangat Nyaman.<br class="hidden sm:inline"> Sepenuhnya Alami.
                 </h1>
-                <div class="flex items-center justify-end gap-3 sm:gap-4">
+                <div class="flex items-center justify-start sm:justify-end gap-3 sm:gap-4">
                     <a href="{{ route('categories.men') }}" 
-                       class="bg-white text-charcoal hover:bg-neutral-100 font-sans font-bold text-[12px] sm:text-[13px] uppercase tracking-widest px-7 sm:px-9 py-3 sm:py-3.5 rounded-full shadow-lg transition">
-                        SHOP MEN
+                       class="flex-1 sm:flex-none text-center bg-white text-charcoal hover:bg-neutral-100 font-sans font-bold text-[11px] sm:text-[13px] uppercase tracking-wider sm:tracking-widest px-5 sm:px-9 py-3 sm:py-3.5 rounded-full shadow-lg transition">
+                        BELANJA PRIA
                     </a>
                     <a href="{{ route('categories.women') }}" 
-                       class="bg-white text-charcoal hover:bg-neutral-100 font-sans font-bold text-[12px] sm:text-[13px] uppercase tracking-widest px-7 sm:px-9 py-3 sm:py-3.5 rounded-full shadow-lg transition">
-                        SHOP WOMEN
+                       class="flex-1 sm:flex-none text-center bg-white text-charcoal hover:bg-neutral-100 font-sans font-bold text-[11px] sm:text-[13px] uppercase tracking-wider sm:tracking-widest px-5 sm:px-9 py-3 sm:py-3.5 rounded-full shadow-lg transition">
+                        BELANJA WANITA
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. 4-Category Color Block Shoe Cards with Morphing Oval Hover Effect (Screenshot 2) -->
+    <!-- 2. 4-Category Color Block Shoe Cards with Swipeable Carousel & Dynamic Center-Snap Morphing Oval Effect (Gambar 2 & 3) -->
     <section class="max-w-[1400px] mx-auto px-3 sm:px-6 py-4 sm:py-8 lg:py-10">
-        <div class="bg-[#ece7e1] rounded-[24px] sm:rounded-[32px] p-3 sm:p-6 lg:p-8">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6">
+        <div class="bg-[#ece7e1] rounded-[24px] sm:rounded-[32px] p-3 sm:p-5 lg:p-8" 
+             x-data="{
+                 activeCat: 1,
+                 checkActive() {
+                     if (window.innerWidth >= 1024) {
+                         this.activeCat = null;
+                         return;
+                     }
+                     const el = this.$refs.slider;
+                     if (!el) return;
+                     const center = el.scrollLeft + (el.clientWidth / 2);
+                     let closest = 1;
+                     let minDiff = Infinity;
+                     const children = el.querySelectorAll('[data-cat-card]');
+                     children.forEach((card) => {
+                         const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+                         const diff = Math.abs(center - cardCenter);
+                         if (diff < minDiff) {
+                             minDiff = diff;
+                             closest = parseInt(card.getAttribute('data-cat-card'));
+                         }
+                     });
+                     this.activeCat = closest;
+                 }
+             }"
+             x-init="$nextTick(() => { checkActive(); window.addEventListener('resize', () => checkActive()); })">
+            
+            <div x-ref="slider"
+                 @scroll.debounce.30ms="checkActive()"
+                 class="flex lg:grid lg:grid-cols-4 overflow-x-auto lg:overflow-visible gap-3 sm:gap-4 lg:gap-6 no-scrollbar snap-x snap-mandatory scroll-smooth py-1">
                 
-                <!-- Card 1: Slate Blue (#5c778a) -> NEW ARRIVALS -->
-                <div class="group relative bg-[#5c778a] rounded-[20px] sm:rounded-[28px] hover:rounded-full h-[240px] sm:h-[380px] lg:h-[490px] overflow-hidden flex flex-col items-center justify-center p-2.5 sm:p-4 lg:p-6 transition-all duration-500 ease-in-out cursor-pointer shadow-xs hover:shadow-xl select-none">
-                    <!-- Shoe Image (Clean Transparent PNG, Perfectly Centered & Unclipped) -->
-                    <div class="w-full flex-1 flex items-center justify-center relative p-1 sm:p-2 my-auto">
+                <!-- Card 1: Slate Blue (#5c778a) -> PRODUK BARU -->
+                <div data-cat-card="1"
+                     @click="if (window.innerWidth < 1024) activeCat = 1"
+                     :class="activeCat === 1 ? 'rounded-full ring-2 ring-white/60 shadow-xl' : 'rounded-[24px] sm:rounded-[28px] lg:hover:rounded-full'"
+                     class="group relative bg-[#5c778a] flex-none w-[76vw] max-w-[320px] sm:w-[280px] lg:w-auto h-[420px] sm:h-[450px] lg:h-[490px] overflow-hidden flex flex-col items-center justify-center p-4 sm:p-5 lg:p-6 transition-all duration-500 ease-in-out cursor-pointer shadow-xs hover:shadow-xl select-none snap-center">
+                    
+                    <!-- Large Centered Shoe Image -->
+                    <div class="w-full flex-1 flex items-center justify-center relative px-2 my-auto overflow-hidden">
                         <img src="{{ asset('images/home/cat-blue-runner.png') }}" 
-                             alt="New Arrivals Shoes" 
-                             class="w-auto h-auto max-w-[92%] max-h-[100px] sm:max-h-[160px] lg:max-h-[220px] object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500">
+                             alt="Sepatu Produk Terbaru fifa" 
+                             class="w-auto h-auto max-w-[95%] max-h-[175px] sm:max-h-[200px] lg:max-h-[230px] object-contain drop-shadow-xl scale-110 sm:scale-115 group-hover:scale-120 transition-transform duration-500">
                     </div>
 
-                    <!-- Normal State Center Pill (No blur, clean font-medium) -->
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity duration-300 px-2">
-                        <span class="border border-white/90 text-white font-medium text-[9px] sm:text-[11px] lg:text-[12px] uppercase tracking-wider px-3 sm:px-5 lg:px-6 py-1 sm:py-1.5 lg:py-2 rounded-full text-center leading-none">
-                            NEW ARRIVALS
+                    <!-- Normal State Center Pill (Gambar 2) -->
+                    <div :class="activeCat === 1 ? 'opacity-0 scale-95' : 'opacity-100 scale-100 lg:group-hover:opacity-0 lg:group-hover:scale-95'"
+                         class="absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-300 px-4">
+                        <span class="border border-white text-white font-semibold text-[11px] sm:text-[12px] uppercase tracking-widest px-6 py-2.5 rounded-full text-center leading-none shadow-xs backdrop-blur-2xs bg-black/10">
+                            PRODUK BARU
                         </span>
                     </div>
 
-                    <!-- Hover State Overlay (Reveals Title + Stacked Dual Pill Buttons) -->
-                    <div class="absolute inset-0 flex flex-col items-center justify-center gap-1.5 sm:gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20 pointer-events-auto p-2">
-                        <!-- Category Title -->
-                        <span class="text-white font-medium text-[9px] sm:text-[11px] lg:text-[12px] uppercase tracking-wider mb-0.5 sm:mb-1 text-center">
-                            NEW ARRIVALS
+                    <!-- Hover / Active State Overlay (Gambar 3 / Screenshot 2 Dual Action Buttons) -->
+                    <div :class="activeCat === 1 ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 lg:group-hover:opacity-100 lg:group-hover:scale-100 pointer-events-none lg:group-hover:pointer-events-auto'"
+                         class="absolute inset-0 flex flex-col items-center justify-center gap-2 sm:gap-2.5 transition-all duration-300 z-20 p-3 bg-black/15">
+                        <span class="text-white font-extrabold text-[11px] sm:text-[12px] uppercase tracking-widest text-center drop-shadow mb-0.5">
+                            PRODUK BARU
                         </span>
-                        <!-- Dual Pill Action Buttons -->
-                        <a href="{{ route('collections.show', 'new-arrivals') }}" 
-                           class="border border-white hover:bg-white text-white hover:text-charcoal font-medium text-[8px] sm:text-[10px] lg:text-[11px] uppercase tracking-wider px-2 sm:px-4 lg:px-5 py-1 sm:py-1.5 rounded-full transition duration-150 min-w-[76px] sm:min-w-[110px] lg:min-w-[130px] text-center leading-tight">
-                            SHOP MEN
+                        <a href="{{ route('collections.show', 'new-arrivals') }}?gender=men" 
+                           class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
+                            BELANJA PRIA
                         </a>
-                        <a href="{{ route('collections.show', 'new-arrivals') }}" 
-                           class="border border-white hover:bg-white text-white hover:text-charcoal font-medium text-[8px] sm:text-[10px] lg:text-[11px] uppercase tracking-wider px-2 sm:px-4 lg:px-5 py-1 sm:py-1.5 rounded-full transition duration-150 min-w-[76px] sm:min-w-[110px] lg:min-w-[130px] text-center leading-tight">
-                            SHOP WOMEN
+                        <a href="{{ route('collections.show', 'new-arrivals') }}?gender=women" 
+                           class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
+                            BELANJA WANITA
                         </a>
                     </div>
                 </div>
 
-                <!-- Card 2: Mocha / Warm Chocolate Espresso (#4d4341) -> MENS -->
-                <div class="group relative bg-[#4d4341] rounded-[20px] sm:rounded-[28px] hover:rounded-full h-[240px] sm:h-[380px] lg:h-[490px] overflow-hidden flex flex-col items-center justify-center p-2.5 sm:p-4 lg:p-6 transition-all duration-500 ease-in-out cursor-pointer shadow-xs hover:shadow-xl select-none">
-                    <!-- Shoe Image (Clean Transparent PNG, Perfectly Centered & Unclipped) -->
-                    <div class="w-full flex-1 flex items-center justify-center relative p-1 sm:p-2 my-auto">
+                <!-- Card 2: Mocha / Warm Espresso (#4d4341) -> PRIA -->
+                <div data-cat-card="2"
+                     @click="if (window.innerWidth < 1024) activeCat = 2"
+                     :class="activeCat === 2 ? 'rounded-full ring-2 ring-white/60 shadow-xl' : 'rounded-[24px] sm:rounded-[28px] lg:hover:rounded-full'"
+                     class="group relative bg-[#4d4341] flex-none w-[76vw] max-w-[320px] sm:w-[280px] lg:w-auto h-[420px] sm:h-[450px] lg:h-[490px] overflow-hidden flex flex-col items-center justify-center p-4 sm:p-5 lg:p-6 transition-all duration-500 ease-in-out cursor-pointer shadow-xs hover:shadow-xl select-none snap-center">
+                    
+                    <!-- Large Centered Shoe Image -->
+                    <div class="w-full flex-1 flex items-center justify-center relative px-2 my-auto overflow-hidden">
                         <img src="{{ asset('images/home/cat-grey-sneaker.png') }}" 
-                             alt="Men's Shoes" 
-                             class="w-auto h-auto max-w-[92%] max-h-[100px] sm:max-h-[160px] lg:max-h-[220px] object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500">
+                             alt="Sepatu Pria fifa" 
+                             class="w-auto h-auto max-w-[95%] max-h-[175px] sm:max-h-[200px] lg:max-h-[230px] object-contain drop-shadow-xl scale-110 sm:scale-115 group-hover:scale-120 transition-transform duration-500">
                     </div>
 
-                    <!-- Normal State Center Pill -->
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity duration-300 px-2">
-                        <span class="border border-white/90 text-white font-medium text-[9px] sm:text-[11px] lg:text-[12px] uppercase tracking-wider px-3 sm:px-5 lg:px-6 py-1 sm:py-1.5 lg:py-2 rounded-full text-center leading-none">
-                            MENS
+                    <!-- Normal State Center Pill (Gambar 2) -->
+                    <div :class="activeCat === 2 ? 'opacity-0 scale-95' : 'opacity-100 scale-100 lg:group-hover:opacity-0 lg:group-hover:scale-95'"
+                         class="absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-300 px-4">
+                        <span class="border border-white text-white font-semibold text-[11px] sm:text-[12px] uppercase tracking-widest px-6 py-2.5 rounded-full text-center leading-none shadow-xs backdrop-blur-2xs bg-black/10">
+                            PRIA
                         </span>
                     </div>
 
-                    <!-- Hover State Overlay -->
-                    <div class="absolute inset-0 flex flex-col items-center justify-center gap-1.5 sm:gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20 pointer-events-auto p-2">
-                        <span class="text-white font-medium text-[9px] sm:text-[11px] lg:text-[12px] uppercase tracking-wider mb-0.5 sm:mb-1 text-center">
-                            MENS
+                    <!-- Hover / Active State Overlay (Gambar 3 / Screenshot 2 Dual Action Buttons) -->
+                    <div :class="activeCat === 2 ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 lg:group-hover:opacity-100 lg:group-hover:scale-100 pointer-events-none lg:group-hover:pointer-events-auto'"
+                         class="absolute inset-0 flex flex-col items-center justify-center gap-2 sm:gap-2.5 transition-all duration-300 z-20 p-3 bg-black/15">
+                        <span class="text-white font-extrabold text-[11px] sm:text-[12px] uppercase tracking-widest text-center drop-shadow mb-0.5">
+                            PRIA
                         </span>
                         <a href="{{ route('categories.men') }}" 
-                           class="border border-white hover:bg-white text-white hover:text-charcoal font-medium text-[8px] sm:text-[10px] lg:text-[11px] uppercase tracking-wider px-2 sm:px-4 lg:px-5 py-1 sm:py-1.5 rounded-full transition duration-150 min-w-[76px] sm:min-w-[110px] lg:min-w-[130px] text-center leading-tight">
-                            SHOP SHOES
+                           class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
+                            SEPATU
                         </a>
                         <a href="{{ route('collections.show', 'men-tees-tops') }}" 
-                           class="border border-white hover:bg-white text-white hover:text-charcoal font-medium text-[8px] sm:text-[10px] lg:text-[11px] uppercase tracking-wider px-2 sm:px-4 lg:px-5 py-1 sm:py-1.5 rounded-full transition duration-150 min-w-[76px] sm:min-w-[110px] lg:min-w-[130px] text-center leading-tight">
-                            SHOP APPAREL
+                           class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
+                            PAKAIAN
                         </a>
                     </div>
                 </div>
 
-                <!-- Card 3: Dusty Mauve (#9d7370) -> WOMENS -->
-                <div class="group relative bg-[#9d7370] rounded-[20px] sm:rounded-[28px] hover:rounded-full h-[240px] sm:h-[380px] lg:h-[490px] overflow-hidden flex flex-col items-center justify-center p-2.5 sm:p-4 lg:p-6 transition-all duration-500 ease-in-out cursor-pointer shadow-xs hover:shadow-xl select-none">
-                    <!-- Shoe Image (Clean Transparent PNG, Perfectly Centered & Unclipped) -->
-                    <div class="w-full flex-1 flex items-center justify-center relative p-1 sm:p-2 my-auto">
+                <!-- Card 3: Dusty Mauve (#9d7370) -> WANITA -->
+                <div data-cat-card="3"
+                     @click="if (window.innerWidth < 1024) activeCat = 3"
+                     :class="activeCat === 3 ? 'rounded-full ring-2 ring-white/60 shadow-xl' : 'rounded-[24px] sm:rounded-[28px] lg:hover:rounded-full'"
+                     class="group relative bg-[#9d7370] flex-none w-[76vw] max-w-[320px] sm:w-[280px] lg:w-auto h-[420px] sm:h-[450px] lg:h-[490px] overflow-hidden flex flex-col items-center justify-center p-4 sm:p-5 lg:p-6 transition-all duration-500 ease-in-out cursor-pointer shadow-xs hover:shadow-xl select-none snap-center">
+                    
+                    <!-- Large Centered Shoe Image -->
+                    <div class="w-full flex-1 flex items-center justify-center relative px-2 my-auto overflow-hidden">
                         <img src="{{ asset('images/home/cat-pink-flat.png') }}" 
-                             alt="Women's Shoes" 
-                             class="w-auto h-auto max-w-[92%] max-h-[100px] sm:max-h-[160px] lg:max-h-[220px] object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500">
+                             alt="Sepatu Wanita fifa" 
+                             class="w-auto h-auto max-w-[95%] max-h-[175px] sm:max-h-[200px] lg:max-h-[230px] object-contain drop-shadow-xl scale-110 sm:scale-115 group-hover:scale-120 transition-transform duration-500">
                     </div>
 
-                    <!-- Normal State Center Pill -->
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity duration-300 px-2">
-                        <span class="border border-white/90 text-white font-medium text-[9px] sm:text-[11px] lg:text-[12px] uppercase tracking-wider px-3 sm:px-5 lg:px-6 py-1 sm:py-1.5 lg:py-2 rounded-full text-center leading-none">
-                            WOMENS
+                    <!-- Normal State Center Pill (Gambar 2) -->
+                    <div :class="activeCat === 3 ? 'opacity-0 scale-95' : 'opacity-100 scale-100 lg:group-hover:opacity-0 lg:group-hover:scale-95'"
+                         class="absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-300 px-4">
+                        <span class="border border-white text-white font-semibold text-[11px] sm:text-[12px] uppercase tracking-widest px-6 py-2.5 rounded-full text-center leading-none shadow-xs backdrop-blur-2xs bg-black/10">
+                            WANITA
                         </span>
                     </div>
 
-                    <!-- Hover State Overlay -->
-                    <div class="absolute inset-0 flex flex-col items-center justify-center gap-1.5 sm:gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20 pointer-events-auto p-2">
-                        <span class="text-white font-medium text-[9px] sm:text-[11px] lg:text-[12px] uppercase tracking-wider mb-0.5 sm:mb-1 text-center">
-                            WOMENS
+                    <!-- Hover / Active State Overlay (Gambar 3 / Screenshot 2 Dual Action Buttons) -->
+                    <div :class="activeCat === 3 ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 lg:group-hover:opacity-100 lg:group-hover:scale-100 pointer-events-none lg:group-hover:pointer-events-auto'"
+                         class="absolute inset-0 flex flex-col items-center justify-center gap-2 sm:gap-2.5 transition-all duration-300 z-20 p-3 bg-black/15">
+                        <span class="text-white font-extrabold text-[11px] sm:text-[12px] uppercase tracking-widest text-center drop-shadow mb-0.5">
+                            WANITA
                         </span>
                         <a href="{{ route('categories.women') }}" 
-                           class="border border-white hover:bg-white text-white hover:text-charcoal font-medium text-[8px] sm:text-[10px] lg:text-[11px] uppercase tracking-wider px-2 sm:px-4 lg:px-5 py-1 sm:py-1.5 rounded-full transition duration-150 min-w-[76px] sm:min-w-[110px] lg:min-w-[130px] text-center leading-tight">
-                            SHOP SHOES
+                           class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
+                            SEPATU
                         </a>
                         <a href="{{ route('collections.show', 'women-tees-tops') }}" 
-                           class="border border-white hover:bg-white text-white hover:text-charcoal font-medium text-[8px] sm:text-[10px] lg:text-[11px] uppercase tracking-wider px-2 sm:px-4 lg:px-5 py-1 sm:py-1.5 rounded-full transition duration-150 min-w-[76px] sm:min-w-[110px] lg:min-w-[130px] text-center leading-tight">
-                            SHOP APPAREL
+                           class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
+                            PAKAIAN
                         </a>
                     </div>
                 </div>
 
-                <!-- Card 4: Sage Green (#7d8d7e) -> BEST SELLERS -->
-                <div class="group relative bg-[#7d8d7e] rounded-[20px] sm:rounded-[28px] hover:rounded-full h-[240px] sm:h-[380px] lg:h-[490px] overflow-hidden flex flex-col items-center justify-center p-2.5 sm:p-4 lg:p-6 transition-all duration-500 ease-in-out cursor-pointer shadow-xs hover:shadow-xl select-none">
-                    <!-- Shoe Image (Clean Transparent PNG, Perfectly Centered & Unclipped) -->
-                    <div class="w-full flex-1 flex items-center justify-center relative p-1 sm:p-2 my-auto">
+                <!-- Card 4: Sage Green (#7d8d7e) -> TERLARIS -->
+                <div data-cat-card="4"
+                     @click="if (window.innerWidth < 1024) activeCat = 4"
+                     :class="activeCat === 4 ? 'rounded-full ring-2 ring-white/60 shadow-xl' : 'rounded-[24px] sm:rounded-[28px] lg:hover:rounded-full'"
+                     class="group relative bg-[#7d8d7e] flex-none w-[76vw] max-w-[320px] sm:w-[280px] lg:w-auto h-[420px] sm:h-[450px] lg:h-[490px] overflow-hidden flex flex-col items-center justify-center p-4 sm:p-5 lg:p-6 transition-all duration-500 ease-in-out cursor-pointer shadow-xs hover:shadow-xl select-none snap-center">
+                    
+                    <!-- Large Centered Shoe Image -->
+                    <div class="w-full flex-1 flex items-center justify-center relative px-2 my-auto overflow-hidden">
                         <img src="{{ asset('images/home/cat-sage-runner.png') }}" 
-                             alt="Best Sellers Shoes" 
-                             class="w-auto h-auto max-w-[92%] max-h-[100px] sm:max-h-[160px] lg:max-h-[220px] object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500">
+                             alt="Sepatu Terlaris fifa" 
+                             class="w-auto h-auto max-w-[95%] max-h-[175px] sm:max-h-[200px] lg:max-h-[230px] object-contain drop-shadow-xl scale-110 sm:scale-115 group-hover:scale-120 transition-transform duration-500">
                     </div>
 
-                    <!-- Normal State Center Pill -->
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity duration-300 px-2">
-                        <span class="border border-white/90 text-white font-medium text-[9px] sm:text-[11px] lg:text-[12px] uppercase tracking-wider px-3 sm:px-5 lg:px-6 py-1 sm:py-1.5 lg:py-2 rounded-full text-center leading-none">
-                            BEST SELLERS
+                    <!-- Normal State Center Pill (Gambar 2) -->
+                    <div :class="activeCat === 4 ? 'opacity-0 scale-95' : 'opacity-100 scale-100 lg:group-hover:opacity-0 lg:group-hover:scale-95'"
+                         class="absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-300 px-4">
+                        <span class="border border-white text-white font-semibold text-[11px] sm:text-[12px] uppercase tracking-widest px-6 py-2.5 rounded-full text-center leading-none shadow-xs backdrop-blur-2xs bg-black/10">
+                            TERLARIS
                         </span>
                     </div>
 
-                    <!-- Hover State Overlay -->
-                    <div class="absolute inset-0 flex flex-col items-center justify-center gap-1.5 sm:gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-20 pointer-events-auto p-2">
-                        <span class="text-white font-medium text-[9px] sm:text-[11px] lg:text-[12px] uppercase tracking-wider mb-0.5 sm:mb-1 text-center">
-                            BEST SELLERS
+                    <!-- Hover / Active State Overlay (Gambar 3 / Screenshot 2 Dual Action Buttons) -->
+                    <div :class="activeCat === 4 ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 lg:group-hover:opacity-100 lg:group-hover:scale-100 pointer-events-none lg:group-hover:pointer-events-auto'"
+                         class="absolute inset-0 flex flex-col items-center justify-center gap-2 sm:gap-2.5 transition-all duration-300 z-20 p-3 bg-black/15">
+                        <span class="text-white font-extrabold text-[11px] sm:text-[12px] uppercase tracking-widest text-center drop-shadow mb-0.5">
+                            TERLARIS
                         </span>
-                        <a href="{{ route('collections.show', 'best-sellers') }}" 
-                           class="border border-white hover:bg-white text-white hover:text-charcoal font-medium text-[8px] sm:text-[10px] lg:text-[11px] uppercase tracking-wider px-2 sm:px-4 lg:px-5 py-1 sm:py-1.5 rounded-full transition duration-150 min-w-[76px] sm:min-w-[110px] lg:min-w-[130px] text-center leading-tight">
-                            SHOP MEN
+                        <a href="{{ route('collections.show', 'best-sellers') }}?gender=men" 
+                           class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
+                            BELANJA PRIA
                         </a>
-                        <a href="{{ route('collections.show', 'best-sellers') }}" 
-                           class="border border-white hover:bg-white text-white hover:text-charcoal font-medium text-[8px] sm:text-[10px] lg:text-[11px] uppercase tracking-wider px-2 sm:px-4 lg:px-5 py-1 sm:py-1.5 rounded-full transition duration-150 min-w-[76px] sm:min-w-[110px] lg:min-w-[130px] text-center leading-tight">
-                            SHOP WOMEN
+                        <a href="{{ route('collections.show', 'best-sellers') }}?gender=women" 
+                           class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
+                            BELANJA WANITA
                         </a>
                     </div>
                 </div>
@@ -192,6 +257,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- 3. Best Sellers Carousel Grid (Interactive Smooth Scrolling Carousel) -->
     <section class="max-w-[1400px] mx-auto px-3 sm:px-6 py-6 sm:py-8" 
@@ -231,7 +298,7 @@
                 <div>
                     <a href="{{ route('collections.show', 'best-sellers') }}" 
                        class="font-sans font-bold text-[13px] sm:text-[14px] uppercase tracking-wider text-black border-b border-black pb-0.5 hover:opacity-75 transition inline-block">
-                        BEST SELLERS
+                        PRODUK TERLARIS
                     </a>
                 </div>
 
@@ -242,7 +309,7 @@
                             :disabled="!canScrollLeft"
                             :class="canScrollLeft ? 'opacity-100 hover:bg-black hover:text-white cursor-pointer active:scale-95' : 'opacity-35 cursor-not-allowed'"
                             class="w-8 h-8 rounded-full border border-black/80 flex items-center justify-center text-black transition focus:outline-none shadow-2xs" 
-                            aria-label="Previous Products">
+                            aria-label="Produk Sebelumnya">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                         </svg>
@@ -252,7 +319,7 @@
                             :disabled="!canScrollRight"
                             :class="canScrollRight ? 'opacity-100 hover:bg-black hover:text-white cursor-pointer active:scale-95' : 'opacity-35 cursor-not-allowed'"
                             class="w-8 h-8 rounded-full border border-black/80 flex items-center justify-center text-black transition focus:outline-none shadow-2xs" 
-                            aria-label="Next Products">
+                            aria-label="Produk Selanjutnya">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
@@ -269,24 +336,24 @@
                     <!-- Top Badge -->
                     <div>
                         <span class="inline-flex items-center bg-[#f3eee8] border border-[#dfd7cc] text-[#554e45] text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
-                            NEW
+                            BARU
                         </span>
                     </div>
 
                     <!-- Centered Shoe Photography -->
                     <div class="flex-1 flex items-center justify-center my-2 overflow-hidden">
                         <img src="{{ asset('images/home/bs-canvas-cruiser.png') }}" 
-                             alt="Women's Canvas Cruiser Slip On" 
+                             alt="Canvas Cruiser Slip On Wanita" 
                              class="max-w-[95%] max-h-[170px] sm:max-h-[190px] object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                     </div>
 
                     <!-- Bottom Details & Price Row -->
                     <div class="pt-2">
                         <h3 class="font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-wider text-black leading-snug group-hover:underline">
-                            WOMEN'S CANVAS CRUISER SLIP ON
+                            CANVAS CRUISER SLIP ON WANITA
                         </h3>
                         <p class="text-[12px] sm:text-[13px] text-[#5c554e] font-normal mt-0.5">
-                            Warm White
+                            Putih Hangat (Warm White)
                         </p>
                         <!-- Swatch + Price Row -->
                         <div class="mt-3 pt-0.5 flex items-center justify-between">
@@ -308,24 +375,24 @@
                     <!-- Top Badge -->
                     <div>
                         <span class="inline-flex items-center bg-[#f3eee8] border border-[#dfd7cc] text-[#554e45] text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
-                            NEW
+                            BARU
                         </span>
                     </div>
 
                     <!-- Centered Shoe Photography -->
                     <div class="flex-1 flex items-center justify-center my-2 overflow-hidden">
                         <img src="{{ asset('images/home/bs-cruiser-white.png') }}" 
-                             alt="Women's Cruiser Slip On" 
+                             alt="Cruiser Slip On Wanita" 
                              class="max-w-[95%] max-h-[170px] sm:max-h-[190px] object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                     </div>
 
                     <!-- Bottom Details & Price Row -->
                     <div class="pt-2">
                         <h3 class="font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-wider text-black leading-snug group-hover:underline">
-                            WOMEN'S CRUISER SLIP ON
+                            CRUISER SLIP ON WANITA
                         </h3>
                         <p class="text-[12px] sm:text-[13px] text-[#5c554e] font-normal mt-0.5">
-                            Blizzard
+                            Putih Blizzard (Blizzard)
                         </p>
                         <!-- Swatch + Price Row -->
                         <div class="mt-3 pt-0.5 flex items-center justify-between">
@@ -347,24 +414,24 @@
                     <!-- Top Badge -->
                     <div>
                         <span class="inline-flex items-center bg-[#f3eee8] border border-[#dfd7cc] text-[#554e45] text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
-                            NEW
+                            BARU
                         </span>
                     </div>
 
                     <!-- Centered Shoe Photography -->
                     <div class="flex-1 flex items-center justify-center my-2 overflow-hidden">
                         <img src="{{ asset('images/home/bs-runner-beige.png') }}" 
-                             alt="Women's Runner NZ Slip On" 
+                             alt="Runner NZ Slip On Wanita Cokelat" 
                              class="max-w-[95%] max-h-[170px] sm:max-h-[190px] object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                     </div>
 
                     <!-- Bottom Details & Price Row -->
                     <div class="pt-2">
                         <h3 class="font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-wider text-black leading-snug group-hover:underline">
-                            WOMEN'S RUNNER NZ SLIP ON
+                            RUNNER NZ SLIP ON WANITA
                         </h3>
                         <p class="text-[12px] sm:text-[13px] text-[#5c554e] font-normal mt-0.5">
-                            Mushroom
+                            Cokelat Mushroom (Mushroom)
                         </p>
                         <!-- Swatch + Price Row -->
                         <div class="mt-3 pt-0.5 flex items-center justify-between">
@@ -386,24 +453,24 @@
                     <!-- Top Badge -->
                     <div>
                         <span class="inline-flex items-center bg-[#f3eee8] border border-[#dfd7cc] text-[#554e45] text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
-                            NEW
+                            BARU
                         </span>
                     </div>
 
                     <!-- Centered Shoe Photography -->
                     <div class="flex-1 flex items-center justify-center my-2 overflow-hidden">
                         <img src="{{ asset('images/home/bs-runner-charcoal.png') }}" 
-                             alt="Women's Runner NZ Slip On Charcoal" 
+                             alt="Runner NZ Slip On Wanita Abu Antrasit" 
                              class="max-w-[95%] max-h-[170px] sm:max-h-[190px] object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                     </div>
 
                     <!-- Bottom Details & Price Row -->
                     <div class="pt-2">
                         <h3 class="font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-wider text-black leading-snug group-hover:underline">
-                            WOMEN'S RUNNER NZ SLIP ON
+                            RUNNER NZ SLIP ON WANITA
                         </h3>
                         <p class="text-[12px] sm:text-[13px] text-[#5c554e] font-normal mt-0.5">
-                            Anthracite
+                            Abu Antrasit (Anthracite)
                         </p>
                         <!-- Swatch + Price Row -->
                         <div class="mt-3 pt-0.5 flex items-center justify-between">
@@ -425,24 +492,24 @@
                     <!-- Top Badge -->
                     <div>
                         <span class="inline-flex items-center bg-[#f3eee8] border border-[#dfd7cc] text-[#554e45] text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
-                            TOP RATED
+                            FAVORIT
                         </span>
                     </div>
 
                     <!-- Centered Shoe Photography -->
                     <div class="flex-1 flex items-center justify-center my-2 overflow-hidden">
                         <img src="{{ asset('images/home/cat-sage-runner.png') }}" 
-                             alt="Men's Tree Dasher 2" 
+                             alt="Tree Dasher 2 Pria Hijau Sage" 
                              class="max-w-[95%] max-h-[170px] sm:max-h-[190px] object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                     </div>
 
                     <!-- Bottom Details & Price Row -->
                     <div class="pt-2">
                         <h3 class="font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-wider text-black leading-snug group-hover:underline">
-                            MEN'S TREE DASHER 2
+                            TREE DASHER 2 PRIA
                         </h3>
                         <p class="text-[12px] sm:text-[13px] text-[#5c554e] font-normal mt-0.5">
-                            Sage Green
+                            Hijau Sage (Sage Green)
                         </p>
                         <!-- Swatch + Price Row -->
                         <div class="mt-3 pt-0.5 flex items-center justify-between">
@@ -464,24 +531,24 @@
                     <!-- Top Badge -->
                     <div>
                         <span class="inline-flex items-center bg-[#f3eee8] border border-[#dfd7cc] text-[#554e45] text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
-                            BEST SELLER
+                            TERLARIS
                         </span>
                     </div>
 
                     <!-- Centered Shoe Photography -->
                     <div class="flex-1 flex items-center justify-center my-2 overflow-hidden">
                         <img src="{{ asset('images/home/cat-blue-runner.png') }}" 
-                             alt="Men's Tree Runner" 
+                             alt="Tree Runner Pria Biru Kabut" 
                              class="max-w-[95%] max-h-[170px] sm:max-h-[190px] object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                     </div>
 
                     <!-- Bottom Details & Price Row -->
                     <div class="pt-2">
                         <h3 class="font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-wider text-black leading-snug group-hover:underline">
-                            MEN'S TREE RUNNER
+                            TREE RUNNER PRIA
                         </h3>
                         <p class="text-[12px] sm:text-[13px] text-[#5c554e] font-normal mt-0.5">
-                            Mist Blue
+                            Biru Kabut (Mist Blue)
                         </p>
                         <!-- Swatch + Price Row -->
                         <div class="mt-3 pt-0.5 flex items-center justify-between">
@@ -503,24 +570,24 @@
                     <!-- Top Badge -->
                     <div>
                         <span class="inline-flex items-center bg-[#f3eee8] border border-[#dfd7cc] text-[#554e45] text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
-                            CLASSIC
+                            KLASIK
                         </span>
                     </div>
 
                     <!-- Centered Shoe Photography -->
                     <div class="flex-1 flex items-center justify-center my-2 overflow-hidden">
                         <img src="{{ asset('images/home/cat-grey-sneaker.png') }}" 
-                             alt="Men's Wool Runner 2" 
+                             alt="Wool Runner 2 Pria Abu Alami" 
                              class="max-w-[95%] max-h-[170px] sm:max-h-[190px] object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                     </div>
 
                     <!-- Bottom Details & Price Row -->
                     <div class="pt-2">
                         <h3 class="font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-wider text-black leading-snug group-hover:underline">
-                            MEN'S WOOL RUNNER 2
+                            WOOL RUNNER 2 PRIA
                         </h3>
                         <p class="text-[12px] sm:text-[13px] text-[#5c554e] font-normal mt-0.5">
-                            Natural Grey
+                            Abu Alami (Natural Grey)
                         </p>
                         <!-- Swatch + Price Row -->
                         <div class="mt-3 pt-0.5 flex items-center justify-between">
@@ -542,24 +609,24 @@
                     <!-- Top Badge -->
                     <div>
                         <span class="inline-flex items-center bg-[#f3eee8] border border-[#dfd7cc] text-[#554e45] text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
-                            ESSENTIAL
+                            ESENSIAL
                         </span>
                     </div>
 
                     <!-- Centered Shoe Photography -->
                     <div class="flex-1 flex items-center justify-center my-2 overflow-hidden">
                         <img src="{{ asset('images/home/cat-pink-flat.png') }}" 
-                             alt="Women's Tree Lounger" 
+                             alt="Tree Lounger Wanita Merah Muda" 
                              class="max-w-[95%] max-h-[170px] sm:max-h-[190px] object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                     </div>
 
                     <!-- Bottom Details & Price Row -->
                     <div class="pt-2">
                         <h3 class="font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-wider text-black leading-snug group-hover:underline">
-                            WOMEN'S TREE LOUNGER
+                            TREE LOUNGER WANITA
                         </h3>
                         <p class="text-[12px] sm:text-[13px] text-[#5c554e] font-normal mt-0.5">
-                            Heather Pink
+                            Merah Muda (Heather Pink)
                         </p>
                         <!-- Swatch + Price Row -->
                         <div class="mt-3 pt-0.5 flex items-center justify-between">
@@ -579,56 +646,95 @@
         </div>
     </section>
 
-    <!-- 4. 3-Column Lifestyle Editorial Grid (Screenshot 4) -->
+    <!-- 4. 3-Column Lifestyle Editorial Grid with Dual CTA Buttons (Gambar 4) -->
     <section class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             
-            <!-- Card 1: Summer Travel Essentials -->
-            <a href="{{ route('collections.show', 'men-slip-ons-loungers') }}" 
-               class="group relative rounded-[24px] sm:rounded-[28px] overflow-hidden aspect-[3/4] sm:h-[480px] lg:h-[540px] block shadow-sm hover:shadow-lg transition duration-300">
+            <!-- Card 1: Summer Travel Essentials (Koleksi Esensial Liburan & Santai) -->
+            <div class="group relative rounded-[24px] sm:rounded-[28px] overflow-hidden aspect-[3/4] sm:h-[480px] lg:h-[540px] block shadow-sm hover:shadow-lg transition duration-300 select-none">
                 <img src="{{ asset('images/home/travel-slides.jpg') }}" 
-                     alt="Summer Travel Essentials" 
+                     alt="Koleksi Esensial Liburan dan Bepergian" 
                      class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 <div class="absolute inset-0 bg-black/25 group-hover:bg-black/20 transition"></div>
+                
+                <!-- Center Title -->
                 <div class="absolute inset-0 flex items-center justify-center p-6 text-center">
                     <h2 class="font-display font-normal text-3xl sm:text-4xl text-white leading-tight drop-shadow-md">
-                        Summer Travel<br>Essentials
+                        Koleksi Esensial<br>Liburan & Santai
                     </h2>
                 </div>
-            </a>
 
-            <!-- Card 2: New Arrivals -->
-            <a href="{{ route('collections.show', 'new-arrivals') }}" 
-               class="group relative rounded-[24px] sm:rounded-[28px] overflow-hidden aspect-[3/4] sm:h-[480px] lg:h-[540px] block shadow-sm hover:shadow-lg transition duration-300">
+                <!-- Bottom Action Buttons (Matching Gambar 4) -->
+                <div class="absolute bottom-5 sm:bottom-6 inset-x-4 sm:inset-x-6 z-20 flex items-center justify-center gap-2 sm:gap-3">
+                    <a href="{{ route('collections.show', 'men-slip-ons-loungers') }}" 
+                       class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
+                        BELANJA PRIA
+                    </a>
+                    <a href="{{ route('collections.show', 'women-flats-loungers') }}" 
+                       class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
+                        BELANJA WANITA
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: New Arrivals (Koleksi Terbaru) -->
+            <div class="group relative rounded-[24px] sm:rounded-[28px] overflow-hidden aspect-[3/4] sm:h-[480px] lg:h-[540px] block shadow-sm hover:shadow-lg transition duration-300 select-none">
                 <img src="{{ asset('images/home/woman-swing.jpg') }}" 
-                     alt="New Arrivals Collection" 
+                     alt="Koleksi Produk Terbaru" 
                      class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 <div class="absolute inset-0 bg-black/25 group-hover:bg-black/20 transition"></div>
+                
+                <!-- Center Title -->
                 <div class="absolute inset-0 flex items-center justify-center p-6 text-center">
                     <h2 class="font-display font-normal text-3xl sm:text-4xl text-white leading-tight drop-shadow-md">
-                        New Arrivals
+                        Koleksi<br>Terbaru
                     </h2>
                 </div>
-            </a>
 
-            <!-- Card 3: Fresh Colors For Summer -->
-            <a href="{{ route('collections.show', 'best-sellers') }}" 
-               class="group relative rounded-[24px] sm:rounded-[28px] overflow-hidden aspect-[3/4] sm:h-[480px] lg:h-[540px] block shadow-sm hover:shadow-lg transition duration-300">
+                <!-- Bottom Action Buttons (Matching Gambar 4) -->
+                <div class="absolute bottom-5 sm:bottom-6 inset-x-4 sm:inset-x-6 z-20 flex items-center justify-center gap-2 sm:gap-3">
+                    <a href="{{ route('collections.show', 'new-arrivals') }}?gender=men" 
+                       class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
+                        BELANJA PRIA
+                    </a>
+                    <a href="{{ route('collections.show', 'new-arrivals') }}?gender=women" 
+                       class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
+                        BELANJA WANITA
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: Fresh Colors For Summer (Warna Segar Pilihan Alami) -->
+            <div class="group relative rounded-[24px] sm:rounded-[28px] overflow-hidden aspect-[3/4] sm:h-[480px] lg:h-[540px] block shadow-sm hover:shadow-lg transition duration-300 select-none">
                 <img src="{{ asset('images/home/summer-rocks.jpg') }}" 
-                     alt="Fresh Colors For Summer" 
+                     alt="Pilihan Warna Alami Segar" 
                      class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 <div class="absolute inset-0 bg-black/25 group-hover:bg-black/20 transition"></div>
+                
+                <!-- Center Title -->
                 <div class="absolute inset-0 flex items-center justify-center p-6 text-center">
                     <h2 class="font-display font-normal text-3xl sm:text-4xl text-white leading-tight drop-shadow-md">
-                        Fresh Colors For<br>Summer
+                        Warna Segar<br>Pilihan Alami
                     </h2>
                 </div>
-            </a>
+
+                <!-- Bottom Action Buttons (Matching Gambar 4) -->
+                <div class="absolute bottom-5 sm:bottom-6 inset-x-4 sm:inset-x-6 z-20 flex items-center justify-center gap-2 sm:gap-3">
+                    <a href="{{ route('collections.show', 'best-sellers') }}?gender=men" 
+                       class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
+                        BELANJA PRIA
+                    </a>
+                    <a href="{{ route('collections.show', 'best-sellers') }}?gender=women" 
+                       class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
+                        BELANJA WANITA
+                    </a>
+                </div>
+            </div>
 
         </div>
     </section>
 
-    <!-- 5. 3 Value Proposition Cards on Oat Milk Canvas (Screenshot 5) -->
+    <!-- 5. 3 Value Proposition Cards on Oat Milk Canvas -->
     <section class="bg-[#f5f4f0] py-16 sm:py-24 border-t border-[#e8e5dc]">
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -636,30 +742,30 @@
                 <!-- Value Card 1 -->
                 <div class="bg-white rounded-[22px] p-8 sm:p-10 shadow-xs border border-black/5 flex flex-col justify-start">
                     <h3 class="font-sans font-bold text-[13px] sm:text-[14px] uppercase tracking-wide10 text-charcoal mb-4">
-                        WEAR ALL DAY COMFORT
+                        NYAMAN SEPANJANG HARI
                     </h3>
                     <p class="text-body-sm text-iron leading-relaxed">
-                        Lightweight, bouncy, and wildly comfortable, fifa shoes make any outing feel effortless. Slip in, lace up, or slide them on and enjoy the comfy support.
+                        Ringan, empuk membal, dan luar biasa nyaman, sepatu fifa membuat setiap langkah terasa tanpa beban. Cukup kenakan, ikat tali, atau pakai slip-on dan nikmati kenyamanan alaminya.
                     </p>
                 </div>
 
                 <!-- Value Card 2 -->
                 <div class="bg-white rounded-[22px] p-8 sm:p-10 shadow-xs border border-black/5 flex flex-col justify-start">
                     <h3 class="font-sans font-bold text-[13px] sm:text-[14px] uppercase tracking-wide10 text-charcoal mb-4">
-                        DESIGNED FOR EVERYDAY WEAR
+                        DIRANCANG UNTUK AKTIVITAS HARIAN
                     </h3>
                     <p class="text-body-sm text-iron leading-relaxed">
-                        Easy-to-wear styles made for daily routines, weekend plans, travel, and everything in between.
+                        Desain serbaguna yang pas untuk rutinitas harian, aktivitas santai akhir pekan, bepergian jauh, dan segala momen diantaranya.
                     </p>
                 </div>
 
                 <!-- Value Card 3 -->
                 <div class="bg-white rounded-[22px] p-8 sm:p-10 shadow-xs border border-black/5 flex flex-col justify-start">
                     <h3 class="font-sans font-bold text-[13px] sm:text-[14px] uppercase tracking-wide10 text-charcoal mb-4">
-                        MATERIALS FROM THE EARTH
+                        MATERIAL DARI ALAM BUMI
                     </h3>
                     <p class="text-body-sm text-iron leading-relaxed">
-                        We replace petroleum-based synthetics with natural alternatives wherever we can. Like using wool, tree fiber, and sugarcane. They're soft, breathable, and better for the planet—win, win, win.
+                        Kami mengganti bahan sintetis sintetis berbasis minyak dengan alternatif alami terbarukan sebisa mungkin, seperti wol merino, serat pohon eukaliptus, dan tebu manis. Lembut, sejuk bernapas, dan lebih ramah bagi bumi kita.
                     </p>
                 </div>
 

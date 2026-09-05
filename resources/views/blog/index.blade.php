@@ -6,7 +6,7 @@
 <!-- Header Hero -->
 <div class="bg-sand/20 border-b border-sand py-12 sm:py-16 text-center">
     <div class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <span class="text-caption font-bold uppercase tracking-wide10 text-stone block mb-2">Our Stories & Journal</span>
+        <span class="text-caption font-bold uppercase tracking-wide10 text-stone block mb-2">Cerita & Jurnal Kami</span>
         <h1 class="font-display font-normal text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight">
             The fifa Journal
         </h1>

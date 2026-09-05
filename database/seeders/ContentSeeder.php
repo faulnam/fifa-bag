@@ -167,9 +167,9 @@ class ContentSeeder extends Seeder
         $slides = [
             [
                 'page' => 'home',
-                'title' => "We Made The World's Most Comfortable Shoes",
+                'title' => 'Sepatu Paling Nyaman di Dunia dari Bahan Alami',
                 'subtitle' => 'Dibuat dari wol merino alami dan serat pohon eucalyptus terbarukan.',
-                'cta_text' => 'Shop Men',
+                'cta_text' => 'Belanja Pria',
                 'cta_link' => '/men',
                 'image' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600&q=80',
                 'order' => 1,
@@ -177,9 +177,9 @@ class ContentSeeder extends Seeder
             ],
             [
                 'page' => 'home',
-                'title' => 'Naturally Inspired Footwear',
+                'title' => 'Langkah Nyaman Terinspirasi Alam',
                 'subtitle' => 'Ringan, empuk, dan ramah bumi untuk setiap langkah Anda.',
-                'cta_text' => 'Shop Women',
+                'cta_text' => 'Belanja Wanita',
                 'cta_link' => '/women',
                 'image' => 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=1600&q=80',
                 'order' => 2,
@@ -187,7 +187,7 @@ class ContentSeeder extends Seeder
             ],
             [
                 'page' => 'men',
-                'title' => "Men's Natural Footwear Collection",
+                'title' => 'Koleksi Sepatu Alami Pria',
                 'subtitle' => 'Koleksi sepatu pria fifa dengan kenyamanan tak tertandingi.',
                 'cta_text' => 'Lihat Semua Pria',
                 'cta_link' => '/men',
@@ -197,7 +197,7 @@ class ContentSeeder extends Seeder
             ],
             [
                 'page' => 'women',
-                'title' => "Women's Natural Footwear Collection",
+                'title' => 'Koleksi Sepatu Alami Wanita',
                 'subtitle' => 'Koleksi sepatu wanita fifa dengan material super lembut.',
                 'cta_text' => 'Lihat Semua Wanita',
                 'cta_link' => '/women',
@@ -210,7 +210,7 @@ class ContentSeeder extends Seeder
         foreach ($slides as $slide) {
             HeroSlide::updateOrCreate([
                 'page' => $slide['page'],
-                'title' => $slide['title'],
+                'order' => $slide['order'],
             ], $slide);
         }
 

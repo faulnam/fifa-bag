@@ -6,7 +6,7 @@
     <!-- Breadcrumb & Header -->
     <div class="mb-8 border-b border-sand pb-6">
         <div class="flex items-center gap-2 text-caption text-stone uppercase tracking-wide10 mb-2">
-            <a href="{{ route('home') }}" class="hover:text-charcoal">Home</a>
+            <a href="{{ route('home') }}" class="hover:text-charcoal">Beranda</a>
             <span>/</span>
             <span class="text-charcoal">{{ $pageTitle }}</span>
         </div>
@@ -20,7 +20,7 @@
     <div class="flex items-center justify-between gap-4 mb-6 pb-4 border-b border-sand/60">
         <!-- Mobile Filter Button -->
         <button type="button" 
-                @click="filterDrawerOpen = true"
+                @click="filterDrawerOpen = true" 
                 class="lg:hidden btn-pill-light text-caption flex items-center gap-2 px-4 py-2 min-h-[44px]">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
@@ -76,7 +76,7 @@
                 <div class="py-4 border-b border-sand space-y-2">
                     <span class="text-caption font-bold uppercase tracking-wide10 text-charcoal block mb-2">Gender</span>
                     <div class="space-y-1.5">
-                        @foreach (['men' => 'Pria (Men)', 'women' => 'Wanita (Women)', 'unisex' => 'Unisex'] as $gVal => $gLabel)
+                        @foreach (['men' => 'Pria', 'women' => 'Wanita', 'unisex' => 'Unisex'] as $gVal => $gLabel)
                             <label class="flex items-center gap-2 cursor-pointer text-body-sm text-iron hover:text-charcoal min-h-[32px]">
                                 <input type="radio" 
                                        name="gender" 

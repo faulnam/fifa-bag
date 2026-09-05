@@ -11,40 +11,40 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         // 1. Men Main Categories & Subcategories
-        $men = Category::firstOrCreate(
+        $men = Category::updateOrCreate(
             ['slug' => 'men'],
             [
                 'parent_id' => null,
                 'gender' => 'men',
-                'name' => 'Men',
-                'description' => 'Everyday comfort shoes and apparel made with natural materials for men.',
+                'name' => 'Pria',
+                'description' => 'Sepatu dan pakaian pria yang nyaman untuk aktivitas harian dari bahan alami ramah lingkungan.',
                 'order' => 1,
                 'is_active' => true,
             ]
         );
 
-        $menShoes = Category::firstOrCreate(
+        $menShoes = Category::updateOrCreate(
             ['slug' => 'men-shoes'],
             [
                 'parent_id' => $men->id,
                 'gender' => 'men',
-                'name' => 'Shoes',
-                'description' => 'Men\'s natural material shoes',
+                'name' => 'Sepatu',
+                'description' => 'Koleksi sepatu pria berbahan material alami',
                 'order' => 1,
                 'is_active' => true,
             ]
         );
 
         $menShoeTypes = [
-            'Everyday Sneakers' => 'men-everyday-sneakers',
-            'Running Shoes' => 'men-running-shoes',
-            'Slip-Ons & Loungers' => 'men-slip-ons-loungers',
-            'Water-Repellent Shoes' => 'men-water-repellent-shoes',
-            'Hiking & Trail Shoes' => 'men-hiking-trail-shoes',
+            'Sneaker Sehari-hari' => 'men-everyday-sneakers',
+            'Sepatu Lari' => 'men-running-shoes',
+            'Slip-On & Santai' => 'men-slip-ons-loungers',
+            'Sepatu Tahan Air' => 'men-water-repellent-shoes',
+            'Sepatu Hiking & Trail' => 'men-hiking-trail-shoes',
         ];
 
         foreach ($menShoeTypes as $name => $slug) {
-            Category::firstOrCreate(
+            Category::updateOrCreate(
                 ['slug' => $slug],
                 [
                     'parent_id' => $menShoes->id,
@@ -56,20 +56,20 @@ class CategorySeeder extends Seeder
             );
         }
 
-        $menApparel = Category::firstOrCreate(
+        $menApparel = Category::updateOrCreate(
             ['slug' => 'men-apparel'],
             [
                 'parent_id' => $men->id,
                 'gender' => 'men',
-                'name' => 'Apparel',
-                'description' => 'Men\'s sustainable apparel and tees',
+                'name' => 'Pakaian',
+                'description' => 'Pakaian ramah lingkungan dan kaos pria',
                 'order' => 2,
                 'is_active' => true,
             ]
         );
 
-        foreach (['Tees & Tops' => 'men-tees-tops', 'Socks' => 'men-socks', 'Sweats & Hoodies' => 'men-sweats-hoodies'] as $name => $slug) {
-            Category::firstOrCreate(
+        foreach (['Kaos & Atasan' => 'men-tees-tops', 'Kaos Kaki' => 'men-socks', 'Jaket & Hoodie' => 'men-sweats-hoodies'] as $name => $slug) {
+            Category::updateOrCreate(
                 ['slug' => $slug],
                 [
                     'parent_id' => $menApparel->id,
@@ -82,40 +82,40 @@ class CategorySeeder extends Seeder
         }
 
         // 2. Women Main Categories & Subcategories
-        $women = Category::firstOrCreate(
+        $women = Category::updateOrCreate(
             ['slug' => 'women'],
             [
                 'parent_id' => null,
                 'gender' => 'women',
-                'name' => 'Women',
-                'description' => 'Everyday comfort shoes and apparel made with natural materials for women.',
+                'name' => 'Wanita',
+                'description' => 'Sepatu dan pakaian wanita yang nyaman untuk aktivitas harian dari bahan alami ramah lingkungan.',
                 'order' => 2,
                 'is_active' => true,
             ]
         );
 
-        $womenShoes = Category::firstOrCreate(
+        $womenShoes = Category::updateOrCreate(
             ['slug' => 'women-shoes'],
             [
                 'parent_id' => $women->id,
                 'gender' => 'women',
-                'name' => 'Shoes',
-                'description' => 'Women\'s natural material shoes',
+                'name' => 'Sepatu',
+                'description' => 'Koleksi sepatu wanita berbahan material alami',
                 'order' => 1,
                 'is_active' => true,
             ]
         );
 
         $womenShoeTypes = [
-            'Everyday Sneakers' => 'women-everyday-sneakers',
-            'Running Shoes' => 'women-running-shoes',
-            'Flats & Loungers' => 'women-flats-loungers',
-            'Water-Repellent Shoes' => 'women-water-repellent-shoes',
-            'Slip-Ons' => 'women-slip-ons',
+            'Sneaker Sehari-hari' => 'women-everyday-sneakers',
+            'Sepatu Lari' => 'women-running-shoes',
+            'Flat & Santai' => 'women-flats-loungers',
+            'Sepatu Tahan Air' => 'women-water-repellent-shoes',
+            'Slip-On' => 'women-slip-ons',
         ];
 
         foreach ($womenShoeTypes as $name => $slug) {
-            Category::firstOrCreate(
+            Category::updateOrCreate(
                 ['slug' => $slug],
                 [
                     'parent_id' => $womenShoes->id,
@@ -127,20 +127,20 @@ class CategorySeeder extends Seeder
             );
         }
 
-        $womenApparel = Category::firstOrCreate(
+        $womenApparel = Category::updateOrCreate(
             ['slug' => 'women-apparel'],
             [
                 'parent_id' => $women->id,
                 'gender' => 'women',
-                'name' => 'Apparel',
-                'description' => 'Women\'s sustainable apparel',
+                'name' => 'Pakaian',
+                'description' => 'Pakaian wanita ramah lingkungan',
                 'order' => 2,
                 'is_active' => true,
             ]
         );
 
-        foreach (['Tees & Tops' => 'women-tees-tops', 'Socks' => 'women-socks', 'Bags & Accessories' => 'women-bags-accessories'] as $name => $slug) {
-            Category::firstOrCreate(
+        foreach (['Kaos & Atasan' => 'women-tees-tops', 'Kaos Kaki' => 'women-socks', 'Tas & Aksesori' => 'women-bags-accessories'] as $name => $slug) {
+            Category::updateOrCreate(
                 ['slug' => $slug],
                 [
                     'parent_id' => $womenApparel->id,
@@ -155,39 +155,39 @@ class CategorySeeder extends Seeder
         // 3. Collections
         $collections = [
             [
-                'title' => 'New Arrivals',
+                'title' => 'Produk Terbaru',
                 'slug' => 'new-arrivals',
-                'description' => 'Fresh styles and seasonal colorways crafted with premium merino wool and eucalyptus tree fiber.',
+                'description' => 'Pilihan gaya terbaru dan warna musiman berbahan wol merino premium dan serat pohon eukaliptus.',
                 'order' => 1,
             ],
             [
-                'title' => 'Best Sellers',
+                'title' => 'Produk Terlaris',
                 'slug' => 'best-sellers',
-                'description' => 'Our most-loved shoes designed for unmatched everyday comfort and versatile styling.',
+                'description' => 'Koleksi sepatu paling favorit yang dirancang untuk kenyamanan tak tertandingi sepanjang hari.',
                 'order' => 2,
             ],
             [
-                'title' => 'Sale',
+                'title' => 'Diskon Spesial',
                 'slug' => 'sale',
-                'description' => 'Limited-time special prices on our sustainable favorites.',
+                'description' => 'Penawaran harga spesial terbatas untuk koleksi produk berkelanjutan pilihan.',
                 'order' => 3,
             ],
             [
-                'title' => 'Tree Runners',
+                'title' => 'Koleksi Tree Runners',
                 'slug' => 'tree-runners',
-                'description' => 'Light, breezy shoes made from responsibly sourced eucalyptus tree fiber.',
+                'description' => 'Sepatu ringan dan sejuk dari serat pohon eukaliptus alami terbarukan.',
                 'order' => 4,
             ],
             [
-                'title' => 'Wool Runners',
+                'title' => 'Koleksi Wool Runners',
                 'slug' => 'wool-runners',
-                'description' => 'Cozy, breathable sneakers made with soft ZQ certified merino wool.',
+                'description' => 'Sneaker empuk, hangat, dan bernapas dari wol merino bersertifikat ZQ.',
                 'order' => 5,
             ],
         ];
 
         foreach ($collections as $col) {
-            Collection::firstOrCreate(
+            Collection::updateOrCreate(
                 ['slug' => $col['slug']],
                 [
                     'title' => $col['title'],

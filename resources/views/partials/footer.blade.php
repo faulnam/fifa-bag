@@ -15,7 +15,7 @@
                 <!-- Newsletter Subscription -->
                 <div>
                     <span class="font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-widest text-[#dcdcdc] block mb-3">
-                        SUBSCRIBE TO OUR EMAILS
+                        BERLANGGANAN NEWSLETTER
                     </span>
                     
                     <form action="{{ route('newsletter.subscribe') }}" method="POST" class="max-w-[360px]" x-data="{
@@ -52,13 +52,13 @@
                             <input type="email" 
                                    name="email" 
                                    x-model="email"
-                                   placeholder="Email Address" 
+                                   placeholder="Alamat Email Anda" 
                                    required 
                                    class="bg-transparent text-black placeholder:text-[#737373] text-[13px] focus:outline-none flex-grow pr-2 min-w-0">
                             <button type="submit" 
                                     :disabled="loading" 
                                     class="bg-transparent text-black hover:opacity-75 font-sans font-bold text-[11px] uppercase tracking-wider px-4 py-2 flex-shrink-0 transition cursor-pointer">
-                                <span x-show="!loading">SIGN UP</span>
+                                <span x-show="!loading">DAFTAR</span>
                                 <span x-show="loading" style="display: none;">...</span>
                             </button>
                         </div>
@@ -69,7 +69,7 @@
                 <!-- FOLLOW THE FLOCK (Social Icons) -->
                 <div>
                     <span class="font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-widest text-[#dcdcdc] block mb-3.5">
-                        FOLLOW THE FLOCK
+                        IKUTI KAMI
                     </span>
                     <div class="flex items-center space-x-3">
                         <!-- Instagram -->
@@ -122,15 +122,15 @@
                     <button type="button" 
                             @click="openAccordion.help = !openAccordion.help"
                             class="w-full flex items-center justify-between md:justify-start font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-widest text-[#dcdcdc] mb-0 md:mb-4 min-h-[44px] md:min-h-0">
-                        <span>HELP</span>
+                        <span>BANTUAN</span>
                         <svg class="w-4 h-4 md:hidden transform transition-transform text-white/70" :class="openAccordion.help ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div :class="openAccordion.help ? 'block' : 'hidden md:block'" class="space-y-2 pt-2 md:pt-0">
                         <a href="mailto:help@fifa.com" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">help@fifa.com</a>
-                        <a href="{{ route('pages.show', 'faq') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">FAQ/Contact Us</a>
-                        <a href="{{ route('pages.show', 'shipping-returns') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Returns/Exchanges</a>
+                        <a href="{{ route('pages.show', 'faq') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">FAQ & Kontak Bantuan</a>
+                        <a href="{{ route('pages.show', 'shipping-returns') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Pengembalian & Penukaran</a>
                     </div>
                 </div>
 
@@ -139,16 +139,16 @@
                     <button type="button" 
                             @click="openAccordion.shop = !openAccordion.shop"
                             class="w-full flex items-center justify-between md:justify-start font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-widest text-[#dcdcdc] mb-0 md:mb-4 min-h-[44px] md:min-h-0">
-                        <span>SHOP</span>
+                        <span>BELANJA</span>
                         <svg class="w-4 h-4 md:hidden transform transition-transform text-white/70" :class="openAccordion.shop ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div :class="openAccordion.shop ? 'block' : 'hidden md:block'" class="space-y-2 pt-2 md:pt-0">
-                        <a href="{{ route('categories.men') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Men's Shoes</a>
-                        <a href="{{ route('categories.women') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Women's Shoes</a>
-                        <a href="{{ route('collections.show', 'men-tees-tops') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Men's Apparel</a>
-                        <a href="{{ route('collections.show', 'women-tees-tops') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Women's Apparel</a>
+                        <a href="{{ route('categories.men') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Sepatu Pria</a>
+                        <a href="{{ route('categories.women') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Sepatu Wanita</a>
+                        <a href="{{ route('collections.show', 'men-tees-tops') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Pakaian Pria</a>
+                        <a href="{{ route('collections.show', 'women-tees-tops') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Pakaian Wanita</a>
                     </div>
                 </div>
 
@@ -157,7 +157,7 @@
                     <button type="button" 
                             @click="openAccordion.company = !openAccordion.company"
                             class="w-full flex items-center justify-between md:justify-start font-sans font-bold text-[11px] sm:text-[12px] uppercase tracking-widest text-[#dcdcdc] mb-0 md:mb-4 min-h-[44px] md:min-h-0">
-                        <span>COMPANY</span>
+                        <span>TENTANG KAMI</span>
                         <svg class="w-4 h-4 md:hidden transform transition-transform text-white/70" :class="openAccordion.company ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
@@ -166,19 +166,19 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
                             <!-- Left Sub-column -->
                             <div class="space-y-2">
-                                <a href="{{ route('pages.show', 'our-story') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Our Story</a>
-                                <a href="{{ route('pages.show', 'sustainability') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Our Materials</a>
-                                <a href="{{ route('pages.show', 'materials-and-making') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Materials & Making</a>
-                                <a href="{{ route('pages.show', 'shoe-care') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Shoe Care</a>
-                                <a href="{{ route('pages.show', 'press') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Press</a>
-                                <a href="{{ route('pages.show', 'responsible-disclosure') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5 leading-snug">fifa Responsible Disclosure Program</a>
-                                <a href="{{ route('pages.show', 'california-transparency') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">California Transparency Act</a>
-                                <a href="{{ route('pages.show', 'community-offers') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Community Offers</a>
+                                <a href="{{ route('pages.show', 'our-story') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Kisah Kami</a>
+                                <a href="{{ route('pages.show', 'sustainability') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Material Alami</a>
+                                <a href="{{ route('pages.show', 'materials-and-making') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Bahan & Pembuatan</a>
+                                <a href="{{ route('pages.show', 'shoe-care') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Perawatan Sepatu</a>
+                                <a href="{{ route('pages.show', 'press') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Pers & Media</a>
+                                <a href="{{ route('pages.show', 'responsible-disclosure') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5 leading-snug">Program Keterbukaan fifa</a>
+                                <a href="{{ route('pages.show', 'california-transparency') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Transparansi Rantai Pasok</a>
+                                <a href="{{ route('pages.show', 'community-offers') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Penawaran Komunitas</a>
                             </div>
                             <!-- Right Sub-column -->
                             <div class="space-y-2 pt-2 sm:pt-0">
-                                <a href="{{ route('blog.index') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Our Blog</a>
-                                <a href="{{ route('pages.show', 'patents') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Patents</a>
+                                <a href="{{ route('blog.index') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Blog & Jurnal</a>
+                                <a href="{{ route('pages.show', 'patents') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Paten & Inovasi</a>
                             </div>
                         </div>
                     </div>
@@ -188,10 +188,10 @@
 
         </div>
 
-        <!-- Country / Region Selector (US v) -->
+        <!-- Country / Region Selector -->
         <div class="pt-4 pb-4">
             <button type="button" class="inline-flex items-center gap-1.5 font-bold text-[12px] text-white uppercase tracking-wider hover:opacity-80 transition cursor-pointer">
-                <span>US</span>
+                <span>ID (Indonesia)</span>
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
@@ -202,16 +202,16 @@
         <div class="border-t border-[#333333] pt-5 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-[#8e8e8e]">
             <!-- Copyright Left -->
             <div>
-                <span>©fifa LLC 2026 . All Rights Reserved</span>
+                <span>© 2026 fifa Indonesia. Hak Cipta Dilindungi Undang-Undang.</span>
             </div>
 
             <!-- Legal Links Right -->
             <div class="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-2">
-                <a href="{{ route('pages.show', 'refund-policy') }}" class="hover:text-white transition">Refund policy</a>
-                <a href="{{ route('pages.show', 'privacy-policy') }}" class="hover:text-white transition">Privacy policy</a>
-                <a href="{{ route('pages.show', 'terms-of-service') }}" class="hover:text-white transition">Terms of service</a>
-                <a href="{{ route('pages.show', 'do-not-sell') }}" class="hover:text-white transition">Do Not Sell My Personal Information</a>
-                <a href="{{ route('pages.show', 'california-transparency') }}" class="hover:text-white transition">California Transparency Act</a>
+                <a href="{{ route('pages.show', 'refund-policy') }}" class="hover:text-white transition">Kebijakan Pengembalian Dana</a>
+                <a href="{{ route('pages.show', 'privacy-policy') }}" class="hover:text-white transition">Kebijakan Privasi</a>
+                <a href="{{ route('pages.show', 'terms-of-service') }}" class="hover:text-white transition">Syarat & Ketentuan</a>
+                <a href="{{ route('pages.show', 'do-not-sell') }}" class="hover:text-white transition">Jangan Jual Informasi Pribadi Saya</a>
+                <a href="{{ route('pages.show', 'california-transparency') }}" class="hover:text-white transition">Transparansi Rantai Pasok</a>
             </div>
         </div>
 
