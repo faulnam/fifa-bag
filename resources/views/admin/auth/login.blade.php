@@ -98,12 +98,6 @@
                         </button>
                     </form>
                 </div>
-
-                <!-- Real Account Info -->
-                <div class="p-3 bg-canvas border border-sand/70 rounded-xl text-[11px] text-iron flex justify-between font-mono text-[10px]">
-                    <span>Akun Asli: admin@fifa.com</span>
-                    <span class="text-stone">qwertyu123</span>
-                </div>
             </div>
 
             <div class="mt-6 pt-4 border-t border-sand text-center">
