@@ -32,10 +32,10 @@
             </p>
             <div class="pt-4 flex flex-wrap justify-center gap-4">
                 <a href="{{ route('categories.men') }}" class="btn-pill-dark px-8 py-3.5 text-body-sm font-bold tracking-wide10">
-                    Belanja Sepatu Pria
+                    Sepatu Pria
                 </a>
                 <a href="{{ route('categories.women') }}" class="btn-pill-light px-8 py-3.5 text-body-sm font-bold tracking-wide10">
-                    Belanja Sepatu Wanita
+                    Sepatu Wanita
                 </a>
             </div>
         </div>

@@ -58,11 +58,11 @@
                 <div class="flex items-center justify-start sm:justify-end gap-3 sm:gap-4">
                     <a href="{{ route('categories.men') }}" 
                        class="flex-1 sm:flex-none text-center bg-white text-charcoal hover:bg-neutral-100 font-sans font-bold text-[11px] sm:text-[13px] uppercase tracking-wider sm:tracking-widest px-5 sm:px-9 py-3 sm:py-3.5 rounded-full shadow-lg transition">
-                        BELANJA PRIA
+                        SEPATU PRIA
                     </a>
                     <a href="{{ route('categories.women') }}" 
                        class="flex-1 sm:flex-none text-center bg-white text-charcoal hover:bg-neutral-100 font-sans font-bold text-[11px] sm:text-[13px] uppercase tracking-wider sm:tracking-widest px-5 sm:px-9 py-3 sm:py-3.5 rounded-full shadow-lg transition">
-                        BELANJA WANITA
+                        SEPATU WANITA
                     </a>
                 </div>
             </div>
@@ -131,11 +131,11 @@
                         </span>
                         <a href="{{ route('collections.show', 'new-arrivals') }}?gender=men" 
                            class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
-                            BELANJA PRIA
+                            SEPATU PRIA
                         </a>
                         <a href="{{ route('collections.show', 'new-arrivals') }}?gender=women" 
                            class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
-                            BELANJA WANITA
+                            SEPATU WANITA
                         </a>
                     </div>
                 </div>
@@ -245,11 +245,11 @@
                         </span>
                         <a href="{{ route('collections.show', 'best-sellers') }}?gender=men" 
                            class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
-                            BELANJA PRIA
+                            SEPATU PRIA
                         </a>
                         <a href="{{ route('collections.show', 'best-sellers') }}?gender=women" 
                            class="border border-white hover:bg-white text-white hover:text-charcoal font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-4 sm:px-5 py-2 rounded-full transition duration-150 min-w-[125px] sm:min-w-[135px] text-center leading-tight backdrop-blur-2xs bg-black/20 hover:bg-white shadow-md">
-                            BELANJA WANITA
+                            SEPATU WANITA
                         </a>
                     </div>
                 </div>
@@ -668,11 +668,11 @@
                 <div class="absolute bottom-5 sm:bottom-6 inset-x-4 sm:inset-x-6 z-20 flex items-center justify-center gap-2 sm:gap-3">
                     <a href="{{ route('collections.show', 'men-slip-ons-loungers') }}" 
                        class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
-                        BELANJA PRIA
+                        SEPATU PRIA
                     </a>
                     <a href="{{ route('collections.show', 'women-flats-loungers') }}" 
                        class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
-                        BELANJA WANITA
+                        SEPATU WANITA
                     </a>
                 </div>
             </div>
@@ -695,11 +695,11 @@
                 <div class="absolute bottom-5 sm:bottom-6 inset-x-4 sm:inset-x-6 z-20 flex items-center justify-center gap-2 sm:gap-3">
                     <a href="{{ route('collections.show', 'new-arrivals') }}?gender=men" 
                        class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
-                        BELANJA PRIA
+                        SEPATU PRIA
                     </a>
                     <a href="{{ route('collections.show', 'new-arrivals') }}?gender=women" 
                        class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
-                        BELANJA WANITA
+                        SEPATU WANITA
                     </a>
                 </div>
             </div>
@@ -722,11 +722,11 @@
                 <div class="absolute bottom-5 sm:bottom-6 inset-x-4 sm:inset-x-6 z-20 flex items-center justify-center gap-2 sm:gap-3">
                     <a href="{{ route('collections.show', 'best-sellers') }}?gender=men" 
                        class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
-                        BELANJA PRIA
+                        SEPATU PRIA
                     </a>
                     <a href="{{ route('collections.show', 'best-sellers') }}?gender=women" 
                        class="border border-white/90 text-white hover:bg-white hover:text-charcoal font-sans font-bold text-[10px] sm:text-[11px] uppercase tracking-wider px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition duration-200 shadow-md backdrop-blur-2xs bg-black/15 hover:bg-white text-center flex-1 max-w-[150px]">
-                        BELANJA WANITA
+                        SEPATU WANITA
                     </a>
                 </div>
             </div>
