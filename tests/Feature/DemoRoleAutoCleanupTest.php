@@ -44,9 +44,9 @@ class DemoRoleAutoCleanupTest extends TestCase
         ]);
 
         $this->adminReal = User::create([
-            'name' => 'Admin Real',
+            'name' => 'Admin Store Real',
             'email' => 'admin@fifa.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('qwertyu123'),
             'role' => 'admin',
             'is_demo' => false,
         ]);
@@ -62,7 +62,7 @@ class DemoRoleAutoCleanupTest extends TestCase
         $this->customerReal = User::create([
             'name' => 'Customer Real',
             'email' => 'customer@fifa.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('qwertyu123'),
             'role' => 'customer',
             'is_demo' => false,
         ]);

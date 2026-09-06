@@ -84,7 +84,7 @@
 
             <div class="p-3 bg-canvas border border-sand/70 rounded-xl text-[11px] text-iron flex justify-between font-mono text-[10px]">
                 <span>Akun Asli: customer@fifa.com</span>
-                <span class="text-stone">password</span>
+                <span class="text-stone">qwertyu123</span>
             </div>
         </div>
 
