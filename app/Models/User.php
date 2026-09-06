@@ -17,6 +17,7 @@ class User extends Authenticatable
         'phone',
         'password',
         'role',
+        'is_demo',
     ];
 
     protected $hidden = [
@@ -29,6 +30,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_demo' => 'boolean',
         ];
     }
 
@@ -45,6 +47,26 @@ class User extends Authenticatable
     public function isCustomer(): bool
     {
         return $this->role === 'customer';
+    }
+
+    public function isDemo(): bool
+    {
+        return (bool) $this->is_demo;
+    }
+
+    public function getRoleLabelAttribute(): string
+    {
+        return match ($this->role) {
+            'super_admin' => 'Super Admin',
+            'admin' => 'Admin Store',
+            'customer' => 'Customer',
+            default => ucfirst($this->role),
+        };
+    }
+
+    public function demoActivities(): HasMany
+    {
+        return $this->hasMany(DemoActivity::class);
     }
 
     public function addresses(): HasMany

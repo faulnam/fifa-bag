@@ -373,6 +373,29 @@
             </div>
         </header>
 
+        @if (Auth::check() && Auth::user()->isDemo())
+            <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-orange-600 text-white px-4 py-2.5 sm:px-8 flex flex-wrap items-center justify-between gap-3 text-caption font-medium shadow-sm z-20">
+                <div class="flex items-center gap-2">
+                    <span class="bg-black/30 text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-200 animate-pulse"></span>
+                        Mode Demo • {{ Auth::user()->role_label }}
+                    </span>
+                    <span>Setiap konten atau data yang Anda buat/ubah di akun demo ini akan <strong>otomatis terhapus / direset kembali dalam 10 menit</strong>.</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <form action="{{ route('demo.reset') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin mereset seluruh data perubahan demo sekarang?')">
+                        @csrf
+                        <button type="submit" class="bg-white/20 hover:bg-white text-white hover:text-charcoal px-3 py-1 rounded-full text-[11px] font-bold transition flex items-center gap-1.5 backdrop-blur-xs cursor-pointer">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                            <span>Reset Data Demo Sekarang</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        @endif
+
         <!-- Main Content Area -->
         <main class="flex-1 p-4 sm:p-6 lg:p-8 w-full max-w-7xl mx-auto">
             @if (session('success'))

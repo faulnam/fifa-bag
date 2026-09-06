@@ -166,6 +166,23 @@
     <!-- Announcement Bar -->
     @include('partials.announcement-bar')
 
+    @if (Auth::check() && Auth::user()->isDemo())
+        <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-orange-600 text-white px-4 py-2 text-center text-caption font-medium shadow-xs">
+            <div class="max-w-container mx-auto flex flex-wrap items-center justify-between gap-2">
+                <span class="flex items-center gap-1.5 mx-auto sm:mx-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-200 animate-pulse"></span>
+                    <span>Mode Demo Pelanggan (<strong>{{ Auth::user()->name }}</strong>). Data dan pesanan demo otomatis direset dalam 10 menit.</span>
+                </span>
+                <form action="{{ route('demo.reset') }}" method="POST" class="mx-auto sm:mx-0" onsubmit="return confirm('Reset semua data demo Anda?')">
+                    @csrf
+                    <button type="submit" class="bg-white/20 hover:bg-white text-white hover:text-charcoal px-2.5 py-0.5 rounded-full text-[10px] font-bold transition cursor-pointer">
+                        Reset Data Demo
+                    </button>
+                </form>
+            </div>
+        </div>
+    @endif
+
     <!-- Global Header -->
     @include('partials.header')
 

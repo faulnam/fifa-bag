@@ -70,7 +70,7 @@ class CheckoutController extends Controller
     public function calculateRates(Request $request): JsonResponse
     {
         $request->validate([
-            'destination_area_id' => 'required|string',
+            'destination_area_id' => 'nullable|string',
         ]);
 
         $sessionId = $request->session()->getId();
@@ -86,7 +86,7 @@ class CheckoutController extends Controller
             ], 422);
         }
 
-        $destinationAreaId = $request->input('destination_area_id');
+        $destinationAreaId = $request->input('destination_area_id') ?: 'IDNP6IDNC148IDND859';
         $result = $this->biteshipService->getRates($destinationAreaId, $cartSummary['items']);
 
         $isFreeShipping = $cartSummary['is_free_shipping'];

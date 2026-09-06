@@ -98,6 +98,10 @@ Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])
 |--------------------------------------------------------------------------
 */
 
+// Demo Quick Login & Reset Actions
+Route::post('/demo/quick-login', [\App\Http\Controllers\DemoController::class, 'quickLogin'])->name('demo.quick-login');
+Route::post('/demo/reset', [\App\Http\Controllers\DemoController::class, 'reset'])->name('demo.reset')->middleware('auth');
+
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:10,1');

@@ -18,10 +18,14 @@ class SiteSetting extends Model
 
     public static function get(string $key, ?string $default = null): ?string
     {
-        return Cache::rememberForever("site_setting_{$key}", function () use ($key, $default) {
-            $setting = static::where('key', $key)->first();
-            return $setting ? $setting->value : $default;
-        });
+        try {
+            return Cache::rememberForever("site_setting_{$key}", function () use ($key, $default) {
+                $setting = static::where('key', $key)->first();
+                return $setting ? $setting->value : $default;
+            });
+        } catch (\Throwable $e) {
+            return $default;
+        }
     }
 
     public static function set(string $key, ?string $value, string $group = 'general'): self

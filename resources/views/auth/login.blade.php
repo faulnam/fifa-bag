@@ -59,7 +59,36 @@
             </div>
         </form>
 
-        <div class="mt-8 pt-6 border-t border-sand text-center">
+        <!-- Quick 1-Click Demo Customer Login -->
+        <div class="mt-8 pt-6 border-t border-sand space-y-3">
+            <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wide10 text-charcoal">Mode Demo Pelanggan:</span>
+                <span class="text-[10px] bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-full">Reset dlm 10 Mnt</span>
+            </div>
+
+            <form action="{{ route('demo.quick-login') }}" method="POST">
+                @csrf
+                <input type="hidden" name="role" value="customer">
+                <input type="hidden" name="is_demo" value="1">
+                <button type="submit" class="w-full text-left p-3.5 rounded-xl border border-amber-200 bg-amber-50/70 hover:bg-amber-100 transition group cursor-pointer">
+                    <div class="flex items-center justify-between mb-1">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                            <span class="text-caption font-bold text-amber-950">Masuk Cepat: Demo Customer</span>
+                        </div>
+                        <span class="text-[10px] text-amber-700 font-bold group-hover:translate-x-0.5 transition">1-Klik Masuk →</span>
+                    </div>
+                    <span class="text-[11px] text-amber-800/80 block font-mono">demo.customer@fifa.test</span>
+                </button>
+            </form>
+
+            <div class="p-3 bg-canvas border border-sand/70 rounded-xl text-[11px] text-iron flex justify-between font-mono text-[10px]">
+                <span>Akun Asli: customer@fifa.com</span>
+                <span class="text-stone">password</span>
+            </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-sand text-center">
             <p class="text-body-sm text-iron">
                 Belum memiliki akun Fifa?
                 <a href="{{ route('register') }}" class="font-bold text-charcoal hover:underline ml-1">

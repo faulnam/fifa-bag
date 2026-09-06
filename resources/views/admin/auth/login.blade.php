@@ -37,7 +37,7 @@
                            value="{{ old('email') }}" 
                            required 
                            autofocus
-                           placeholder="admin@fifa.test"
+                           placeholder="superadmin@fifa.com"
                            class="input-inset w-full @error('email') border-red-500 @enderror">
                     @error('email')
                         <p class="text-caption text-red-600 mt-1">{{ $message }}</p>
@@ -72,6 +72,57 @@
                     </button>
                 </div>
             </form>
+
+            <!-- Quick 1-Click Demo Login Section -->
+            <div class="mt-8 pt-6 border-t border-sand space-y-3">
+                <div class="flex items-center justify-between">
+                    <span class="text-[11px] font-bold uppercase tracking-wide10 text-charcoal">Akses Cepat Mode Demo:</span>
+                    <span class="text-[10px] bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-full">Reset dlm 10 Mnt</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <!-- Demo Super Admin -->
+                    <form action="{{ route('demo.quick-login') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="role" value="super_admin">
+                        <input type="hidden" name="is_demo" value="1">
+                        <button type="submit" class="w-full text-left p-3 rounded-xl border border-amber-200 bg-amber-50/60 hover:bg-amber-100/80 transition group cursor-pointer">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-caption font-bold text-amber-950">Demo Super Admin</span>
+                                <span class="text-[10px] text-amber-700 font-bold group-hover:translate-x-0.5 transition">Masuk →</span>
+                            </div>
+                            <span class="text-[10px] text-amber-800/80 block font-mono">demo.superadmin@fifa.test</span>
+                        </button>
+                    </form>
+
+                    <!-- Demo Store Admin -->
+                    <form action="{{ route('demo.quick-login') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="role" value="admin">
+                        <input type="hidden" name="is_demo" value="1">
+                        <button type="submit" class="w-full text-left p-3 rounded-xl border border-stone/20 bg-sand/30 hover:bg-sand/60 transition group cursor-pointer">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-caption font-bold text-charcoal">Demo Store Admin</span>
+                                <span class="text-[10px] text-charcoal font-bold group-hover:translate-x-0.5 transition">Masuk →</span>
+                            </div>
+                            <span class="text-[10px] text-iron block font-mono">demo.admin@fifa.test</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Real Accounts Info -->
+                <div class="p-3 bg-canvas border border-sand/70 rounded-xl text-[11px] text-iron space-y-1 mt-2">
+                    <span class="font-bold text-charcoal block">Akun Asli (Permanen):</span>
+                    <div class="flex justify-between font-mono text-[10px]">
+                        <span>superadmin@fifa.com</span>
+                        <span class="text-stone">password</span>
+                    </div>
+                    <div class="flex justify-between font-mono text-[10px]">
+                        <span>admin@fifa.com</span>
+                        <span class="text-stone">password</span>
+                    </div>
+                </div>
+            </div>
 
             <div class="mt-6 pt-4 border-t border-sand text-center">
                 <a href="{{ route('home') }}" class="text-caption font-medium text-iron hover:text-charcoal transition">
