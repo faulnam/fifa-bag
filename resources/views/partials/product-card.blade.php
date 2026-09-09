@@ -10,11 +10,15 @@
     // Group variants by color or take default color variants
     $defaultColor = $uniqueColors->first()?->color_name;
     $availableVariants = $defaultColor ? $product->variants->where('color_name', $defaultColor) : $product->variants;
+    if ($availableVariants->isEmpty()) {
+        $availableVariants = $product->variants;
+    }
     $isWishlisted = auth()->check() ? auth()->user()->wishlists->contains('product_id', $product->id) : false;
 @endphp
 
-<div class="group relative flex flex-col justify-between bg-canvas rounded-card transition duration-200"
+<div class="product-card-container group relative flex flex-col justify-between bg-canvas rounded-card transition duration-200"
      x-data="{
+        isHovered: false,
         quickAddOpen: false,
         isWishlisted: {{ $isWishlisted ? 'true' : 'false' }},
         wishlistLoading: false,
@@ -52,20 +56,22 @@
             }
         }
      }"
+     @mouseenter="isHovered = true"
+     @mouseleave="isHovered = false"
      @click.away="quickAddOpen = false">
 
     <!-- Image Area with Hover Swap & Floating Actions -->
-    <div class="relative block w-full aspect-square bg-[#f5f4f0] rounded-card overflow-hidden">
+    <div class="product-card-media relative block w-full aspect-square bg-[#f5f4f0] rounded-card overflow-hidden">
         
         <!-- Badges (Upper Left) -->
         <div class="absolute z-10 flex flex-col gap-1 pointer-events-none" style="top: 10px; left: 10px;">
             @if ($isDiscounted)
-                <span class="inline-block bg-charcoal text-canvas px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full shadow-xs leading-none">
-                    Diskon
+                <span class="inline-block bg-[#1f1f1f] text-white px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-full shadow-xs leading-none">
+                    DISKON
                 </span>
             @elseif ($isNew)
-                <span class="inline-block bg-[#ddd8cb] text-charcoal px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full shadow-xs leading-none">
-                    Baru
+                <span class="inline-block bg-[#e0dacf] text-[#212121] px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-full shadow-xs leading-none">
+                    BARU
                 </span>
             @endif
         </div>
@@ -74,11 +80,11 @@
         <button type="button" 
                 @click.stop.prevent="toggleWishlist()"
                 :disabled="wishlistLoading"
-                class="absolute z-20 p-1.5 rounded-full bg-canvas/90 hover:bg-canvas text-charcoal shadow-xs backdrop-blur-xs transition active:scale-125 min-w-[32px] min-h-[32px] flex items-center justify-center focus:outline-none"
+                class="absolute z-20 p-2 rounded-full bg-white/95 hover:bg-white text-charcoal shadow-sm transition active:scale-125 min-w-[34px] min-h-[34px] flex items-center justify-center focus:outline-none cursor-pointer"
                 style="top: 10px; right: 10px;"
                 aria-label="Simpan ke Wishlist">
-            <svg class="w-3.5 h-3.5 transition-transform duration-200" 
-                 :class="isWishlisted ? 'fill-charcoal text-charcoal scale-110' : 'fill-none text-charcoal hover:fill-sand'" 
+            <svg class="w-4 h-4 transition-transform duration-200" 
+                 :class="isWishlisted ? 'fill-[#212121] text-[#212121] scale-110' : 'fill-none text-[#212121] hover:fill-[#e0dacf]'" 
                  stroke="currentColor" 
                  viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
@@ -110,11 +116,12 @@
 
         <!-- Quick Add Trigger Button (Appears on Hover on Desktop & Touch on Mobile) -->
         @if ($availableVariants->isNotEmpty())
-            <div class="absolute inset-x-0 bottom-3.5 z-20 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto px-4">
+            <div class="quick-add-wrap absolute inset-x-0 bottom-3.5 z-20 flex justify-center px-4"
+                 :class="(isHovered || quickAddOpen) ? 'quick-add-visible' : ''">
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = !quickAddOpen"
-                        class="w-full max-w-[200px] py-2 sm:py-2.5 px-4 text-center text-[10px] sm:text-[11px] font-bold uppercase tracking-wider rounded-full shadow-md bg-white hover:bg-neutral-50 text-charcoal border border-charcoal/80 transition-all duration-150 flex items-center justify-center">
-                    <span x-text="quickAddOpen ? 'TUTUP' : '+ TAMBAH CEPAT'"></span>
+                        class="w-full max-w-[190px] py-2.5 px-4 text-center text-[11px] font-black uppercase tracking-wider rounded-full shadow-lg bg-white hover:bg-neutral-100 text-[#212121] border-2 border-[#212121] transition duration-150 flex items-center justify-center cursor-pointer select-none">
+                    <span x-text="quickAddOpen ? '✕ TUTUP' : '+ TAMBAH CEPAT'">+ TAMBAH CEPAT</span>
                 </button>
             </div>
         @endif
@@ -122,25 +129,26 @@
         <!-- Quick Add Size Selector Popover (Card Overlay with 4-Column Grid) -->
         @if ($availableVariants->isNotEmpty())
             <div x-show="quickAddOpen" 
+                 x-cloak
                  x-transition:enter="transition ease-out duration-200"
-                 x-transition:enter-start="opacity-0 translate-y-2"
-                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                 x-transition:enter-end="opacity-100 translate-y-0 scale-100"
                  x-transition:leave="transition ease-in duration-150"
-                 x-transition:leave-start="opacity-100 translate-y-0"
-                 x-transition:leave-end="opacity-0 translate-y-2"
-                 class="absolute inset-x-2.5 bottom-2.5 z-30 p-3.5 bg-white rounded-2xl border border-sand/80 shadow-2xl"
+                 x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                 x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+                 class="quick-add-popover absolute inset-x-2.5 bottom-2.5 z-30 p-3.5 bg-white rounded-2xl border border-sand/90 shadow-2xl"
                  style="display: none;">
-                <div class="flex items-center justify-between mb-2.5">
-                    <span class="text-[10px] font-bold uppercase tracking-wider text-charcoal">PILIH UKURAN</span>
-                    <button type="button" @click.stop="quickAddOpen = false" class="text-stone hover:text-charcoal text-sm leading-none p-1 font-bold">✕</button>
+                <div class="flex items-center justify-between mb-2.5 pb-1 border-b border-sand/40">
+                    <span class="text-[10px] font-black uppercase tracking-wider text-charcoal">PILIH UKURAN</span>
+                    <button type="button" @click.stop.prevent="quickAddOpen = false" class="text-stone hover:text-charcoal text-base leading-none p-1 font-bold cursor-pointer">✕</button>
                 </div>
                 <div class="grid grid-cols-4 gap-1.5 max-h-36 overflow-y-auto">
                     @foreach ($availableVariants as $v)
                         <button type="button" 
                                 @click.stop.prevent="$store.cart.addItem({{ $v->id }}, 1); quickAddOpen = false;"
                                 {{ $v->stock_quantity <= 0 ? 'disabled' : '' }}
-                                class="py-2 text-center text-xs font-bold rounded-lg border transition min-h-[38px] flex items-center justify-center {{ $v->stock_quantity <= 0 ? 'bg-sand/30 text-stone border-sand/30 line-through cursor-not-allowed opacity-50' : 'bg-white text-charcoal border-sand/90 hover:border-charcoal hover:bg-charcoal hover:text-white shadow-xs' }}"
-                                title="{{ $v->stock_quantity <= 0 ? 'Stok Habis' : 'Stok: ' . $v->stock_quantity }}">
+                                class="py-2.5 px-1 text-center text-xs font-bold rounded-lg border transition min-h-[38px] flex items-center justify-center cursor-pointer {{ $v->stock_quantity <= 0 ? 'bg-sand/30 text-stone border-sand/30 line-through cursor-not-allowed opacity-50' : 'bg-white text-charcoal border-sand/90 hover:border-charcoal hover:bg-charcoal hover:text-white shadow-xs active:scale-95' }}"
+                                title="{{ $v->stock_quantity <= 0 ? 'Stok Habis' : 'Pilih ' . $v->size . ' (Stok: ' . $v->stock_quantity . ')' }}">
                             {{ $v->size }}
                         </button>
                     @endforeach
@@ -189,13 +197,13 @@
             @endif
         </div>
 
-        <!-- Mobile Quick Add Button (Visible only on mobile) -->
+        <!-- Mobile Quick Add Button (Visible only on small screens) -->
         @if ($availableVariants->isNotEmpty())
             <div class="pt-2 lg:hidden">
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = !quickAddOpen"
-                        class="w-full py-2 px-3 border border-sand rounded-pill text-[11px] font-bold uppercase tracking-wide10 text-charcoal bg-sand/20 hover:bg-sand/40 min-h-[38px] flex items-center justify-center">
-                    <span x-text="quickAddOpen ? 'Tutup Ukuran' : '+ Tambah Cepat'"></span>
+                        class="w-full py-2 px-3 border border-charcoal/80 rounded-full text-[11px] font-bold uppercase tracking-wider text-charcoal bg-white hover:bg-neutral-50 min-h-[38px] flex items-center justify-center cursor-pointer shadow-xs">
+                    <span x-text="quickAddOpen ? '✕ Tutup Pilihan' : '+ Tambah Cepat'">+ Tambah Cepat</span>
                 </button>
             </div>
         @endif

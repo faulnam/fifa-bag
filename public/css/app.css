@@ -4821,3 +4821,32 @@ body {
     }
   }
 }
+
+/* ==========================================================================
+   Product Card Hover & Quick Add Popover Styles
+   ========================================================================== */
+.product-card-container {
+    position: relative;
+}
+
+.product-card-container .quick-add-wrap {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+}
+
+/* On card hover or focus, or active state */
+.product-card-container:hover .quick-add-wrap,
+.product-card-container:focus-within .quick-add-wrap,
+.product-card-container .quick-add-wrap.quick-add-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+}
+
+.quick-add-popover {
+    box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
