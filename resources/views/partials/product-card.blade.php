@@ -114,10 +114,10 @@
             @endif
         </a>
 
-        <!-- Quick Add Trigger Button (Solid Dark Pill - Appears on Hover on Desktop, Always Visible on Mobile) -->
+        <!-- Quick Add Trigger Button (Solid Dark Pill - Appears on Hover on Desktop Only) -->
         @if ($availableVariants->isNotEmpty())
             <div x-show="!quickAddOpen"
-                 class="quick-add-wrap absolute inset-x-0 bottom-3.5 z-20 flex justify-center px-4"
+                 class="quick-add-wrap absolute inset-x-0 bottom-3.5 z-20 hidden lg:flex justify-center px-4"
                  :class="isHovered ? 'quick-add-visible' : ''">
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = true"
@@ -199,6 +199,17 @@
                 </span>
             @endif
         </div>
+
+        <!-- Mobile Quick Add Button (Bottom of card) -->
+        @if ($availableVariants->isNotEmpty())
+            <div class="pt-2 lg:hidden">
+                <button type="button" 
+                        @click.stop.prevent="quickAddOpen = !quickAddOpen"
+                        class="w-full py-2.5 px-4 rounded-full text-[11px] font-black uppercase tracking-wider text-white bg-[#212121] hover:bg-black min-h-[38px] flex items-center justify-center cursor-pointer shadow-xs active:scale-95 transition">
+                    <span x-text="quickAddOpen ? '✕ Tutup Pilihan' : '+ Tambah Cepat'">+ Tambah Cepat</span>
+                </button>
+            </div>
+        @endif
 
     </div>
 
