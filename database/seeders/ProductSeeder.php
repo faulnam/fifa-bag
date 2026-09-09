@@ -62,17 +62,17 @@ class ProductSeeder extends Seeder
                     [
                         'color_name' => 'Mist Navy (Blizzard Trim)',
                         'color_hex' => '#2b3a4a',
-                        'sizes' => ['20L (Reguler)' => 18, '25L (Large)' => 12],
+                        'sizes' => ['20L' => 18, '25L' => 12],
                     ],
                     [
                         'color_name' => 'Matte Black',
                         'color_hex' => '#1f1f1f',
-                        'sizes' => ['20L (Reguler)' => 25, '25L (Large)' => 15],
+                        'sizes' => ['20L' => 25, '25L' => 15],
                     ],
                     [
                         'color_name' => 'Olive Moss',
                         'color_hex' => '#4e5d48',
-                        'sizes' => ['20L (Reguler)' => 10, '25L (Large)' => 8],
+                        'sizes' => ['20L' => 10, '25L' => 8],
                     ],
                 ],
                 'images' => [
@@ -103,12 +103,12 @@ class ProductSeeder extends Seeder
                     [
                         'color_name' => 'Mocha Brown',
                         'color_hex' => '#4d372c',
-                        'sizes' => ['Standard (15")' => 16, 'Slim (14")' => 10],
+                        'sizes' => ['15"' => 16, '14"' => 10],
                     ],
                     [
                         'color_name' => 'Onyx Black',
                         'color_hex' => '#1c1c1c',
-                        'sizes' => ['Standard (15")' => 20, 'Slim (14")' => 12],
+                        'sizes' => ['15"' => 20, '14"' => 12],
                     ],
                 ],
                 'images' => [
@@ -138,17 +138,17 @@ class ProductSeeder extends Seeder
                     [
                         'color_name' => 'Matte Black',
                         'color_hex' => '#1a1a1a',
-                        'sizes' => ['One Size (6L)' => 28],
+                        'sizes' => ['6L' => 28],
                     ],
                     [
                         'color_name' => 'Urban Grey',
                         'color_hex' => '#6e6e6e',
-                        'sizes' => ['One Size (6L)' => 15],
+                        'sizes' => ['6L' => 15],
                     ],
                     [
                         'color_name' => 'Olive Green',
                         'color_hex' => '#4a5445',
-                        'sizes' => ['One Size (6L)' => 12],
+                        'sizes' => ['6L' => 12],
                     ],
                 ],
                 'images' => [
@@ -179,17 +179,17 @@ class ProductSeeder extends Seeder
                     [
                         'color_name' => 'Charcoal Black',
                         'color_hex' => '#282828',
-                        'sizes' => ['35L (Weekend)' => 20, '45L (Overnight)' => 10],
+                        'sizes' => ['35L' => 20, '45L' => 10],
                     ],
                     [
                         'color_name' => 'Navy Slate',
                         'color_hex' => '#2d3b4e',
-                        'sizes' => ['35L (Weekend)' => 14, '45L (Overnight)' => 8],
+                        'sizes' => ['35L' => 14, '45L' => 8],
                     ],
                     [
                         'color_name' => 'Olive Moss',
                         'color_hex' => '#485242',
-                        'sizes' => ['35L (Weekend)' => 12],
+                        'sizes' => ['35L' => 12],
                     ],
                 ],
                 'images' => [
@@ -220,12 +220,12 @@ class ProductSeeder extends Seeder
                     [
                         'color_name' => 'Sage Green',
                         'color_hex' => '#7d8d7e',
-                        'sizes' => ['18L (Standard)' => 24],
+                        'sizes' => ['18L' => 24],
                     ],
                     [
                         'color_name' => 'Charcoal Grey',
                         'color_hex' => '#3d3d3d',
-                        'sizes' => ['18L (Standard)' => 16],
+                        'sizes' => ['18L' => 16],
                     ],
                 ],
                 'images' => [
@@ -290,17 +290,17 @@ class ProductSeeder extends Seeder
                     [
                         'color_name' => 'Warm Cream',
                         'color_hex' => '#f0ece1',
-                        'sizes' => ['One Size (16L)' => 30],
+                        'sizes' => ['16L' => 30],
                     ],
                     [
                         'color_name' => 'Terracotta Rust',
                         'color_hex' => '#a65846',
-                        'sizes' => ['One Size (16L)' => 15],
+                        'sizes' => ['16L' => 15],
                     ],
                     [
                         'color_name' => 'Midnight Black',
                         'color_hex' => '#1f1f1f',
-                        'sizes' => ['One Size (16L)' => 20],
+                        'sizes' => ['16L' => 20],
                     ],
                 ],
                 'images' => [
@@ -413,12 +413,12 @@ class ProductSeeder extends Seeder
                     [
                         'color_name' => 'Blush Mauve',
                         'color_hex' => '#9d7370',
-                        'sizes' => ['Mini (10L)' => 18],
+                        'sizes' => ['10L' => 18],
                     ],
                     [
                         'color_name' => 'Midnight Black',
                         'color_hex' => '#212121',
-                        'sizes' => ['Mini (10L)' => 22],
+                        'sizes' => ['10L' => 22],
                     ],
                 ],
                 'images' => [

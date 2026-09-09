@@ -58,13 +58,13 @@
     <div class="relative block w-full aspect-square bg-[#f5f4f0] rounded-card overflow-hidden">
         
         <!-- Badges (Upper Left) -->
-        <div class="absolute top-2.5 left-2.5 z-10 flex flex-col gap-1 pointer-events-none">
+        <div class="absolute top-2 left-2 z-10 flex flex-col gap-1 pointer-events-none">
             @if ($isDiscounted)
-                <span class="inline-block bg-charcoal text-canvas px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wide10 rounded-pill">
+                <span class="inline-block bg-charcoal text-canvas px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full shadow-xs leading-none">
                     Diskon
                 </span>
             @elseif ($isNew)
-                <span class="inline-block bg-sand text-charcoal px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wide10 rounded-pill">
+                <span class="inline-block bg-[#ddd8cb] text-charcoal px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full shadow-xs leading-none">
                     Baru
                 </span>
             @endif
@@ -74,9 +74,9 @@
         <button type="button" 
                 @click.stop.prevent="toggleWishlist()"
                 :disabled="wishlistLoading"
-                class="absolute top-2.5 right-2.5 z-20 p-2 rounded-full bg-canvas/85 hover:bg-canvas text-charcoal shadow-xs backdrop-blur-xs transition active:scale-125 min-w-[36px] min-h-[36px] flex items-center justify-center focus:outline-none"
+                class="absolute top-2 right-2 z-20 p-1.5 rounded-full bg-canvas/90 hover:bg-canvas text-charcoal shadow-xs backdrop-blur-xs transition active:scale-125 min-w-[32px] min-h-[32px] flex items-center justify-center focus:outline-none"
                 aria-label="Simpan ke Wishlist">
-            <svg class="w-4 h-4 transition-transform duration-200" 
+            <svg class="w-3.5 h-3.5 transition-transform duration-200" 
                  :class="isWishlisted ? 'fill-charcoal text-charcoal scale-110' : 'fill-none text-charcoal hover:fill-sand'" 
                  stroke="currentColor" 
                  viewBox="0 0 24 24">
@@ -107,13 +107,13 @@
             @endif
         </a>
 
-        <!-- Quick Add Trigger Button (Desktop Hover / Mobile Floating) -->
+        <!-- Quick Add Trigger Button (Desktop Hover / Floating) -->
         @if ($availableVariants->isNotEmpty())
-            <div class="absolute inset-x-3 bottom-3 z-20 hidden lg:block opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <div class="absolute inset-x-4 bottom-2.5 z-20 hidden lg:flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = !quickAddOpen"
-                        class="btn-pill-light w-full py-2.5 text-center text-[11px] font-bold uppercase tracking-wide10 shadow-sm bg-canvas/95 hover:bg-canvas">
-                    <span x-text="quickAddOpen ? 'Tutup Ukuran' : '+ Tambah Cepat'"></span>
+                        class="px-3.5 py-1.5 text-center text-[10px] font-bold uppercase tracking-wider rounded-full shadow-md bg-charcoal/90 hover:bg-charcoal text-canvas transition backdrop-blur-xs flex items-center gap-1">
+                    <span x-text="quickAddOpen ? 'Tutup' : '+ Tambah Cepat'"></span>
                 </button>
             </div>
         @endif
@@ -127,18 +127,18 @@
                  x-transition:leave="transition ease-in duration-150"
                  x-transition:leave-start="opacity-100 translate-y-0"
                  x-transition:leave-end="opacity-0 translate-y-2"
-                 class="absolute inset-x-2 bottom-2 z-30 p-3 bg-canvas/98 backdrop-blur-md rounded-card border border-sand shadow-lg"
+                 class="absolute inset-x-2 bottom-2 z-30 p-2.5 bg-canvas/98 backdrop-blur-md rounded-card border border-sand shadow-lg"
                  style="display: none;">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-[10px] font-bold uppercase tracking-wide10 text-charcoal">Pilih Ukuran / Tipe</span>
-                    <button type="button" @click.stop="quickAddOpen = false" class="text-stone hover:text-charcoal text-[11px]">✕</button>
+                <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-sand/60">
+                    <span class="text-[9px] font-bold uppercase tracking-wider text-charcoal">Pilih Ukuran / Tipe</span>
+                    <button type="button" @click.stop="quickAddOpen = false" class="text-stone hover:text-charcoal text-[10px] leading-none">✕</button>
                 </div>
-                <div class="grid grid-cols-2 gap-1.5 max-h-32 overflow-y-auto">
+                <div class="flex flex-wrap gap-1 max-h-28 overflow-y-auto pt-0.5">
                     @foreach ($availableVariants as $v)
                         <button type="button" 
                                 @click.stop.prevent="$store.cart.addItem({{ $v->id }}, 1); quickAddOpen = false;"
                                 {{ $v->stock_quantity <= 0 ? 'disabled' : '' }}
-                                class="py-1.5 px-1 text-center text-caption font-bold rounded-sm border transition min-h-[36px] flex items-center justify-center {{ $v->stock_quantity <= 0 ? 'bg-sand/30 text-stone border-sand/30 line-through cursor-not-allowed opacity-50' : 'bg-canvas text-charcoal border-sand hover:bg-charcoal hover:text-canvas' }}"
+                                class="py-1 px-2.5 text-center text-[10px] font-bold rounded-sm border transition flex items-center justify-center {{ $v->stock_quantity <= 0 ? 'bg-sand/30 text-stone border-sand/30 line-through cursor-not-allowed opacity-50' : 'bg-canvas text-charcoal border-sand hover:bg-charcoal hover:text-canvas' }}"
                                 title="{{ $v->stock_quantity <= 0 ? 'Stok Habis' : 'Stok: ' . $v->stock_quantity }}">
                             {{ $v->size }}
                         </button>
