@@ -114,19 +114,20 @@
             @endif
         </a>
 
-        <!-- Quick Add Trigger Button (Solid Dark Pill - Appears on Hover & Mobile) -->
+        <!-- Quick Add Trigger Button (Solid Dark Pill - Appears on Hover on Desktop, Always Visible on Mobile) -->
         @if ($availableVariants->isNotEmpty())
-            <div class="quick-add-wrap absolute inset-x-0 bottom-3.5 z-20 flex justify-center px-4"
-                 :class="(isHovered || quickAddOpen) ? 'quick-add-visible' : ''">
+            <div x-show="!quickAddOpen"
+                 class="quick-add-wrap absolute inset-x-0 bottom-3.5 z-20 flex justify-center px-4"
+                 :class="isHovered ? 'quick-add-visible' : ''">
                 <button type="button" 
-                        @click.stop.prevent="quickAddOpen = !quickAddOpen"
+                        @click.stop.prevent="quickAddOpen = true"
                         class="w-full max-w-[210px] py-2.5 sm:py-3 px-5 text-center text-[11px] sm:text-[12px] font-extrabold uppercase tracking-wider rounded-full shadow-lg bg-[#212121] hover:bg-black text-white transition duration-150 flex items-center justify-center cursor-pointer select-none active:scale-95">
                     <span>+ TAMBAH CEPAT</span>
                 </button>
             </div>
         @endif
 
-        <!-- Quick Add Size Selector Popover (Card Overlay Grid - Image 3) -->
+        <!-- Quick Add Size Selector Popover (Card Overlay Grid) -->
         @if ($availableVariants->isNotEmpty())
             <div x-show="quickAddOpen" 
                  x-cloak
@@ -198,17 +199,6 @@
                 </span>
             @endif
         </div>
-
-        <!-- Mobile Quick Add Button (Visible only on small screens) -->
-        @if ($availableVariants->isNotEmpty())
-            <div class="pt-2 lg:hidden">
-                <button type="button" 
-                        @click.stop.prevent="quickAddOpen = !quickAddOpen"
-                        class="w-full py-2.5 px-4 rounded-full text-[11px] font-black uppercase tracking-wider text-white bg-[#212121] hover:bg-black min-h-[40px] flex items-center justify-center cursor-pointer shadow-md active:scale-95 transition">
-                    <span x-text="quickAddOpen ? '✕ Tutup Pilihan' : '+ Tambah Cepat'">+ Tambah Cepat</span>
-                </button>
-            </div>
-        @endif
 
     </div>
 
