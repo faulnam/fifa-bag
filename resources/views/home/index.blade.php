@@ -487,7 +487,7 @@
 
                     <!-- Centered Bag Photography -->
                     <div class="flex-1 flex items-center justify-center my-2 overflow-hidden">
-                        <img src="{{ asset('images/home/cat-sage-runner.png') }}" 
+                        <img src="{{ asset('images/products/sage-daypack-green.png') }}" 
                              alt="Ransel Pria Sage Canvas Daypack" 
                              class="max-w-[95%] max-h-[170px] sm:max-h-[190px] object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                     </div>
@@ -524,7 +524,7 @@
 
                     <!-- Centered Bag Photography -->
                     <div class="flex-1 flex items-center justify-center my-2 overflow-hidden">
-                        <img src="{{ asset('images/home/cat-grey-sneaker.png') }}" 
+                        <img src="{{ asset('images/products/executive-briefcase-brown.png') }}" 
                              alt="Tas Kerja Pria Executive Leather Briefcase" 
                              class="max-w-[95%] max-h-[170px] sm:max-h-[190px] object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
                     </div>

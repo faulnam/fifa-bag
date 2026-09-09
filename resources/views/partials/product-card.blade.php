@@ -61,16 +61,16 @@
      @click.away="quickAddOpen = false">
 
     <!-- Image Area with Hover Swap & Floating Actions -->
-    <div class="product-card-media relative block w-full aspect-square bg-[#f5f4f0] rounded-card overflow-hidden">
+    <div class="product-card-media relative block w-full aspect-square bg-white rounded-[20px] overflow-hidden select-none">
         
-        <!-- Badges (Upper Left) -->
-        <div class="absolute z-10 flex flex-col gap-1 pointer-events-none" style="top: 10px; left: 10px;">
+        <!-- Badges (Upper Left - Bold High Contrast Pill) -->
+        <div class="absolute z-10 flex flex-col gap-1 pointer-events-none" style="top: 12px; left: 12px;">
             @if ($isDiscounted)
-                <span class="inline-block bg-[#1f1f1f] text-white px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-full shadow-xs leading-none">
+                <span class="inline-block bg-[#1f1f1f] text-white px-3 py-1.5 text-[10px] font-black uppercase tracking-wider rounded-full shadow-xs leading-none select-none">
                     DISKON
                 </span>
             @elseif ($isNew)
-                <span class="inline-block bg-[#e0dacf] text-[#212121] px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-full shadow-xs leading-none">
+                <span class="inline-block bg-[#1f1f1f] text-white px-3 py-1.5 text-[10px] font-black uppercase tracking-wider rounded-full shadow-xs leading-none select-none">
                     BARU
                 </span>
             @endif
@@ -81,7 +81,7 @@
                 @click.stop.prevent="toggleWishlist()"
                 :disabled="wishlistLoading"
                 class="absolute z-20 p-2 rounded-full bg-white/95 hover:bg-white text-charcoal shadow-sm transition active:scale-125 min-w-[34px] min-h-[34px] flex items-center justify-center focus:outline-none cursor-pointer"
-                style="top: 10px; right: 10px;"
+                style="top: 12px; right: 12px;"
                 aria-label="Simpan ke Wishlist">
             <svg class="w-4 h-4 transition-transform duration-200" 
                  :class="isWishlisted ? 'fill-[#212121] text-[#212121] scale-110' : 'fill-none text-[#212121] hover:fill-[#e0dacf]'" 
@@ -114,40 +114,42 @@
             @endif
         </a>
 
-        <!-- Quick Add Trigger Button (Appears on Hover on Desktop & Touch on Mobile) -->
+        <!-- Quick Add Trigger Button (Solid Dark Pill - Appears on Hover & Mobile) -->
         @if ($availableVariants->isNotEmpty())
             <div class="quick-add-wrap absolute inset-x-0 bottom-3.5 z-20 flex justify-center px-4"
                  :class="(isHovered || quickAddOpen) ? 'quick-add-visible' : ''">
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = !quickAddOpen"
-                        class="w-full max-w-[190px] py-2.5 px-4 text-center text-[11px] font-black uppercase tracking-wider rounded-full shadow-lg bg-white hover:bg-neutral-100 text-[#212121] border-2 border-[#212121] transition duration-150 flex items-center justify-center cursor-pointer select-none">
-                    <span x-text="quickAddOpen ? '✕ TUTUP' : '+ TAMBAH CEPAT'">+ TAMBAH CEPAT</span>
+                        class="w-full max-w-[210px] py-2.5 sm:py-3 px-5 text-center text-[11px] sm:text-[12px] font-extrabold uppercase tracking-wider rounded-full shadow-lg bg-[#212121] hover:bg-black text-white transition duration-150 flex items-center justify-center cursor-pointer select-none active:scale-95">
+                    <span>+ TAMBAH CEPAT</span>
                 </button>
             </div>
         @endif
 
-        <!-- Quick Add Size Selector Popover (Card Overlay with 4-Column Grid) -->
+        <!-- Quick Add Size Selector Popover (Card Overlay Grid - Image 3) -->
         @if ($availableVariants->isNotEmpty())
             <div x-show="quickAddOpen" 
                  x-cloak
                  x-transition:enter="transition ease-out duration-200"
-                 x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                 x-transition:enter-start="opacity-0 translate-y-3 scale-95"
                  x-transition:enter-end="opacity-100 translate-y-0 scale-100"
                  x-transition:leave="transition ease-in duration-150"
                  x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-                 x-transition:leave-end="opacity-0 translate-y-2 scale-95"
-                 class="quick-add-popover absolute inset-x-2.5 bottom-2.5 z-30 p-3.5 bg-white rounded-2xl border border-sand/90 shadow-2xl"
+                 x-transition:leave-end="opacity-0 translate-y-3 scale-95"
+                 class="quick-add-popover absolute inset-x-2.5 bottom-2.5 z-30 p-3.5 sm:p-4 bg-white rounded-2xl border border-sand/80 shadow-2xl"
                  style="display: none;">
-                <div class="flex items-center justify-between mb-2.5 pb-1 border-b border-sand/40">
-                    <span class="text-[10px] font-black uppercase tracking-wider text-charcoal">PILIH UKURAN</span>
-                    <button type="button" @click.stop.prevent="quickAddOpen = false" class="text-stone hover:text-charcoal text-base leading-none p-1 font-bold cursor-pointer">✕</button>
+                <div class="flex items-center justify-between mb-2.5 pb-1.5 border-b border-sand/30">
+                    <span class="text-[11px] font-black uppercase tracking-wider text-charcoal">PILIH UKURAN</span>
+                    <button type="button" 
+                            @click.stop.prevent="quickAddOpen = false" 
+                            class="text-stone-400 hover:text-charcoal text-base leading-none p-1 font-bold cursor-pointer transition">✕</button>
                 </div>
-                <div class="grid grid-cols-4 gap-1.5 max-h-36 overflow-y-auto">
+                <div class="grid grid-cols-4 gap-1.5 sm:gap-2 max-h-40 overflow-y-auto pr-0.5">
                     @foreach ($availableVariants as $v)
                         <button type="button" 
                                 @click.stop.prevent="$store.cart.addItem({{ $v->id }}, 1); quickAddOpen = false;"
                                 {{ $v->stock_quantity <= 0 ? 'disabled' : '' }}
-                                class="py-2.5 px-1 text-center text-xs font-bold rounded-lg border transition min-h-[38px] flex items-center justify-center cursor-pointer {{ $v->stock_quantity <= 0 ? 'bg-sand/30 text-stone border-sand/30 line-through cursor-not-allowed opacity-50' : 'bg-white text-charcoal border-sand/90 hover:border-charcoal hover:bg-charcoal hover:text-white shadow-xs active:scale-95' }}"
+                                class="py-2 sm:py-2.5 px-1 text-center text-xs sm:text-[13px] font-bold rounded-lg sm:rounded-xl border transition min-h-[38px] flex items-center justify-center cursor-pointer select-none {{ $v->stock_quantity <= 0 ? 'bg-stone-50 text-stone-300 border-stone-100 line-through cursor-not-allowed opacity-50' : 'bg-white text-charcoal border-stone-200 hover:border-charcoal hover:bg-charcoal hover:text-white shadow-2xs active:scale-95' }}"
                                 title="{{ $v->stock_quantity <= 0 ? 'Stok Habis' : 'Pilih ' . $v->size . ' (Stok: ' . $v->stock_quantity . ')' }}">
                             {{ $v->size }}
                         </button>
@@ -202,7 +204,7 @@
             <div class="pt-2 lg:hidden">
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = !quickAddOpen"
-                        class="w-full py-2 px-3 border border-charcoal/80 rounded-full text-[11px] font-bold uppercase tracking-wider text-charcoal bg-white hover:bg-neutral-50 min-h-[38px] flex items-center justify-center cursor-pointer shadow-xs">
+                        class="w-full py-2.5 px-4 rounded-full text-[11px] font-black uppercase tracking-wider text-white bg-[#212121] hover:bg-black min-h-[40px] flex items-center justify-center cursor-pointer shadow-md active:scale-95 transition">
                     <span x-text="quickAddOpen ? '✕ Tutup Pilihan' : '+ Tambah Cepat'">+ Tambah Cepat</span>
                 </button>
             </div>
