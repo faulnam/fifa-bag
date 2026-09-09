@@ -137,22 +137,22 @@
                  x-transition:leave="transition ease-in duration-150"
                  x-transition:leave-start="opacity-100 translate-y-0 scale-100"
                  x-transition:leave-end="opacity-0 translate-y-3 scale-95"
-                 class="quick-add-popover absolute inset-x-2.5 bottom-2.5 z-30 p-3.5 sm:p-4 bg-white rounded-2xl border border-sand/80 shadow-2xl"
+                 class="quick-add-popover absolute inset-x-2.5 bottom-2.5 z-30 p-3.5 bg-white rounded-2xl border border-sand/80 shadow-2xl"
                  style="display: none;">
                 <div class="flex items-center justify-between mb-2.5 pb-1.5 border-b border-sand/30">
                     <span class="text-[11px] font-black uppercase tracking-wider text-charcoal">PILIH UKURAN</span>
                     <button type="button" 
                             @click.stop.prevent="quickAddOpen = false" 
-                            class="text-stone-400 hover:text-charcoal text-base leading-none p-1 font-bold cursor-pointer transition">✕</button>
+                            class="w-6 h-6 rounded-full flex items-center justify-center text-stone-400 hover:text-charcoal hover:bg-stone-100 text-sm leading-none font-bold cursor-pointer transition">✕</button>
                 </div>
-                <div class="grid grid-cols-4 gap-1.5 sm:gap-2 max-h-40 overflow-y-auto pr-0.5">
+                <div class="flex flex-wrap gap-2 max-h-40 overflow-y-auto pr-0.5 no-scrollbar">
                     @foreach ($availableVariants as $v)
                         <button type="button" 
                                 @click.stop.prevent="$store.cart.addItem({{ $v->id }}, 1); quickAddOpen = false;"
                                 {{ $v->stock_quantity <= 0 ? 'disabled' : '' }}
-                                class="py-2 sm:py-2.5 px-1 text-center text-xs sm:text-[13px] font-bold rounded-lg sm:rounded-xl border transition min-h-[38px] flex items-center justify-center cursor-pointer select-none {{ $v->stock_quantity <= 0 ? 'bg-stone-50 text-stone-300 border-stone-100 line-through cursor-not-allowed opacity-50' : 'bg-[#f5f4f0] text-[#212121] border-[#dedad0] hover:border-[#212121] hover:bg-[#212121] hover:text-white shadow-2xs active:scale-95' }}"
+                                class="flex-1 min-w-[70px] py-2.5 px-3 text-center text-xs sm:text-[13px] font-bold rounded-xl border transition min-h-[38px] flex items-center justify-center cursor-pointer select-none whitespace-nowrap {{ $v->stock_quantity <= 0 ? 'bg-stone-50 text-stone-300 border-stone-100 line-through cursor-not-allowed opacity-50' : 'bg-[#f5f4f0] text-[#212121] border-[#dedad0] hover:border-[#212121] hover:bg-[#212121] hover:text-white shadow-2xs active:scale-95' }}"
                                 title="{{ $v->stock_quantity <= 0 ? 'Stok Habis' : 'Pilih ' . $v->size . ' (Stok: ' . $v->stock_quantity . ')' }}">
-                            {{ $v->size }}
+                            <span>{{ $v->size }}</span>
                         </button>
                     @endforeach
                 </div>
