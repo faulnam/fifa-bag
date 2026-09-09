@@ -58,7 +58,7 @@
     <div class="relative block w-full aspect-square bg-[#f5f4f0] rounded-card overflow-hidden">
         
         <!-- Badges (Upper Left) -->
-        <div class="absolute top-2 left-2 z-10 flex flex-col gap-1 pointer-events-none">
+        <div class="absolute z-10 flex flex-col gap-1 pointer-events-none" style="top: 10px; left: 10px;">
             @if ($isDiscounted)
                 <span class="inline-block bg-charcoal text-canvas px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full shadow-xs leading-none">
                     Diskon
@@ -74,7 +74,8 @@
         <button type="button" 
                 @click.stop.prevent="toggleWishlist()"
                 :disabled="wishlistLoading"
-                class="absolute top-2 right-2 z-20 p-1.5 rounded-full bg-canvas/90 hover:bg-canvas text-charcoal shadow-xs backdrop-blur-xs transition active:scale-125 min-w-[32px] min-h-[32px] flex items-center justify-center focus:outline-none"
+                class="absolute z-20 p-1.5 rounded-full bg-canvas/90 hover:bg-canvas text-charcoal shadow-xs backdrop-blur-xs transition active:scale-125 min-w-[32px] min-h-[32px] flex items-center justify-center focus:outline-none"
+                style="top: 10px; right: 10px;"
                 aria-label="Simpan ke Wishlist">
             <svg class="w-3.5 h-3.5 transition-transform duration-200" 
                  :class="isWishlisted ? 'fill-charcoal text-charcoal scale-110' : 'fill-none text-charcoal hover:fill-sand'" 
@@ -107,13 +108,13 @@
             @endif
         </a>
 
-        <!-- Quick Add Trigger Button (Desktop Hover / Floating) -->
+        <!-- Quick Add Trigger Button (Visible on mobile, Hover on desktop) -->
         @if ($availableVariants->isNotEmpty())
-            <div class="absolute inset-x-4 bottom-2.5 z-20 hidden lg:flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <div class="absolute inset-x-3 bottom-2.5 z-20 flex justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-200">
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = !quickAddOpen"
-                        class="px-3.5 py-1.5 text-center text-[10px] font-bold uppercase tracking-wider rounded-full shadow-md bg-charcoal/90 hover:bg-charcoal text-canvas transition backdrop-blur-xs flex items-center gap-1">
-                    <span x-text="quickAddOpen ? 'Tutup' : '+ Tambah Cepat'"></span>
+                        class="w-full sm:w-auto px-3.5 py-1.5 text-center text-[10px] sm:text-[11px] font-bold uppercase tracking-wider rounded-full shadow-md bg-charcoal text-canvas hover:bg-black transition backdrop-blur-xs flex items-center justify-center gap-1">
+                    <span x-text="quickAddOpen ? 'Tutup Ukuran' : '+ Tambah Cepat'"></span>
                 </button>
             </div>
         @endif
@@ -130,8 +131,8 @@
                  class="absolute inset-x-2 bottom-2 z-30 p-2.5 bg-canvas/98 backdrop-blur-md rounded-card border border-sand shadow-lg"
                  style="display: none;">
                 <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-sand/60">
-                    <span class="text-[9px] font-bold uppercase tracking-wider text-charcoal">Pilih Ukuran / Tipe</span>
-                    <button type="button" @click.stop="quickAddOpen = false" class="text-stone hover:text-charcoal text-[10px] leading-none">✕</button>
+                    <span class="text-[9px] font-bold uppercase tracking-wider text-charcoal">Pilih Ukuran</span>
+                    <button type="button" @click.stop="quickAddOpen = false" class="text-stone hover:text-charcoal text-[11px] font-bold leading-none p-1">✕</button>
                 </div>
                 <div class="flex flex-wrap gap-1 max-h-28 overflow-y-auto pt-0.5">
                     @foreach ($availableVariants as $v)
