@@ -105,7 +105,7 @@
         <a href="{{ route('home') }}" class="hover:text-charcoal">Beranda</a>
         <span>/</span>
         <a href="{{ route('collections.show', $product->category->slug ?? 'all') }}" class="hover:text-charcoal">
-            {{ $product->category->name ?? 'Sepatu' }}
+            {{ $product->category->name ?? 'Tas' }}
         </a>
         <span>/</span>
         <span class="text-charcoal truncate">{{ $product->name }}</span>
@@ -201,15 +201,15 @@
             <div class="space-y-3 pt-2" x-show="currentColor.sizes.length > 0">
                 <div class="flex items-center justify-between">
                     <span class="text-caption font-bold uppercase tracking-wide10 text-charcoal">
-                        Pilih Ukuran (EU)
+                        Pilih Ukuran / Kapasitas
                     </span>
-                    <button type="button" class="text-caption text-iron hover:text-charcoal underline">
-                        Panduan Ukuran
-                    </button>
+                    <a href="{{ route('pages.show', 'size-guide') }}" class="text-caption text-iron hover:text-charcoal underline">
+                        Panduan Kapasitas
+                    </a>
                 </div>
 
                 <!-- Size Grid Buttons -->
-                <div class="grid grid-cols-4 sm:grid-cols-6 gap-2">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     <template x-for="v in currentColor.sizes" :key="v.id">
                         <button type="button" 
                                 @click="selectSize(v)"
@@ -219,7 +219,7 @@
                                     'bg-canvas text-charcoal border-sand hover:border-charcoal': selectedVariantId !== v.id && v.stock > 0,
                                     'bg-sand/40 text-stone border-sand/40 cursor-not-allowed line-through opacity-50': v.stock <= 0
                                 }"
-                                class="min-h-[44px] flex items-center justify-center border rounded-input text-body-sm transition duration-150 relative">
+                                class="min-h-[44px] px-3 flex items-center justify-center border rounded-input text-body-sm transition duration-150 relative">
                             <span x-text="v.size"></span>
                         </button>
                     </template>
@@ -228,10 +228,10 @@
                 <!-- Stock info message -->
                 <div class="text-caption text-iron min-h-[20px]">
                     <template x-if="selectedVariantId && selectedStock <= 5 && selectedStock > 0">
-                        <span class="text-amber-700 font-medium">Stok terbatas: Tersisa <span x-text="selectedStock"></span> pasang!</span>
+                        <span class="text-amber-700 font-medium">Stok terbatas: Tersisa <span x-text="selectedStock"></span> unit!</span>
                     </template>
                     <template x-if="!selectedVariantId">
-                        <span>Pilih ukuran untuk melanjutkan pembelian.</span>
+                        <span>Pilih ukuran / kapasitas untuk melanjutkan pembelian.</span>
                     </template>
                 </div>
             </div>
@@ -243,7 +243,7 @@
                         :disabled="!selectedVariantId"
                         :class="!selectedVariantId ? 'opacity-50 cursor-not-allowed' : 'hover:bg-black'"
                         class="btn-pill-dark w-full text-center py-4 text-body-sm font-bold tracking-wide10 min-h-[50px] shadow-sm">
-                    <span x-show="!selectedVariantId">Pilih Ukuran Terlebih Dahulu</span>
+                    <span x-show="!selectedVariantId">Pilih Ukuran / Kapasitas Terlebih Dahulu</span>
                     <span x-show="selectedVariantId">Tambahkan ke Keranjang</span>
                 </button>
 
@@ -397,11 +397,11 @@
                                         </div>
                                         <div>
                                             <label class="block text-caption font-bold uppercase text-charcoal mb-1">Judul Ulasan</label>
-                                            <input type="text" name="title" required placeholder="Misal: Sepatu ternyaman yang pernah saya pakai" class="input-clean w-full text-body-sm">
+                                            <input type="text" name="title" required placeholder="Misal: Tas ternyaman dan terkuat yang pernah saya miliki" class="input-clean w-full text-body-sm">
                                         </div>
                                         <div>
                                             <label class="block text-caption font-bold uppercase text-charcoal mb-1">Komentar / Pengalaman</label>
-                                            <textarea name="comment" rows="3" required placeholder="Ceritakan bagaimana kenyamanan dan fitting sepatu ini di kaki Anda..." class="input-clean w-full text-body-sm"></textarea>
+                                            <textarea name="comment" rows="3" required placeholder="Ceritakan bagaimana kualitas material, ketahanan, dan fungsionalitas tas ini..." class="input-clean w-full text-body-sm"></textarea>
                                         </div>
                                         <div class="flex justify-end gap-2">
                                             <button type="button" @click="reviewFormOpen = false" class="btn-pill-light text-caption px-4 py-1.5">Batal</button>

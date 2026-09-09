@@ -25,7 +25,7 @@
                         Asisten fifa
                     </h3>
                     <p class="text-[11px] text-white/60 mt-0.5">
-                        Layanan Bantuan & Panduan Belanja
+                        Panduan Tas & Layanan Bantuan
                     </p>
                 </div>
             </div>
@@ -52,7 +52,7 @@
             <!-- Subtle Badge Header -->
             <div class="text-center my-1">
                 <span class="inline-block bg-[#eae5dc] text-[#554e45] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-                    Kenyamanan Alami fifa
+                    Koleksi Tas Berkelanjutan fifa
                 </span>
             </div>
 
@@ -70,7 +70,7 @@
                                     <p x-html="msg.text"></p>
                                 </div>
 
-                                <!-- Action Buttons / Links in Bot Message (Clean Monochrome Outline) -->
+                                <!-- Action Buttons / Links in Bot Message -->
                                 <template x-if="msg.links && msg.links.length > 0">
                                     <div class="flex flex-wrap gap-1.5 pt-0.5">
                                         <template x-for="(link, lIdx) in msg.links" :key="lIdx">
@@ -99,7 +99,7 @@
                 </div>
             </template>
 
-            <!-- Typing Indicator (Minimalist Monochrome) -->
+            <!-- Typing Indicator -->
             <div x-show="isTyping" class="flex items-start gap-2.5 max-w-[85%]">
                 <div class="w-7 h-7 rounded-full bg-[#212121] text-white flex-shrink-0 flex items-center justify-center text-[11px] font-display italic font-bold mt-0.5">
                     f
@@ -112,7 +112,7 @@
             </div>
         </div>
 
-        <!-- Quick Suggestions Chips (Clean Monochrome Pills) -->
+        <!-- Quick Suggestions Chips -->
         <div class="px-3 py-2.5 bg-[#f2eee7] border-t border-[#e5e0d8] overflow-x-auto no-scrollbar flex items-center gap-1.5 flex-nowrap">
             <template x-for="(prompt, pIdx) in quickPrompts" :key="pIdx">
                 <button @click="sendUserMessage(prompt.text)" 
@@ -127,7 +127,7 @@
             <form @submit.prevent="handleSubmit()" class="flex items-center gap-2">
                 <input type="text" 
                        x-model="userInput" 
-                       placeholder="Ketik pertanyaan Anda..." 
+                       placeholder="Ketik pertanyaan Anda tentang tas fifa..." 
                        class="flex-1 bg-[#f7f6f2] border border-[#dcd7cc] focus:border-[#212121] focus:bg-white text-[13px] text-[#212121] rounded-full px-4 py-2 outline-none transition placeholder:text-[#8c8278]">
                 <button type="submit" 
                         :disabled="!userInput.trim()"
@@ -141,9 +141,9 @@
         </div>
     </div>
 
-    <!-- Floating Trigger Button (Minimalist Solid Charcoal) -->
+    <!-- Floating Trigger Button -->
     <div class="flex items-center gap-3 justify-end">
-        <!-- Minimal Tooltip (shows when closed) -->
+        <!-- Minimal Tooltip -->
         <div x-show="!open && showTooltip" 
              x-transition:enter="transition ease-out duration-250"
              x-transition:enter-start="opacity-0 translate-x-2"
@@ -152,14 +152,14 @@
              x-transition:leave-start="opacity-100"
              x-transition:leave-end="opacity-0"
              class="hidden sm:flex items-center bg-white text-[#212121] text-[12px] font-medium py-2 px-3.5 rounded-full shadow-md border border-[#ded8cf] gap-2">
-            <span>Butuh bantuan seputar produk fifa?</span>
+            <span>Butuh panduan memilih tas fifa?</span>
             <button @click.stop="showTooltip = false" class="text-stone-400 hover:text-charcoal text-xs">✕</button>
         </div>
 
         <button @click="open = !open; if(open) { showTooltip = false; $nextTick(() => scrollBottom()); }"
                 class="group relative w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#212121] text-white shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 border border-white/10 hover:bg-black">
             
-            <!-- Minimalist Chat / Close Icon -->
+            <!-- Chat / Close Icon -->
             <div class="relative w-5 h-5 flex items-center justify-center">
                 <svg x-show="!open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
@@ -181,13 +181,13 @@ function fifaChatbot() {
         isTyping: false,
         messages: [],
         quickPrompts: [
-            { label: 'Rekomendasi Terlaris', text: 'Rekomendasi sepatu paling laris dan favorit' },
-            { label: 'Panduan Ukuran', text: 'Bagaimana cara memilih ukuran sepatu yang tepat?' },
-            { label: 'Material Alami', text: 'Apa saja material alami yang digunakan fifa?' },
-            { label: 'Status Pengiriman', text: 'Berapa lama estimasi pengiriman dan biaya ongkir?' },
+            { label: 'Rekomendasi Terlaris', text: 'Rekomendasi tas paling laris dan favorit' },
+            { label: 'Panduan Kapasitas', text: 'Bagaimana cara memilih ukuran dan kapasitas tas laptop yang tepat?' },
+            { label: 'Material Alami', text: 'Apa saja material alami dan daur ulang yang digunakan fifa?' },
+            { label: 'Status Pengiriman', text: 'Berapa lama estimasi pengiriman dan batas gratis ongkir?' },
             { label: 'Garansi 30 Hari', text: 'Bagaimana ketentuan garansi uji coba 30 hari?' },
-            { label: 'Koleksi Pria', text: 'Lihat koleksi sepatu untuk pria' },
-            { label: 'Koleksi Wanita', text: 'Lihat koleksi sepatu untuk wanita' }
+            { label: 'Tas Pria', text: 'Lihat koleksi tas untuk pria' },
+            { label: 'Tas Wanita', text: 'Lihat koleksi tas untuk wanita' }
         ],
 
         init() {
@@ -201,10 +201,10 @@ function fifaChatbot() {
             this.messages = [
                 {
                     sender: 'bot',
-                    text: 'Halo, selamat datang di <strong>fifa</strong>.<br><br>Saya asisten fifa, siap membantu Anda menemukan model sepatu yang sesuai, panduan ukuran, informasi bahan alami, atau status pesanan. Ada yang bisa dibantu?',
+                    text: 'Halo, selamat datang di <strong>fifa Bags</strong>.<br><br>Saya asisten fifa, siap membantu Anda menemukan model tas & ransel yang sesuai, panduan kapasitas laptop, informasi material ramah lingkungan, atau status pesanan. Ada yang bisa dibantu?',
                     links: [
-                        { label: 'Sepatu Pria', url: '{{ route('categories.men') }}' },
-                        { label: 'Sepatu Wanita', url: '{{ route('categories.women') }}' },
+                        { label: 'Tas Pria', url: '{{ route('categories.men') }}' },
+                        { label: 'Tas Wanita', url: '{{ route('categories.women') }}' },
                         { label: 'Produk Terlaris', url: '{{ route('collections.show', 'best-sellers') }}' }
                     ]
                 }
@@ -238,14 +238,14 @@ function fifaChatbot() {
         generateBotResponse(input) {
             const q = input.toLowerCase();
 
-            // 1. Rekomendasi / Terlaris / Best Sellers
+            // 1. Rekomendasi / Terlaris
             if (q.includes('terlaris') || q.includes('rekomendasi') || q.includes('favorit') || q.includes('populer') || q.includes('best seller')) {
                 return {
                     sender: 'bot',
-                    text: 'Berikut adalah model sepatu favorit pilihan pelanggan fifa:<br><br>' +
-                          '&bull; <strong>Tree Dasher 2</strong>: Sepatu lari responsif dan sejuk dari serat pohon eukaliptus.<br>' +
-                          '&bull; <strong>Wool Runner 2</strong>: Sneakers kasual harian dari wol ZQ Merino alami.<br>' +
-                          '&bull; <strong>Tree Lounger</strong>: Model slip-on santai yang sangat ringan dan praktis.',
+                    text: 'Berikut adalah model tas favorit pilihan pelanggan fifa:<br><br>' +
+                          '&bull; <strong>Commuter Rolltop 20L</strong>: Ransel tahan cuaca dengan proteksi laptop 16 inci.<br>' +
+                          '&bull; <strong>Classic Canvas Tote</strong>: Tote bag kanvas katun organik beraksen kulit nabati.<br>' +
+                          '&bull; <strong>Executive Leather Briefcase</strong>: Tas kerja mewah dari kulit vegan AppleSkin™.',
                     links: [
                         { label: 'Lihat Semua Terlaris', url: '{{ route('collections.show', 'best-sellers') }}' },
                         { label: 'Koleksi Terbaru', url: '{{ route('collections.show', 'new-arrivals') }}' }
@@ -253,35 +253,36 @@ function fifaChatbot() {
                 };
             }
 
-            // 2. Ukuran / Sizing / Size Guide
-            if (q.includes('ukuran') || q.includes('size') || q.includes('sempit') || q.includes('kebesaran') || q.includes('pas')) {
+            // 2. Kapasitas / Laptop / Ukuran
+            if (q.includes('ukuran') || q.includes('kapasitas') || q.includes('laptop') || q.includes('liter') || q.includes('muat') || q.includes('size')) {
                 return {
                     sender: 'bot',
-                    text: '<strong>Panduan Memilih Ukuran fifa:</strong><br><br>' +
-                          '&bull; Sebagian besar sepatu fifa berukuran standar (<em>True to Size</em>).<br>' +
-                          '&bull; Untuk kaki yang lebih lebar atau berada di antara dua ukuran, disarankan untuk <strong>naik 1 ukuran</strong> (misalnya dari 41.5 ke 42).<br>' +
-                          '&bull; Material wol Merino kami akan sedikit menyesuaikan dengan bentuk kaki Anda seiring pemakaian.',
+                    text: '<strong>Panduan Memilih Kapasitas Tas fifa:</strong><br><br>' +
+                          '&bull; <strong>Sling & Compact (4L - 8L)</strong>: Pas untuk iPad/tablet, dompet, kunci, dan smartphone.<br>' +
+                          '&bull; <strong>Daypack (18L) & Tote (16L)</strong>: Muat laptop 13-14 inci dan keperluan harian kerja.<br>' +
+                          '&bull; <strong>Commuter Rolltop (20L - 25L)</strong>: Kompartemen terisolasi khusus laptop 15-16 inci.<br>' +
+                          '&bull; <strong>Travel Duffle (35L)</strong>: Kapasitas pakaian 2-4 hari dengan sekat sepatu terpisah.',
                     links: [
-                        { label: 'Panduan Ukuran Lengkap', url: '{{ route('pages.show', 'size-guide') }}' }
+                        { label: 'Panduan Kapasitas Lengkap', url: '{{ route('pages.show', 'size-guide') }}' }
                     ]
                 };
             }
 
-            // 3. Material / Bahan Alami / Keberlanjutan
-            if (q.includes('material') || q.includes('bahan') || q.includes('alami') || q.includes('wol') || q.includes('pohon') || q.includes('eukaliptus') || q.includes('tebu') || q.includes('ramah lingkungan')) {
+            // 3. Material / Bahan Alami
+            if (q.includes('material') || q.includes('bahan') || q.includes('alami') || q.includes('kulit') || q.includes('kanvas') || q.includes('vegan') || q.includes('ramah lingkungan')) {
                 return {
                     sender: 'bot',
-                    text: 'fifa menggunakan material alami terbarukan untuk menggantikan bahan sintetis berbasis plastik:<br><br>' +
-                          '&bull; <strong>ZQ Merino Wool</strong>: Wol alami lembut, nyaman, dan tidak menimbulkan gatal.<br>' +
-                          '&bull; <strong>Tree Fiber (Eukaliptus)</strong>: Serat pohon sejuk bernapas dan halus.<br>' +
-                          '&bull; <strong>SweetFoam™</strong>: Sol empuk berbahan dasar tebu manis ramah lingkungan.',
+                    text: 'fifa menggunakan material ramah bumi berkualitas tinggi:<br><br>' +
+                          '&bull; <strong>Organic Cotton Canvas (GOTS)</strong>: Kanvas katun kuat dan bertekstur alami.<br>' +
+                          '&bull; <strong>Bio-based Vegan Leather</strong>: Kulit sintetis ramah lingkungan dari limbah apel dan kaktus.<br>' +
+                          '&bull; <strong>Recycled Ocean Polyester (RPET)</strong>: Dibuat dari limbah botol plastik daur ulang.',
                     links: [
                         { label: 'Keberlanjutan fifa', url: '{{ route('pages.show', 'sustainability') }}' }
                     ]
                 };
             }
 
-            // 4. Pengiriman / Ongkir / Estimasi
+            // 4. Pengiriman / Ongkir
             if (q.includes('ongkir') || q.includes('kirim') || q.includes('pengiriman') || q.includes('gratis') || q.includes('ekspedisi') || q.includes('resi')) {
                 return {
                     sender: 'bot',
@@ -289,7 +290,7 @@ function fifaChatbot() {
                           '&bull; <strong>Gratis Ongkir</strong> untuk setiap pesanan minimal <strong>Rp 500.000</strong> ke seluruh Indonesia.<br>' +
                           '&bull; Estimasi pengiriman pulau Jawa: 1-3 hari kerja.<br>' +
                           '&bull; Luar pulau Jawa: 3-5 hari kerja.<br>' +
-                          '&bull; Resi otomatis tercatat di akun setelah paket diproses.',
+                          '&bull; Resi pengiriman otomatis tercatat di akun Anda via Biteship.',
                     links: [
                         { label: 'Keranjang Belanja', url: '{{ route('cart.index') }}' },
                         { label: 'Status Pesanan', url: '{{ auth()->check() ? route('account.orders.index') : route('login') }}' }
@@ -297,12 +298,12 @@ function fifaChatbot() {
                 };
             }
 
-            // 5. Garansi / Retur / Pengembalian 30 Hari
-            if (q.includes('garansi') || q.includes('retur') || q.includes('kembali') || q.includes('tukar') || q.includes('30 hari') || q.includes('uji coba')) {
+            // 5. Garansi / Retur
+            if (q.includes('garansi') || q.includes('retur') || q.includes('kembali') || q.includes('tukar') || q.includes('30 hari') || q.includes('rusak')) {
                 return {
                     sender: 'bot',
                     text: '<strong>Garansi Uji Coba 30 Hari:</strong><br><br>' +
-                          'Nikmati garansi uji coba selama <strong>30 hari</strong>. Jika ukuran tidak sesuai atau kurang nyaman, Anda dapat mengajukan penukaran atau pengembalian dengan mudah.',
+                          'Setiap tas fifa dilindungi garansi uji coba selama <strong>30 hari</strong>. Jika produk tidak cocok atau ada kendala cacat produksi, Anda dapat mengajukan penukaran atau pengembalian dana 100%.',
                     links: [
                         { label: 'Kebijakan Garansi & Retur', url: '{{ route('pages.show', 'faq') }}' }
                     ]
@@ -313,9 +314,9 @@ function fifaChatbot() {
             if (q.includes('pria') || q.includes('men') || q.includes('cowok')) {
                 return {
                     sender: 'bot',
-                    text: 'Koleksi sepatu pria fifa mencakup sepatu lari (Tree Dasher), kasual wol (Wool Runner), serta model slip-on santai (Tree Lounger).',
+                    text: 'Koleksi tas pria fifa mencakup Ransel Rolltop 20L, Executive Leather Briefcase, Weekend Duffle 35L, dan Technical Sling Pack.',
                     links: [
-                        { label: 'Sepatu Pria', url: '{{ route('categories.men') }}' }
+                        { label: 'Tas Pria', url: '{{ route('categories.men') }}' }
                     ]
                 };
             }
@@ -324,34 +325,23 @@ function fifaChatbot() {
             if (q.includes('wanita') || q.includes('women') || q.includes('cewek')) {
                 return {
                     sender: 'bot',
-                    text: 'Koleksi sepatu wanita fifa dirancang ringan dan fleksibel dengan palet warna alami elegan: sepatu lari, sneakers wol, dan flat slip-on.',
+                    text: 'Koleksi tas wanita fifa dirancang anggun dengan material bio-leather dan kanvas: Classic Tote Bag, Crescent Hobo Shoulder Bag, dan Flap Crossbody.',
                     links: [
-                        { label: 'Sepatu Wanita', url: '{{ route('categories.women') }}' }
+                        { label: 'Tas Wanita', url: '{{ route('categories.women') }}' }
                     ]
                 };
             }
 
-            // 8. Lokasi Toko
-            if (q.includes('toko') || q.includes('outlet') || q.includes('store') || q.includes('lokasi') || q.includes('offline')) {
+            // 8. Perawatan Tas
+            if (q.includes('cuci') || q.includes('rawat') || q.includes('bersih') || q.includes('kotor')) {
                 return {
                     sender: 'bot',
-                    text: 'Kunjungi toko resmi fifa untuk mencoba langsung sepatu berbahan alami kami.',
+                    text: '<strong>Panduan Perawatan Tas fifa:</strong><br><br>' +
+                          '&bull; Bersihkan debu dengan sikat halus kering.<br>' +
+                          '&bull; Gunakan kain microfiber basah dengan sabun lembut untuk noda kanvas/kulit.<br>' +
+                          '&bull; Angin-anginkan di tempat teduh (jangan dimasukkan ke mesin pengering panas).',
                     links: [
-                        { label: 'Lokasi Toko fifa', url: '{{ route('stores.index') }}' }
-                    ]
-                };
-            }
-
-            // 9. Perawatan Sepatu
-            if (q.includes('cuci') || q.includes('rawat') || q.includes('bersih') || q.includes('laundry')) {
-                return {
-                    sender: 'bot',
-                    text: '<strong>Panduan Perawatan Sepatu:</strong><br><br>' +
-                          '&bull; Lepaskan tali dan insole sebelum mencuci.<br>' +
-                          '&bull; Dapat dicuci mesin (siklus lembut air dingin).<br>' +
-                          '&bull; Cukup angin-anginkan di tempat teduh (hindari pengering panas).',
-                    links: [
-                        { label: 'FAQ Perawatan', url: '{{ route('pages.show', 'faq') }}' }
+                        { label: 'Panduan Perawatan', url: '{{ route('pages.show', 'shoe-care') }}' }
                     ]
                 };
             }
@@ -359,10 +349,10 @@ function fifaChatbot() {
             // Fallback default
             return {
                 sender: 'bot',
-                text: 'Saya dapat membantu Anda seputar rekomendasi sepatu, panduan ukuran, bahan alami, info gratis ongkir, atau garansi 30 hari fifa. Silakan pilih topik di bawah atau ketik pertanyaan Anda.',
+                text: 'Saya dapat membantu Anda seputar rekomendasi tas, kapasitas laptop, info material ramah lingkungan, gratis ongkir, atau garansi 30 hari fifa. Silakan pilih topik di bawah atau ketik pertanyaan Anda.',
                 links: [
-                    { label: 'Sepatu Pria', url: '{{ route('categories.men') }}' },
-                    { label: 'Sepatu Wanita', url: '{{ route('categories.women') }}' },
+                    { label: 'Tas Pria', url: '{{ route('categories.men') }}' },
+                    { label: 'Tas Wanita', url: '{{ route('categories.women') }}' },
                     { label: 'FAQ', url: '{{ route('pages.show', 'faq') }}' }
                 ]
             };

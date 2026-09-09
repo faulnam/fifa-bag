@@ -16,7 +16,7 @@ class CollectionController extends Controller
         $collection = null;
         $category = null;
         $pageTitle = 'Semua Produk';
-        $pageDescription = 'Koleksi sepatu dan pakaian berbahan alami berkelanjutan dari fifa.';
+        $pageDescription = 'Koleksi tas, ransel, dan aksesoris berbahan ramah lingkungan dari fifa.';
 
         $query = Product::where('is_active', true)
             ->with(['category', 'images', 'variants' => fn ($q) => $q->where('is_active', true)]);
@@ -25,7 +25,7 @@ class CollectionController extends Controller
         if ($slug === 'men' || $slug === 'women') {
             $gender = $slug;
             $pageTitle = ucfirst($gender) . "'s Collection";
-            $pageDescription = "Koleksi sepatu dan pakaian nyaman ramah lingkungan untuk " . ($gender === 'men' ? 'Pria' : 'Wanita') . ".";
+            $pageDescription = "Koleksi tas dan ransel ramah lingkungan untuk " . ($gender === 'men' ? 'Pria' : 'Wanita') . ".";
             
             $categoryIds = Category::where('gender', $gender)->pluck('id');
             $query->whereIn('category_id', $categoryIds);

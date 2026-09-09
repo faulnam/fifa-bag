@@ -14,7 +14,7 @@
                 </div>
                 <h2 class="font-sans font-bold text-lg text-charcoal">Belum Ada Riwayat Pesanan</h2>
                 <p class="text-body-sm text-iron max-w-sm mx-auto">
-                    Anda belum melakukan pemesanan produk. Jelajahi koleksi sepatu ramah lingkungan fifa.
+                    Anda belum melakukan pemesanan produk. Jelajahi koleksi tas dan ransel ramah lingkungan fifa.
                 </p>
                 <div class="pt-2">
                     <a href="{{ route('home') }}" class="btn-pill-dark text-caption px-6 py-3">

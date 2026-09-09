@@ -11,7 +11,7 @@
             The fifa Journal
         </h1>
         <p class="text-body text-iron max-w-xl mx-auto mt-4 leading-relaxed">
-            Inspirasi desain sepatu, inovasi material wol dan pohon terbarukan, serta komitmen kami untuk jejak karbon nol.
+            Inspirasi desain tas ergonomis, inovasi material kanvas organik dan kulit vegan ramah lingkungan, serta komitmen kami untuk jejak karbon nol.
         </p>
     </div>
 </div>

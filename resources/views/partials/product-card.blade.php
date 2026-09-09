@@ -130,10 +130,10 @@
                  class="absolute inset-x-2 bottom-2 z-30 p-3 bg-canvas/98 backdrop-blur-md rounded-card border border-sand shadow-lg"
                  style="display: none;">
                 <div class="flex items-center justify-between mb-2">
-                    <span class="text-[10px] font-bold uppercase tracking-wide10 text-charcoal">Pilih Ukuran (EU)</span>
+                    <span class="text-[10px] font-bold uppercase tracking-wide10 text-charcoal">Pilih Ukuran / Tipe</span>
                     <button type="button" @click.stop="quickAddOpen = false" class="text-stone hover:text-charcoal text-[11px]">✕</button>
                 </div>
-                <div class="grid grid-cols-4 gap-1.5 max-h-32 overflow-y-auto">
+                <div class="grid grid-cols-2 gap-1.5 max-h-32 overflow-y-auto">
                     @foreach ($availableVariants as $v)
                         <button type="button" 
                                 @click.stop.prevent="$store.cart.addItem({{ $v->id }}, 1); quickAddOpen = false;"
@@ -173,7 +173,7 @@
 
         <!-- Category label -->
         <span class="text-caption text-iron line-clamp-1">
-            {{ $product->category->name ?? 'Sepatu fifa' }}
+            {{ $product->category->name ?? 'Tas fifa' }}
         </span>
 
         <!-- Price -->

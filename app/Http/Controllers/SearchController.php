@@ -20,7 +20,7 @@ class SearchController extends Controller
         $pageTitle = $q !== '' ? "Hasil Pencarian: \"{$q}\"" : 'Pencarian Produk';
         $pageDescription = $q !== '' 
             ? "Menampilkan produk yang cocok dengan kata kunci \"{$q}\"."
-            : 'Jelajahi berbagai pilihan sepatu dan pakaian ramah lingkungan fifa.';
+            : 'Jelajahi berbagai pilihan tas, ransel, dan aksesoris ramah lingkungan fifa.';
 
         $query = Product::where('is_active', true)
             ->with(['category', 'images', 'variants' => fn ($varQuery) => $varQuery->where('is_active', true)]);
@@ -113,11 +113,12 @@ class SearchController extends Controller
     }
 
     /**
-     * Instant live search API endpoint returning JSON suggestions.
+     * AJAX Live Search endpoint for header instant search.
      */
     public function live(Request $request): JsonResponse
     {
         $q = trim((string) $request->input('q', ''));
+
         if (strlen($q) < 2) {
             return response()->json([
                 'success' => true,
@@ -129,24 +130,24 @@ class SearchController extends Controller
         $products = Product::where('is_active', true)
             ->where(function ($sub) use ($q) {
                 $sub->where('name', 'like', "%{$q}%")
-                    ->orWhere('description', 'like', "%{$q}%")
+                    ->orWhere('short_description', 'like', "%{$q}%")
                     ->orWhereHas('category', fn ($cat) => $cat->where('name', 'like', "%{$q}%"))
                     ->orWhereHas('variants', fn ($var) => $var->where('color_name', 'like', "%{$q}%"));
             })
-            ->with(['category', 'images', 'variants'])
-            ->take(6)
+            ->with(['category', 'primaryImage', 'images'])
+            ->limit(6)
             ->get();
 
         $results = $products->map(function (Product $product) {
             $primaryImage = $product->primaryImage ?? $product->images->first();
-            $imageUrl = $primaryImage ? $primaryImage->url : asset('images/products/tree-runner-blue.png');
+            $imageUrl = $primaryImage ? $primaryImage->url : asset('images/products/commuter-backpack-navy.png');
 
             return [
                 'id' => $product->id,
                 'name' => $product->name,
                 'slug' => $product->slug,
                 'url' => route('products.show', $product->slug),
-                'category' => $product->category?->name ?? 'Shoes',
+                'category' => $product->category?->name ?? 'Bags',
                 'price_formatted' => 'Rp ' . number_format((float) $product->base_price, 0, ',', '.'),
                 'compare_at_price_formatted' => $product->compare_at_price ? 'Rp ' . number_format((float) $product->compare_at_price, 0, ',', '.') : null,
                 'image' => $imageUrl,

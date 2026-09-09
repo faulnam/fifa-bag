@@ -28,14 +28,14 @@
             </div>
             <h2 class="font-sans font-bold text-xl text-charcoal">Keranjang Anda Masih Kosong</h2>
             <p class="text-body-sm text-iron max-w-md mx-auto">
-                Belum ada produk yang ditambahkan. Jelajahi koleksi sepatu dan apparel ramah lingkungan kami.
+                Belum ada produk yang ditambahkan. Jelajahi koleksi tas, ransel, dan aksesoris ramah lingkungan kami.
             </p>
             <div class="pt-4 flex flex-wrap justify-center gap-4">
                 <a href="{{ route('categories.men') }}" class="btn-pill-dark px-8 py-3.5 text-body-sm font-bold tracking-wide10">
-                    Sepatu Pria
+                    Koleksi Pria
                 </a>
                 <a href="{{ route('categories.women') }}" class="btn-pill-light px-8 py-3.5 text-body-sm font-bold tracking-wide10">
-                    Sepatu Wanita
+                    Koleksi Wanita
                 </a>
             </div>
         </div>

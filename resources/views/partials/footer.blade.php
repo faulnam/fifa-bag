@@ -130,7 +130,7 @@
                     <div :class="openAccordion.help ? 'block' : 'hidden md:block'" class="space-y-2 pt-2 md:pt-0">
                         <a href="mailto:help@fifa.com" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">help@fifa.com</a>
                         <a href="{{ route('pages.show', 'faq') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">FAQ & Kontak Bantuan</a>
-                        <a href="{{ route('pages.show', 'shipping-returns') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Pengembalian & Penukaran</a>
+                        <a href="{{ route('pages.show', 'shipping-returns') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Pengembalian & Garansi</a>
                     </div>
                 </div>
 
@@ -145,10 +145,10 @@
                         </svg>
                     </button>
                     <div :class="openAccordion.shop ? 'block' : 'hidden md:block'" class="space-y-2 pt-2 md:pt-0">
-                        <a href="{{ route('categories.men') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Sepatu Pria</a>
-                        <a href="{{ route('categories.women') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Sepatu Wanita</a>
-                        <a href="{{ route('collections.show', 'men-tees-tops') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Pakaian Pria</a>
-                        <a href="{{ route('collections.show', 'women-tees-tops') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Pakaian Wanita</a>
+                        <a href="{{ route('categories.men') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Tas Pria</a>
+                        <a href="{{ route('categories.women') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Tas Wanita</a>
+                        <a href="{{ route('collections.show', 'men-backpacks') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Koleksi Ransel</a>
+                        <a href="{{ route('collections.show', 'women-tote-bags') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Tote & Shoulder Bag</a>
                     </div>
                 </div>
 
@@ -168,17 +168,13 @@
                             <div class="space-y-2">
                                 <a href="{{ route('pages.show', 'our-story') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Kisah Kami</a>
                                 <a href="{{ route('pages.show', 'sustainability') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Material Alami</a>
-                                <a href="{{ route('pages.show', 'materials-and-making') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Bahan & Pembuatan</a>
-                                <a href="{{ route('pages.show', 'shoe-care') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Perawatan Sepatu</a>
-                                <a href="{{ route('pages.show', 'press') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Pers & Media</a>
-                                <a href="{{ route('pages.show', 'responsible-disclosure') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5 leading-snug">Program Keterbukaan fifa</a>
-                                <a href="{{ route('pages.show', 'california-transparency') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Transparansi Rantai Pasok</a>
-                                <a href="{{ route('pages.show', 'community-offers') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Penawaran Komunitas</a>
+                                <a href="{{ route('pages.show', 'shoe-care') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Perawatan Tas</a>
+                                <a href="{{ route('pages.show', 'size-guide') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Panduan Kapasitas</a>
                             </div>
                             <!-- Right Sub-column -->
                             <div class="space-y-2 pt-2 sm:pt-0">
                                 <a href="{{ route('blog.index') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Blog & Jurnal</a>
-                                <a href="{{ route('pages.show', 'patents') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Paten & Inovasi</a>
+                                <a href="{{ route('stores.index') }}" class="block text-[12px] sm:text-[13px] text-[#cccccc] hover:text-white transition py-0.5">Lokasi Toko</a>
                             </div>
                         </div>
                     </div>
@@ -207,11 +203,9 @@
 
             <!-- Legal Links Right -->
             <div class="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-2">
-                <a href="{{ route('pages.show', 'refund-policy') }}" class="hover:text-white transition">Kebijakan Pengembalian Dana</a>
-                <a href="{{ route('pages.show', 'privacy-policy') }}" class="hover:text-white transition">Kebijakan Privasi</a>
-                <a href="{{ route('pages.show', 'terms-of-service') }}" class="hover:text-white transition">Syarat & Ketentuan</a>
-                <a href="{{ route('pages.show', 'do-not-sell') }}" class="hover:text-white transition">Jangan Jual Informasi Pribadi Saya</a>
-                <a href="{{ route('pages.show', 'california-transparency') }}" class="hover:text-white transition">Transparansi Rantai Pasok</a>
+                <a href="{{ route('pages.show', 'shipping-returns') }}" class="hover:text-white transition">Kebijakan Garansi & Retur</a>
+                <a href="{{ route('pages.show', 'faq') }}" class="hover:text-white transition">Pusat Bantuan</a>
+                <a href="{{ route('pages.show', 'our-story') }}" class="hover:text-white transition">Tentang fifa</a>
             </div>
         </div>
 

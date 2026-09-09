@@ -13,9 +13,9 @@
         searchLoading: false,
         mobileCategoryTab: 'men',
         mobileAccordion: {
-            menShoes: false,
+            menBags: false,
             menApparel: false,
-            womenShoes: false,
+            womenBags: false,
             womenApparel: false
         },
         async doLiveSearch() {
@@ -201,67 +201,67 @@
              class="hidden lg:block absolute left-0 right-0 top-2 bg-white rounded-2xl border border-sand shadow-2xl z-50 p-8">
             <div class="grid grid-cols-4 gap-8">
                 <div>
-                    <h3 class="nav-label font-bold text-charcoal border-b border-sand pb-2 mb-4">Sepatu</h3>
+                    <h3 class="nav-label font-bold text-charcoal border-b border-sand pb-2 mb-4">Tas Pria</h3>
                     <ul class="space-y-3">
-                        <li><a href="{{ route('collections.show', 'men-everyday-sneakers') }}" class="text-body-sm text-iron hover:text-charcoal transition">Sneaker Sehari-hari</a></li>
-                        <li><a href="{{ route('collections.show', 'men-running-shoes') }}" class="text-body-sm text-iron hover:text-charcoal transition">Sepatu Lari</a></li>
-                        <li><a href="{{ route('collections.show', 'men-slip-ons-loungers') }}" class="text-body-sm text-iron hover:text-charcoal transition">Slip-On & Santai</a></li>
-                        <li><a href="{{ route('collections.show', 'men-water-repellent-shoes') }}" class="text-body-sm text-iron hover:text-charcoal transition">Sepatu Tahan Air</a></li>
-                        <li><a href="{{ route('collections.show', 'men-hiking-trail-shoes') }}" class="text-body-sm text-iron hover:text-charcoal transition">Sepatu Hiking & Trail</a></li>
+                        <li><a href="{{ route('collections.show', 'men-backpacks') }}" class="text-body-sm text-iron hover:text-charcoal transition">Ransel & Backpack</a></li>
+                        <li><a href="{{ route('collections.show', 'men-briefcases') }}" class="text-body-sm text-iron hover:text-charcoal transition">Tas Kerja & Briefcase</a></li>
+                        <li><a href="{{ route('collections.show', 'men-sling-bags') }}" class="text-body-sm text-iron hover:text-charcoal transition">Tas Selempang & Sling</a></li>
+                        <li><a href="{{ route('collections.show', 'men-duffle-travel') }}" class="text-body-sm text-iron hover:text-charcoal transition">Duffle & Travel Bag</a></li>
+                        <li><a href="{{ route('collections.show', 'men-tote-bags') }}" class="text-body-sm text-iron hover:text-charcoal transition">Tote Bag Pria</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="nav-label font-bold text-charcoal border-b border-sand pb-2 mb-4">Pakaian & Aksesori</h3>
+                    <h3 class="nav-label font-bold text-charcoal border-b border-sand pb-2 mb-4">Aksesori & Dompet</h3>
                     <ul class="space-y-3">
-                        <li><a href="{{ route('collections.show', 'men-tees-tops') }}" class="text-body-sm text-iron hover:text-charcoal transition">Kaos & Atasan</a></li>
-                        <li><a href="{{ route('collections.show', 'men-sweats-hoodies') }}" class="text-body-sm text-iron hover:text-charcoal transition">Jaket & Hoodie</a></li>
-                        <li><a href="{{ route('collections.show', 'men-socks') }}" class="text-body-sm text-iron hover:text-charcoal transition">Kaos Kaki Wol Merino</a></li>
-                        <li><a href="{{ route('collections.show', 'bags-accessories') }}" class="text-body-sm text-iron hover:text-charcoal transition">Tas & Tote Bag</a></li>
+                        <li><a href="{{ route('collections.show', 'men-wallets') }}" class="text-body-sm text-iron hover:text-charcoal transition">Dompet & Cardholder</a></li>
+                        <li><a href="{{ route('collections.show', 'men-pouches') }}" class="text-body-sm text-iron hover:text-charcoal transition">Pouch & Tech Organizer</a></li>
+                        <li><a href="{{ route('collections.show', 'men-straps-accessories') }}" class="text-body-sm text-iron hover:text-charcoal transition">Tali & Aksesori Tas</a></li>
+                        <li><a href="{{ route('collections.show', 'urban-backpacks') }}" class="text-body-sm text-iron hover:text-charcoal transition">Koleksi Ransel Urban</a></li>
                     </ul>
                 </div>
 
-                <!-- Mega Menu Category Swatch Card 1: Men Tree Runner -->
-                <a href="{{ route('collections.show', 'tree-runners') }}" 
+                <!-- Mega Menu Category Swatch Card 1: Men Commuter Rolltop Backpack -->
+                <a href="{{ route('collections.show', 'men-backpacks') }}" 
                    class="group relative rounded-[20px] bg-[#8b9aa4]/15 hover:bg-[#8b9aa4]/25 p-5 flex flex-col justify-between overflow-hidden min-h-[220px] border border-[#8b9aa4]/30 transition duration-300">
                     <div class="z-10">
                         <span class="inline-block bg-white text-charcoal rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider shadow-2xs">
-                            Tree Runner Go
+                            Commuter Rolltop
                         </span>
-                        <p class="text-[12px] text-charcoal/80 font-medium mt-1.5 leading-snug">Serat eukaliptus sejuk & ringan untuk jalan seharian.</p>
+                        <p class="text-[12px] text-charcoal/80 font-medium mt-1.5 leading-snug">Ransel tahan air & kompartemen laptop 16 inci.</p>
                     </div>
                     
                     <!-- Product Image -->
                     <div class="my-auto py-1 flex items-center justify-center">
-                        <img src="{{ asset('images/products/tree-runner-blue.png') }}" 
-                             alt="Tree Runner Go" 
+                        <img src="{{ asset('images/products/commuter-backpack-navy.png') }}" 
+                             alt="Ransel Commuter Rolltop" 
                              class="h-24 w-auto object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300">
                     </div>
 
                     <span class="text-[11px] uppercase tracking-wider font-bold text-charcoal underline underline-offset-4 group-hover:opacity-80 transition inline-block">
-                        Beli Tree Runner Pria →
+                        Beli Ransel Pria →
                     </span>
                 </a>
 
-                <!-- Mega Menu Category Swatch Card 2: Men Wool Runner -->
-                <a href="{{ route('collections.show', 'wool-runners') }}" 
+                <!-- Mega Menu Category Swatch Card 2: Men Executive Briefcase -->
+                <a href="{{ route('collections.show', 'men-briefcases') }}" 
                    class="group relative rounded-[20px] bg-[#8a7466]/15 hover:bg-[#8a7466]/25 p-5 flex flex-col justify-between overflow-hidden min-h-[220px] border border-[#8a7466]/30 transition duration-300">
                     <div class="z-10">
                         <span class="inline-block bg-white text-charcoal rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider shadow-2xs">
-                            Wool Runner 2
+                            Executive Briefcase
                         </span>
-                        <p class="text-[12px] text-charcoal/80 font-medium mt-1.5 leading-snug">Kenyamanan wol merino ZQ super lembut.</p>
+                        <p class="text-[12px] text-charcoal/80 font-medium mt-1.5 leading-snug">Kemewahan kulit nabati bio-leather berkelas.</p>
                     </div>
 
                     <!-- Product Image -->
                     <div class="my-auto py-1 flex items-center justify-center">
-                        <img src="{{ asset('images/products/wool-runner-grey.png') }}" 
-                             alt="Wool Runner 2" 
+                        <img src="{{ asset('images/products/executive-briefcase-brown.png') }}" 
+                             alt="Executive Briefcase" 
                              class="h-24 w-auto object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300">
                     </div>
 
                     <span class="text-[11px] uppercase tracking-wider font-bold text-charcoal underline underline-offset-4 group-hover:opacity-80 transition inline-block">
-                        Beli Wool Runner Pria →
+                        Beli Tas Kerja Pria →
                     </span>
                 </a>
             </div>
@@ -280,66 +280,67 @@
              class="hidden lg:block absolute left-0 right-0 top-2 bg-white rounded-2xl border border-sand shadow-2xl z-50 p-8">
             <div class="grid grid-cols-4 gap-8">
                 <div>
-                    <h3 class="nav-label font-bold text-charcoal border-b border-sand pb-2 mb-4">Sepatu</h3>
+                    <h3 class="nav-label font-bold text-charcoal border-b border-sand pb-2 mb-4">Tas Wanita</h3>
                     <ul class="space-y-3">
-                        <li><a href="{{ route('collections.show', 'women-everyday-sneakers') }}" class="text-body-sm text-iron hover:text-charcoal transition">Sneaker Sehari-hari</a></li>
-                        <li><a href="{{ route('collections.show', 'women-running-shoes') }}" class="text-body-sm text-iron hover:text-charcoal transition">Sepatu Lari</a></li>
-                        <li><a href="{{ route('collections.show', 'women-flats-loungers') }}" class="text-body-sm text-iron hover:text-charcoal transition">Flat & Santai</a></li>
-                        <li><a href="{{ route('collections.show', 'women-water-repellent-shoes') }}" class="text-body-sm text-iron hover:text-charcoal transition">Sepatu Tahan Air</a></li>
-                        <li><a href="{{ route('collections.show', 'women-slip-ons') }}" class="text-body-sm text-iron hover:text-charcoal transition">Slip-On</a></li>
+                        <li><a href="{{ route('collections.show', 'women-tote-bags') }}" class="text-body-sm text-iron hover:text-charcoal transition">Tote Bag & Shopper</a></li>
+                        <li><a href="{{ route('collections.show', 'women-shoulder-bags') }}" class="text-body-sm text-iron hover:text-charcoal transition">Tas Bahu & Shoulder Bag</a></li>
+                        <li><a href="{{ route('collections.show', 'women-crossbody-bags') }}" class="text-body-sm text-iron hover:text-charcoal transition">Tas Selempang & Crossbody</a></li>
+                        <li><a href="{{ route('collections.show', 'women-handbags') }}" class="text-body-sm text-iron hover:text-charcoal transition">Handbag & Satchel</a></li>
+                        <li><a href="{{ route('collections.show', 'women-mini-backpacks') }}" class="text-body-sm text-iron hover:text-charcoal transition">Ransel Modis & Mini Backpack</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="nav-label font-bold text-charcoal border-b border-sand pb-2 mb-4">Pakaian & Aksesori</h3>
+                    <h3 class="nav-label font-bold text-charcoal border-b border-sand pb-2 mb-4">Aksesori & Dompet</h3>
                     <ul class="space-y-3">
-                        <li><a href="{{ route('collections.show', 'women-tees-tops') }}" class="text-body-sm text-iron hover:text-charcoal transition">Kaos & Atasan</a></li>
-                        <li><a href="{{ route('collections.show', 'women-socks') }}" class="text-body-sm text-iron hover:text-charcoal transition">Kaos Kaki Harian</a></li>
-                        <li><a href="{{ route('collections.show', 'women-bags-accessories') }}" class="text-body-sm text-iron hover:text-charcoal transition">Tas & Tote Bag</a></li>
+                        <li><a href="{{ route('collections.show', 'women-wallets') }}" class="text-body-sm text-iron hover:text-charcoal transition">Dompet & Clutches</a></li>
+                        <li><a href="{{ route('collections.show', 'women-pouches') }}" class="text-body-sm text-iron hover:text-charcoal transition">Pouch & Makeup Case</a></li>
+                        <li><a href="{{ route('collections.show', 'women-bag-charms') }}" class="text-body-sm text-iron hover:text-charcoal transition">Gantungan & Bag Charms</a></li>
+                        <li><a href="{{ route('collections.show', 'eco-canvas') }}" class="text-body-sm text-iron hover:text-charcoal transition">Koleksi Eco Canvas</a></li>
                     </ul>
                 </div>
 
-                <!-- Mega Menu Category Swatch Card 1: Women Tree Lounger -->
-                <a href="{{ route('collections.show', 'women-flats-loungers') }}" 
+                <!-- Mega Menu Category Swatch Card 1: Women Crescent Hobo -->
+                <a href="{{ route('collections.show', 'women-shoulder-bags') }}" 
                    class="group relative rounded-[20px] bg-[#c4a4a4]/20 hover:bg-[#c4a4a4]/30 p-5 flex flex-col justify-between overflow-hidden min-h-[220px] border border-[#c4a4a4]/35 transition duration-300">
                     <div class="z-10">
                         <span class="inline-block bg-white text-charcoal rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider shadow-2xs">
-                            Tree Lounger
+                            Crescent Hobo Bag
                         </span>
-                        <p class="text-[12px] text-charcoal/80 font-medium mt-1.5 leading-snug">Slip-on ringan dengan serat eukaliptus alami yang sejuk.</p>
+                        <p class="text-[12px] text-charcoal/80 font-medium mt-1.5 leading-snug">Siluet bulan sabit anggun dari kulit nabati apel.</p>
                     </div>
 
                     <!-- Product Image -->
                     <div class="my-auto py-1 flex items-center justify-center">
-                        <img src="{{ asset('images/products/tree-lounger-pink.png') }}" 
-                             alt="Tree Lounger" 
+                        <img src="{{ asset('images/products/crescent-shoulder-cream.png') }}" 
+                             alt="Crescent Hobo Bag" 
                              class="h-24 w-auto object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300">
                     </div>
 
                     <span class="text-[11px] uppercase tracking-wider font-bold text-charcoal underline underline-offset-4 group-hover:opacity-80 transition inline-block">
-                        Beli Lounger Wanita →
+                        Beli Tas Bahu Wanita →
                     </span>
                 </a>
 
-                <!-- Mega Menu Category Swatch Card 2: Women Tree Dasher -->
-                <a href="{{ route('collections.show', 'women-running-shoes') }}" 
+                <!-- Mega Menu Category Swatch Card 2: Women Flap Crossbody -->
+                <a href="{{ route('collections.show', 'women-crossbody-bags') }}" 
                    class="group relative rounded-[20px] bg-[#8a9a8c]/20 hover:bg-[#8a9a8c]/30 p-5 flex flex-col justify-between overflow-hidden min-h-[220px] border border-[#8a9a8c]/35 transition duration-300">
                     <div class="z-10">
                         <span class="inline-block bg-white text-charcoal rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider shadow-2xs">
-                            Tree Dasher 2
+                            Flap Crossbody Bag
                         </span>
-                        <p class="text-[12px] text-charcoal/80 font-medium mt-1.5 leading-snug">Bantalan alami responsif untuk pergerakan aktif setiap hari.</p>
+                        <p class="text-[12px] text-charcoal/80 font-medium mt-1.5 leading-snug">Warna pastel mewah untuk acara santai & semi-formal.</p>
                     </div>
 
                     <!-- Product Image -->
                     <div class="my-auto py-1 flex items-center justify-center">
-                        <img src="{{ asset('images/products/tree-dasher-sage.png') }}" 
-                             alt="Tree Dasher 2" 
+                        <img src="{{ asset('images/products/leather-crossbody-mauve.png') }}" 
+                             alt="Flap Crossbody Bag" 
                              class="h-24 w-auto object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300">
                     </div>
 
                     <span class="text-[11px] uppercase tracking-wider font-bold text-charcoal underline underline-offset-4 group-hover:opacity-80 transition inline-block">
-                        Beli Dasher Wanita →
+                        Beli Crossbody Wanita →
                     </span>
                 </a>
             </div>
@@ -362,15 +363,15 @@
                 <div>
                     <h3 class="nav-label font-bold text-charcoal border-b border-sand pb-2 mb-4">Diskon Berdasarkan Kategori</h3>
                     <ul class="space-y-3">
-                        <li><a href="{{ route('collections.show', 'men-sale') }}" class="text-body-sm text-iron hover:text-charcoal transition">Diskon Sepatu & Pakaian Pria</a></li>
-                        <li><a href="{{ route('collections.show', 'women-sale') }}" class="text-body-sm text-iron hover:text-charcoal transition">Diskon Sepatu & Pakaian Wanita</a></li>
+                        <li><a href="{{ route('collections.show', 'men-backpacks') }}" class="text-body-sm text-iron hover:text-charcoal transition">Diskon Tas Pria</a></li>
+                        <li><a href="{{ route('collections.show', 'women-crossbody-bags') }}" class="text-body-sm text-iron hover:text-charcoal transition">Diskon Tas Wanita</a></li>
                         <li><a href="{{ route('collections.sale') }}" class="text-body-sm text-iron hover:text-charcoal transition">Semua Produk Diskon</a></li>
                     </ul>
                 </div>
                 <div class="col-span-2 rounded-card bg-sand/30 p-6 flex flex-col justify-center border border-sand">
                     <span class="text-caption font-bold uppercase tracking-wide10 text-charcoal">Penawaran Waktu Terbatas</span>
-                    <h4 class="font-display text-heading-sm font-normal text-charcoal mt-1">Koleksi Favorit Pilihan Diskon Spesial</h4>
-                    <p class="text-body-sm text-iron mt-2">Dapatkan diskon hingga 40% untuk pilihan warna musiman berbahan wol alami dan serat pohon.</p>
+                    <h4 class="font-display text-heading-sm font-normal text-charcoal mt-1">Koleksi Tas Pilihan Diskon Spesial</h4>
+                    <p class="text-body-sm text-iron mt-2">Dapatkan penawaran menarik hingga 30% untuk pilihan tas ransel, tote, dan selempang ramah bumi.</p>
                     <div class="mt-4">
                         <a href="{{ route('collections.sale') }}" class="btn-pill-dark inline-block">
                             Belanja Semua Diskon
@@ -428,7 +429,7 @@
                     <svg class="w-4 h-4 text-stone flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
-                    <span class="text-charcoal/70">Cari produk fifa...</span>
+                    <span class="text-charcoal/70">Cari tas fifa...</span>
                 </button>
             </div>
 
@@ -456,39 +457,39 @@
 
             <!-- Mobile Tab Content: MEN -->
             <div x-show="mobileCategoryTab === 'men'" class="p-4 space-y-4">
-                <!-- Shoes Accordion -->
+                <!-- Bags Accordion -->
                 <div class="border-b border-sand pb-3">
                     <button type="button" 
-                            @click="mobileAccordion.menShoes = !mobileAccordion.menShoes" 
+                            @click="mobileAccordion.menBags = !mobileAccordion.menBags" 
                             class="w-full flex items-center justify-between py-2 text-body-sm font-semibold text-charcoal min-h-[44px]">
-                        <span>Sepatu</span>
-                        <svg class="w-4 h-4 transform transition-transform" :class="mobileAccordion.menShoes ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span>Tas Pria</span>
+                        <svg class="w-4 h-4 transform transition-transform" :class="mobileAccordion.menBags ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div x-show="mobileAccordion.menShoes" x-collapse class="pl-4 space-y-2.5 pt-2">
-                        <a href="{{ route('collections.show', 'men-everyday-sneakers') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Sneaker Sehari-hari</a>
-                        <a href="{{ route('collections.show', 'men-running-shoes') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Sepatu Lari</a>
-                        <a href="{{ route('collections.show', 'men-slip-ons-loungers') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Slip-On & Santai</a>
-                        <a href="{{ route('collections.show', 'men-water-repellent-shoes') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Sepatu Tahan Air</a>
-                        <a href="{{ route('collections.show', 'men-hiking-trail-shoes') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Sepatu Hiking & Trail</a>
+                    <div x-show="mobileAccordion.menBags" x-collapse class="pl-4 space-y-2.5 pt-2">
+                        <a href="{{ route('collections.show', 'men-backpacks') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Ransel & Backpack</a>
+                        <a href="{{ route('collections.show', 'men-briefcases') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Tas Kerja & Briefcase</a>
+                        <a href="{{ route('collections.show', 'men-sling-bags') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Tas Selempang & Sling</a>
+                        <a href="{{ route('collections.show', 'men-duffle-travel') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Duffle & Travel Bag</a>
+                        <a href="{{ route('collections.show', 'men-tote-bags') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Tote Bag Pria</a>
                     </div>
                 </div>
 
-                <!-- Apparel Accordion -->
+                <!-- Accessories Accordion -->
                 <div class="border-b border-sand pb-3">
                     <button type="button" 
                             @click="mobileAccordion.menApparel = !mobileAccordion.menApparel" 
                             class="w-full flex items-center justify-between py-2 text-body-sm font-semibold text-charcoal min-h-[44px]">
-                        <span>Pakaian & Kaos Kaki</span>
+                        <span>Aksesori & Dompet</span>
                         <svg class="w-4 h-4 transform transition-transform" :class="mobileAccordion.menApparel ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div x-show="mobileAccordion.menApparel" x-collapse class="pl-4 space-y-2.5 pt-2">
-                        <a href="{{ route('collections.show', 'men-tees-tops') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Kaos & Atasan</a>
-                        <a href="{{ route('collections.show', 'men-sweats-hoodies') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Jaket & Hoodie</a>
-                        <a href="{{ route('collections.show', 'men-socks') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Kaos Kaki Wol Merino</a>
+                        <a href="{{ route('collections.show', 'men-wallets') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Dompet & Cardholder</a>
+                        <a href="{{ route('collections.show', 'men-pouches') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Pouch & Tech Organizer</a>
+                        <a href="{{ route('collections.show', 'urban-backpacks') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Koleksi Ransel Urban</a>
                     </div>
                 </div>
 
@@ -499,38 +500,39 @@
 
             <!-- Mobile Tab Content: WOMEN -->
             <div x-show="mobileCategoryTab === 'women'" class="p-4 space-y-4">
-                <!-- Shoes Accordion -->
+                <!-- Bags Accordion -->
                 <div class="border-b border-sand pb-3">
                     <button type="button" 
-                            @click="mobileAccordion.womenShoes = !mobileAccordion.womenShoes" 
+                            @click="mobileAccordion.womenBags = !mobileAccordion.womenBags" 
                             class="w-full flex items-center justify-between py-2 text-body-sm font-semibold text-charcoal min-h-[44px]">
-                        <span>Sepatu</span>
-                        <svg class="w-4 h-4 transform transition-transform" :class="mobileAccordion.womenShoes ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span>Tas Wanita</span>
+                        <svg class="w-4 h-4 transform transition-transform" :class="mobileAccordion.womenBags ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div x-show="mobileAccordion.womenShoes" x-collapse class="pl-4 space-y-2.5 pt-2">
-                        <a href="{{ route('collections.show', 'women-everyday-sneakers') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Sneaker Sehari-hari</a>
-                        <a href="{{ route('collections.show', 'women-running-shoes') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Sepatu Lari</a>
-                        <a href="{{ route('collections.show', 'women-flats-loungers') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Flat & Santai</a>
-                        <a href="{{ route('collections.show', 'women-water-repellent-shoes') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Sepatu Tahan Air</a>
-                        <a href="{{ route('collections.show', 'women-slip-ons') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Slip-On</a>
+                    <div x-show="mobileAccordion.womenBags" x-collapse class="pl-4 space-y-2.5 pt-2">
+                        <a href="{{ route('collections.show', 'women-tote-bags') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Tote Bag & Shopper</a>
+                        <a href="{{ route('collections.show', 'women-shoulder-bags') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Tas Bahu & Shoulder Bag</a>
+                        <a href="{{ route('collections.show', 'women-crossbody-bags') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Tas Selempang & Crossbody</a>
+                        <a href="{{ route('collections.show', 'women-handbags') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Handbag & Satchel</a>
+                        <a href="{{ route('collections.show', 'women-mini-backpacks') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Ransel Modis & Mini Backpack</a>
                     </div>
                 </div>
 
-                <!-- Apparel Accordion -->
+                <!-- Accessories Accordion -->
                 <div class="border-b border-sand pb-3">
                     <button type="button" 
                             @click="mobileAccordion.womenApparel = !mobileAccordion.womenApparel" 
                             class="w-full flex items-center justify-between py-2 text-body-sm font-semibold text-charcoal min-h-[44px]">
-                        <span>Pakaian & Aksesori</span>
+                        <span>Aksesori & Dompet</span>
                         <svg class="w-4 h-4 transform transition-transform" :class="mobileAccordion.womenApparel ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div x-show="mobileAccordion.womenApparel" x-collapse class="pl-4 space-y-2.5 pt-2">
-                        <a href="{{ route('collections.show', 'women-tees-tops') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Kaos & Atasan</a>
-                        <a href="{{ route('collections.show', 'women-socks') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Kaos Kaki Harian</a>
+                        <a href="{{ route('collections.show', 'women-wallets') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Dompet & Clutches</a>
+                        <a href="{{ route('collections.show', 'women-pouches') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Pouch & Makeup Case</a>
+                        <a href="{{ route('collections.show', 'eco-canvas') }}" @click="mobileMenuOpen = false" class="block text-body-sm text-iron hover:text-charcoal py-1">Koleksi Eco Canvas</a>
                     </div>
                 </div>
 
@@ -541,8 +543,8 @@
 
             <!-- Mobile Tab Content: SALE -->
             <div x-show="mobileCategoryTab === 'sale'" class="p-4 space-y-3">
-                <a href="{{ route('collections.show', 'men-sale') }}" @click="mobileMenuOpen = false" class="block py-2.5 text-body-sm text-charcoal font-medium border-b border-sand">Diskon Pria</a>
-                <a href="{{ route('collections.show', 'women-sale') }}" @click="mobileMenuOpen = false" class="block py-2.5 text-body-sm text-charcoal font-medium border-b border-sand">Diskon Wanita</a>
+                <a href="{{ route('collections.show', 'men-backpacks') }}" @click="mobileMenuOpen = false" class="block py-2.5 text-body-sm text-charcoal font-medium border-b border-sand">Diskon Tas Pria</a>
+                <a href="{{ route('collections.show', 'women-crossbody-bags') }}" @click="mobileMenuOpen = false" class="block py-2.5 text-body-sm text-charcoal font-medium border-b border-sand">Diskon Tas Wanita</a>
                 <a href="{{ route('collections.sale') }}" @click="mobileMenuOpen = false" class="block py-2.5 text-body-sm font-bold text-charcoal">Semua Diskon →</a>
             </div>
         </div>
@@ -617,7 +619,7 @@
                            x-ref="searchInput"
                            x-model="searchQuery" 
                            @input.debounce.250ms="doLiveSearch()"
-                           placeholder="Cari produk fifa (contoh: Tree Runner, Wool, Dasher)..." 
+                           placeholder="Cari tas fifa (contoh: Rolltop, Briefcase, Tote Bag, Crossbody)..." 
                            class="w-full text-base sm:text-lg bg-transparent text-charcoal placeholder:text-stone/70 border-none outline-none focus:ring-0">
                     
                     <!-- Clear query button -->
@@ -653,7 +655,7 @@
                         Pencarian Populer
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        @foreach(['Tree Runner', 'Wool Runner', 'Tree Dasher', 'Tree Lounger', 'Mizzle', 'Pria', 'Wanita', 'Kaos Kaki', 'Tas Tote'] as $tag)
+                        @foreach(['Ransel Rolltop', 'Briefcase', 'Tote Bag', 'Sling Bag', 'Crescent Bag', 'Pria', 'Wanita', 'Kulit Nabati', 'Kanvas Organik', 'Travel Duffle'] as $tag)
                             <button type="button" 
                                     @click="selectTag('{{ $tag }}')"
                                     class="px-3.5 py-1.5 rounded-full bg-sand/30 hover:bg-sand text-charcoal text-body-sm font-medium transition cursor-pointer border border-sand/70">
@@ -718,7 +720,7 @@
                 <div x-show="!searchLoading && searchQuery.length >= 2 && searchResults.length === 0" 
                      class="py-8 text-center text-stone">
                     <p class="text-body-sm text-charcoal font-medium">Tidak ada produk yang cocok dengan "<span x-text="searchQuery"></span>".</p>
-                    <p class="text-caption text-iron mt-1">Coba gunakan kata kunci lain seperti <em>Tree Runner</em>, <em>Wool</em>, atau <em>Dasher</em>.</p>
+                    <p class="text-caption text-iron mt-1">Coba gunakan kata kunci lain seperti <em>Ransel</em>, <em>Briefcase</em>, atau <em>Tote Bag</em>.</p>
                 </div>
 
             </div>

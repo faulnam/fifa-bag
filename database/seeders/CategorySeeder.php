@@ -17,37 +17,37 @@ class CategorySeeder extends Seeder
                 'parent_id' => null,
                 'gender' => 'men',
                 'name' => 'Pria',
-                'description' => 'Sepatu dan pakaian pria yang nyaman untuk aktivitas harian dari bahan alami ramah lingkungan.',
+                'description' => 'Tas, ransel, dan aksesori pria ergonomis untuk aktivitas harian, kerja, dan bepergian berbahan ramah lingkungan.',
                 'order' => 1,
                 'is_active' => true,
             ]
         );
 
-        $menShoes = Category::updateOrCreate(
-            ['slug' => 'men-shoes'],
+        $menBags = Category::updateOrCreate(
+            ['slug' => 'men-bags'],
             [
                 'parent_id' => $men->id,
                 'gender' => 'men',
-                'name' => 'Sepatu',
-                'description' => 'Koleksi sepatu pria berbahan material alami',
+                'name' => 'Tas Pria',
+                'description' => 'Koleksi ransel, tas kerja, sling bag, dan travel bag pria berbahan material premium.',
                 'order' => 1,
                 'is_active' => true,
             ]
         );
 
-        $menShoeTypes = [
-            'Sneaker Sehari-hari' => 'men-everyday-sneakers',
-            'Sepatu Lari' => 'men-running-shoes',
-            'Slip-On & Santai' => 'men-slip-ons-loungers',
-            'Sepatu Tahan Air' => 'men-water-repellent-shoes',
-            'Sepatu Hiking & Trail' => 'men-hiking-trail-shoes',
+        $menBagTypes = [
+            'Ransel & Backpack' => 'men-backpacks',
+            'Tas Kerja & Briefcase' => 'men-briefcases',
+            'Tas Selempang & Sling' => 'men-sling-bags',
+            'Duffle & Travel Bag' => 'men-duffle-travel',
+            'Tote Bag Pria' => 'men-tote-bags',
         ];
 
-        foreach ($menShoeTypes as $name => $slug) {
+        foreach ($menBagTypes as $name => $slug) {
             Category::updateOrCreate(
                 ['slug' => $slug],
                 [
-                    'parent_id' => $menShoes->id,
+                    'parent_id' => $menBags->id,
                     'gender' => 'men',
                     'name' => $name,
                     'order' => 0,
@@ -56,23 +56,23 @@ class CategorySeeder extends Seeder
             );
         }
 
-        $menApparel = Category::updateOrCreate(
-            ['slug' => 'men-apparel'],
+        $menAccessories = Category::updateOrCreate(
+            ['slug' => 'men-accessories'],
             [
                 'parent_id' => $men->id,
                 'gender' => 'men',
-                'name' => 'Pakaian',
-                'description' => 'Pakaian ramah lingkungan dan kaos pria',
+                'name' => 'Aksesori & Dompet',
+                'description' => 'Dompet, cardholder, dan pouch organizer pria.',
                 'order' => 2,
                 'is_active' => true,
             ]
         );
 
-        foreach (['Kaos & Atasan' => 'men-tees-tops', 'Kaos Kaki' => 'men-socks', 'Jaket & Hoodie' => 'men-sweats-hoodies'] as $name => $slug) {
+        foreach (['Dompet & Cardholder' => 'men-wallets', 'Pouch & Organizer' => 'men-pouches', 'Tali & Aksesori Tas' => 'men-straps-accessories'] as $name => $slug) {
             Category::updateOrCreate(
                 ['slug' => $slug],
                 [
-                    'parent_id' => $menApparel->id,
+                    'parent_id' => $menAccessories->id,
                     'gender' => 'men',
                     'name' => $name,
                     'order' => 0,
@@ -88,37 +88,37 @@ class CategorySeeder extends Seeder
                 'parent_id' => null,
                 'gender' => 'women',
                 'name' => 'Wanita',
-                'description' => 'Sepatu dan pakaian wanita yang nyaman untuk aktivitas harian dari bahan alami ramah lingkungan.',
+                'description' => 'Tas, shoulder bag, dan aksesori wanita elegan untuk aktivitas harian dari bahan alami dan ramah lingkungan.',
                 'order' => 2,
                 'is_active' => true,
             ]
         );
 
-        $womenShoes = Category::updateOrCreate(
-            ['slug' => 'women-shoes'],
+        $womenBags = Category::updateOrCreate(
+            ['slug' => 'women-bags'],
             [
                 'parent_id' => $women->id,
                 'gender' => 'women',
-                'name' => 'Sepatu',
-                'description' => 'Koleksi sepatu wanita berbahan material alami',
+                'name' => 'Tas Wanita',
+                'description' => 'Koleksi tote bag, shoulder bag, crossbody, dan handbag wanita.',
                 'order' => 1,
                 'is_active' => true,
             ]
         );
 
-        $womenShoeTypes = [
-            'Sneaker Sehari-hari' => 'women-everyday-sneakers',
-            'Sepatu Lari' => 'women-running-shoes',
-            'Flat & Santai' => 'women-flats-loungers',
-            'Sepatu Tahan Air' => 'women-water-repellent-shoes',
-            'Slip-On' => 'women-slip-ons',
+        $womenBagTypes = [
+            'Tote Bag & Shopper' => 'women-tote-bags',
+            'Tas Bahu & Shoulder Bag' => 'women-shoulder-bags',
+            'Tas Selempang & Crossbody' => 'women-crossbody-bags',
+            'Handbag & Satchel' => 'women-handbags',
+            'Ransel Modis & Mini Backpack' => 'women-mini-backpacks',
         ];
 
-        foreach ($womenShoeTypes as $name => $slug) {
+        foreach ($womenBagTypes as $name => $slug) {
             Category::updateOrCreate(
                 ['slug' => $slug],
                 [
-                    'parent_id' => $womenShoes->id,
+                    'parent_id' => $womenBags->id,
                     'gender' => 'women',
                     'name' => $name,
                     'order' => 0,
@@ -127,23 +127,23 @@ class CategorySeeder extends Seeder
             );
         }
 
-        $womenApparel = Category::updateOrCreate(
-            ['slug' => 'women-apparel'],
+        $womenAccessories = Category::updateOrCreate(
+            ['slug' => 'women-accessories'],
             [
                 'parent_id' => $women->id,
                 'gender' => 'women',
-                'name' => 'Pakaian',
-                'description' => 'Pakaian wanita ramah lingkungan',
+                'name' => 'Aksesori & Dompet',
+                'description' => 'Dompet, clutch, dan pouch kosmetik wanita.',
                 'order' => 2,
                 'is_active' => true,
             ]
         );
 
-        foreach (['Kaos & Atasan' => 'women-tees-tops', 'Kaos Kaki' => 'women-socks', 'Tas & Aksesori' => 'women-bags-accessories'] as $name => $slug) {
+        foreach (['Dompet & Clutches' => 'women-wallets', 'Pouch & Makeup Case' => 'women-pouches', 'Gantungan & Bag Charms' => 'women-bag-charms'] as $name => $slug) {
             Category::updateOrCreate(
                 ['slug' => $slug],
                 [
-                    'parent_id' => $womenApparel->id,
+                    'parent_id' => $womenAccessories->id,
                     'gender' => 'women',
                     'name' => $name,
                     'order' => 0,
@@ -157,32 +157,38 @@ class CategorySeeder extends Seeder
             [
                 'title' => 'Produk Terbaru',
                 'slug' => 'new-arrivals',
-                'description' => 'Pilihan gaya terbaru dan warna musiman berbahan wol merino premium dan serat pohon eukaliptus.',
+                'description' => 'Koleksi tas dan ransel desain terkini dari material ramah lingkungan premium.',
                 'order' => 1,
             ],
             [
                 'title' => 'Produk Terlaris',
                 'slug' => 'best-sellers',
-                'description' => 'Koleksi sepatu paling favorit yang dirancang untuk kenyamanan tak tertandingi sepanjang hari.',
+                'description' => 'Koleksi tas paling favorit yang dirancang untuk daya tahan maksimal dan fungsionalitas harian.',
                 'order' => 2,
             ],
             [
                 'title' => 'Diskon Spesial',
                 'slug' => 'sale',
-                'description' => 'Penawaran harga spesial terbatas untuk koleksi produk berkelanjutan pilihan.',
+                'description' => 'Penawaran harga spesial terbatas untuk koleksi produk tas berkelanjutan pilihan.',
                 'order' => 3,
             ],
             [
-                'title' => 'Koleksi Tree Runners',
-                'slug' => 'tree-runners',
-                'description' => 'Sepatu ringan dan sejuk dari serat pohon eukaliptus alami terbarukan.',
+                'title' => 'Koleksi Ransel Urban',
+                'slug' => 'urban-backpacks',
+                'description' => 'Ransel ergonomis tahan cuaca dari material daur ulang untuk kerja dan traveling.',
                 'order' => 4,
             ],
             [
-                'title' => 'Koleksi Wool Runners',
-                'slug' => 'wool-runners',
-                'description' => 'Sneaker empuk, hangat, dan bernapas dari wol merino bersertifikat ZQ.',
+                'title' => 'Koleksi Eco Canvas',
+                'slug' => 'eco-canvas',
+                'description' => 'Tas kanvas katun organik tahan banting dengan aksen kulit nabati alami.',
                 'order' => 5,
+            ],
+            [
+                'title' => 'Koleksi Vegan Leather',
+                'slug' => 'leather-essentials',
+                'description' => 'Tas kulit sintetis nabati premium tanpa uji coba hewani dan bertekstur mewah.',
+                'order' => 6,
             ],
         ];
 

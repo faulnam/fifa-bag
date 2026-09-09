@@ -13,7 +13,7 @@ class SiteSettingSeeder extends Seeder
             ['key' => 'store_name', 'value' => 'fifa', 'group' => 'general'],
             ['key' => 'store_email', 'value' => 'help@fifa.test', 'group' => 'general'],
             ['key' => 'store_phone', 'value' => '0812-3456-7890', 'group' => 'general'],
-            ['key' => 'announcement_text', 'value' => 'Gratis ongkir untuk pesanan di atas Rp 500.000 | Garansi uji coba 30 hari untuk semua sepatu | 100% Bahan Alami & Ramah Lingkungan | Pengiriman cepat ke seluruh Indonesia', 'group' => 'general'],
+            ['key' => 'announcement_text', 'value' => 'Gratis ongkir untuk pesanan di atas Rp 500.000 | Garansi uji coba 30 hari untuk semua tas & ransel | 100% Bahan Alami & Ramah Lingkungan | Pengiriman cepat ke seluruh Indonesia', 'group' => 'general'],
             ['key' => 'free_shipping_threshold', 'value' => '500000', 'group' => 'shipping'],
             ['key' => 'origin_address', 'value' => 'Jl. Jenderal Sudirman Kav. 52-53, SCBD', 'group' => 'shipping'],
             ['key' => 'origin_postal_code', 'value' => '12190', 'group' => 'shipping'],

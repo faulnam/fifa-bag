@@ -1,5 +1,5 @@
 @php
-    $rawAnnouncements = \App\Models\SiteSetting::get('announcement_text', 'Gratis ongkir untuk pesanan di atas Rp 500.000 | Garansi uji coba 30 hari untuk semua sepatu | 100% Bahan Alami & Ramah Lingkungan | Pengiriman cepat ke seluruh Indonesia');
+    $rawAnnouncements = \App\Models\SiteSetting::get('announcement_text', 'Gratis ongkir untuk pesanan di atas Rp 500.000 | Garansi uji coba 30 hari untuk semua tas & ransel | 100% Bahan Alami & Ramah Lingkungan | Pengiriman cepat ke seluruh Indonesia');
     $messages = array_map('trim', explode('|', $rawAnnouncements));
 @endphp
 

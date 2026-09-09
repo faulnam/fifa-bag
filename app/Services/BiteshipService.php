@@ -103,8 +103,8 @@ class BiteshipService
             $totalWeight += ($weight * $qty);
 
             $formattedItems[] = [
-                'name' => (string) ($item['name'] ?? $item['product_name'] ?? 'Sepatu fifa'),
-                'description' => 'Footwear & Apparel',
+                'name' => (string) ($item['name'] ?? $item['product_name'] ?? 'Tas fifa'),
+                'description' => 'Bags & Accessories',
                 'value' => (int) $val,
                 'weight' => $weight,
                 'quantity' => $qty,
@@ -117,7 +117,7 @@ class BiteshipService
         if (empty($formattedItems)) {
             $formattedItems[] = [
                 'name' => 'Produk fifa',
-                'description' => 'Footwear',
+                'description' => 'Bags',
                 'value' => 500000,
                 'weight' => 800,
                 'quantity' => 1,

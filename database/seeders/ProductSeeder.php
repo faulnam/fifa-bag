@@ -17,586 +17,495 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         // 1. Fetch Categories
-        $menSneakers = Category::where('slug', 'men-everyday-sneakers')->first();
-        $menRunning = Category::where('slug', 'men-running-shoes')->first();
-        $menLoungers = Category::where('slug', 'men-slip-ons-loungers')->first();
-        $menMizzles = Category::where('slug', 'men-water-repellent-shoes')->first();
-        $menHiking = Category::where('slug', 'men-hiking-trail-shoes')->first();
-        $menTees = Category::where('slug', 'men-tees-tops')->first();
-        $menHoodies = Category::where('slug', 'men-sweats-hoodies')->first();
-        $menSocks = Category::where('slug', 'men-socks')->first();
-        $bags = Category::where('slug', 'bags-accessories')->first();
+        $menBackpacks = Category::where('slug', 'men-backpacks')->first();
+        $menBriefcases = Category::where('slug', 'men-briefcases')->first();
+        $menSling = Category::where('slug', 'men-sling-bags')->first();
+        $menDuffle = Category::where('slug', 'men-duffle-travel')->first();
+        $menTote = Category::where('slug', 'men-tote-bags')->first();
+        $menWallets = Category::where('slug', 'men-wallets')->first();
 
-        $womenSneakers = Category::where('slug', 'women-everyday-sneakers')->first();
-        $womenRunning = Category::where('slug', 'women-running-shoes')->first();
-        $womenFlats = Category::where('slug', 'women-flats-loungers')->first();
-        $womenSlipOns = Category::where('slug', 'women-slip-ons')->first();
-        $womenMizzles = Category::where('slug', 'women-water-repellent-shoes')->first();
-        $womenTees = Category::where('slug', 'women-tees-tops')->first();
-        $womenSocks = Category::where('slug', 'women-socks')->first();
+        $womenTote = Category::where('slug', 'women-tote-bags')->first();
+        $womenShoulder = Category::where('slug', 'women-shoulder-bags')->first();
+        $womenCrossbody = Category::where('slug', 'women-crossbody-bags')->first();
+        $womenHandbags = Category::where('slug', 'women-handbags')->first();
+        $womenMiniBackpacks = Category::where('slug', 'women-mini-backpacks')->first();
+        $womenWallets = Category::where('slug', 'women-wallets')->first();
 
         // 2. Fetch Collections
         $newArrivalsCol = Collection::where('slug', 'new-arrivals')->first();
         $bestSellersCol = Collection::where('slug', 'best-sellers')->first();
         $saleCol = Collection::where('slug', 'sale')->first();
-        $treeCol = Collection::where('slug', 'tree-runners')->first();
-        $woolCol = Collection::where('slug', 'wool-runners')->first();
+        $urbanCol = Collection::where('slug', 'urban-backpacks')->first();
+        $ecoCanvasCol = Collection::where('slug', 'eco-canvas')->first();
+        $leatherCol = Collection::where('slug', 'leather-essentials')->first();
 
         // 3. Products Master Dataset
         $productsData = [
             // ----------------------------------------------------
-            // MEN SHOES
+            // 1. MEN'S COMMUTER ROLLTOP BACKPACK 20L
             // ----------------------------------------------------
             [
-                'category_id' => $menSneakers?->id ?? 1,
-                'name' => "Sepatu Pria Tree Runner Go",
-                'slug' => 'mens-tree-runner-go',
-                'short_description' => 'Sepatu harian ringan dan sejuk berbahan serat pohon eucalyptus bersertifikasi FSC®.',
-                'description' => '<p>Dirancang untuk jalan santai harian, bepergian, dan aktivitas non-stop. Sepatu Pria Tree Runner Go dilengkapi upper serat pohon eucalyptus yang bernapas, midsole SweetFoam® dari tebu alami yang empuk, serta insole berbahan minyak biji jarak yang super lembut.</p><p>Sangat fleksibel, dapat dicuci dengan mesin cuci, dan dibuat dari 100% material alami terbarukan untuk kenyamanan optimal sepanjang hari.</p>',
-                'material_info' => 'Upper: Serat TENCEL™ Lyocell bersertifikasi FSC (pohon eucalyptus). Midsole: SweetFoam® berbahan tebu alami Brasil. Insole: Campuran minyak biji jarak dengan lapisan wol merino ZQ.',
-                'sustainability_note' => 'Jejak karbon: 4.87 kg CO2e. 100% netral karbon melalui inisiatif iklim terverifikasi.',
-                'base_price' => 1750000,
-                'compare_at_price' => 1950000,
+                'category_id' => $menBackpacks?->id ?? 1,
+                'name' => "Ransel Pria Commuter Rolltop 20L",
+                'slug' => 'mens-commuter-rolltop-backpack',
+                'short_description' => 'Ransel harian tahan air dengan kompartemen laptop 16 inci berbahan poliester daur ulang bersertifikasi GRS.',
+                'description' => '<p>Dirancang untuk profesional urban, pesepeda, dan petualang harian. Ransel Pria Commuter Rolltop dilengkapi penutup rolltop magnetik yang dapat disesuaikan kapasitasnya, kompartemen laptop 16 inci berbalut busa pelindung, serta saku samping untuk botol minum.</p><p>Dibuat dari kain kanvas tahan cuaca daur ulang dengan lapisan tahan air bebas PFC, menjadikannya pilihan tangguh nan ramah lingkungan.</p>',
+                'material_info' => 'Bahan Utama: 100% Recycled Ocean Plastic Polyester (RPET). Lapisan: Katun organik bersertifikasi GOTS. Ritsleting: YKK AquaGuard® tahan air. Gesper: Aluminium daur ulang.',
+                'sustainability_note' => 'Jejak karbon: 3.42 kg CO2e. Terbuat dari 24 botol plastik daur ulang yang diselamatkan dari lautan.',
+                'base_price' => 1450000,
+                'compare_at_price' => 1650000,
                 'is_active' => true,
                 'is_featured' => true,
-                'weight_grams' => 600,
-                'collections' => array_filter([$newArrivalsCol?->id, $bestSellersCol?->id, $treeCol?->id]),
+                'weight_grams' => 850,
+                'collections' => array_filter([$newArrivalsCol?->id, $bestSellersCol?->id, $urbanCol?->id]),
                 'variants' => [
                     [
-                        'color_name' => 'Mist Blue (Blizzard Sole)',
-                        'color_hex' => '#5c778a',
-                        'sizes' => ['39' => 8, '40' => 15, '41' => 12, '42' => 20, '43' => 6, '44' => 4],
-                    ],
-                    [
-                        'color_name' => 'Natural White (Blizzard Sole)',
-                        'color_hex' => '#ffffff',
-                        'sizes' => ['39' => 5, '40' => 10, '41' => 14, '42' => 18, '43' => 8, '44' => 3],
-                    ],
-                    [
-                        'color_name' => 'Forest Green',
-                        'color_hex' => '#4e6e58',
-                        'sizes' => ['40' => 6, '41' => 8, '42' => 12, '43' => 4],
-                    ],
-                ],
-                'images' => [
-                    ['url' => '/images/products/tree-runner-blue.png', 'order' => 1, 'is_primary' => true],
-                    ['url' => '/images/products/tree-runner-white.png', 'order' => 2, 'is_primary' => false],
-                    ['url' => '/images/products/tree-runner-forest.png', 'order' => 3, 'is_primary' => false],
-                ],
-            ],
-            [
-                'category_id' => $menRunning?->id ?? 1,
-                'name' => "Sepatu Lari Pria Tree Dasher 2",
-                'slug' => 'mens-tree-dasher-2',
-                'short_description' => 'Sepatu lari performa aktif dengan bantalan alami responsif dan daya cengkeram optimal.',
-                'description' => '<p>Tree Dasher 2 adalah sepatu lari dan latihan harian kami yang terbuat dari bahan alami. Dilengkapi kerah tumit yang diperbarui untuk penopang ekstra, bantalan sol karet alam anti-selip, serta SweetFoam® dengan pengembalian energi tinggi.</p>',
-                'material_info' => 'Upper satu rajutan tanpa sambungan dari serat eucalyptus bersertifikasi FSC. Midsole SweetFoam® dari tebu alami. Bantalan outsole karet alam bersertifikasi FSC.',
-                'sustainability_note' => 'Jejak karbon: 7.21 kg CO2e. Sepenuhnya netral karbon melalui program iklim tersertifikasi.',
-                'base_price' => 2150000,
-                'compare_at_price' => null,
-                'is_active' => true,
-                'is_featured' => true,
-                'weight_grams' => 700,
-                'collections' => array_filter([$newArrivalsCol?->id, $bestSellersCol?->id]),
-                'variants' => [
-                    [
-                        'color_name' => 'Sage Haze',
-                        'color_hex' => '#7d8d7e',
-                        'sizes' => ['39' => 6, '40' => 14, '41' => 10, '42' => 16, '43' => 8, '44' => 5],
-                    ],
-                    [
-                        'color_name' => 'Thunder Navy',
+                        'color_name' => 'Mist Navy (Blizzard Trim)',
                         'color_hex' => '#2b3a4a',
-                        'sizes' => ['40' => 8, '41' => 12, '42' => 15, '43' => 7, '44' => 2],
+                        'sizes' => ['20L (Reguler)' => 18, '25L (Large)' => 12],
                     ],
                     [
-                        'color_name' => 'Mineral Crimson',
-                        'color_hex' => '#9e4747',
-                        'sizes' => ['40' => 4, '41' => 6, '42' => 9, '43' => 3],
+                        'color_name' => 'Matte Black',
+                        'color_hex' => '#1f1f1f',
+                        'sizes' => ['20L (Reguler)' => 25, '25L (Large)' => 15],
+                    ],
+                    [
+                        'color_name' => 'Olive Moss',
+                        'color_hex' => '#4e5d48',
+                        'sizes' => ['20L (Reguler)' => 10, '25L (Large)' => 8],
                     ],
                 ],
                 'images' => [
-                    ['url' => '/images/products/tree-dasher-sage.png', 'order' => 1, 'is_primary' => true],
-                    ['url' => '/images/products/tree-dasher-navy.png', 'order' => 2, 'is_primary' => false],
-                    ['url' => '/images/products/tree-dasher-red.png', 'order' => 3, 'is_primary' => false],
+                    ['url' => '/images/products/commuter-backpack-navy.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/commuter-backpack-black.png', 'order' => 2, 'is_primary' => false],
+                    ['url' => '/images/products/commuter-backpack-olive.png', 'order' => 3, 'is_primary' => false],
                 ],
             ],
+
+            // ----------------------------------------------------
+            // 2. MEN'S EXECUTIVE LEATHER BRIEFCASE
+            // ----------------------------------------------------
             [
-                'category_id' => $menSneakers?->id ?? 1,
-                'name' => "Sepatu Pria Wool Runner 2",
-                'slug' => 'mens-wool-runner-2',
-                'short_description' => 'Ikon klasik terlahir kembali: lebih lembut, membal, dan dibuat dari wol merino ZQ alami.',
-                'description' => '<p>Sneaker wol revolusioner yang mengawali segalanya, kini disempurnakan dengan lebih dari 15 peningkatan. Upper wol merino yang nyaman mengatur suhu kaki secara alami dan tahan bau tanpa zat kimia sintetis.</p>',
-                'material_info' => 'Upper wol merino Selandia Baru bersertifikasi ZQ. Sol SweetFoam® berbasis tebu. Tali sepatu dari poliester botol daur ulang.',
-                'sustainability_note' => 'Jejak karbon: 5.42 kg CO2e. 100% material alami terbarukan.',
+                'category_id' => $menBriefcases?->id ?? 1,
+                'name' => "Tas Kerja Pria Executive Leather Briefcase",
+                'slug' => 'mens-executive-leather-briefcase',
+                'short_description' => 'Tas kerja ramping berkelas dengan kompartemen laptop busa protektif dari kulit vegan nabati premium.',
+                'description' => '<p>Sempurnakan penampilan profesional Anda dengan Executive Leather Briefcase. Menawarkan siluet terstruktur elegan, kantong dokumen ganda, slot pena & kartu nama, serta strap bahu ergonomis yang dapat dilepas pasang.</p><p>Material kulit nabati berbasis tumbuhan memberikan ketahanan luar biasa terhadap goresan tanpa merusak ekosistem hewan.</p>',
+                'material_info' => 'Bahan: Premium Vegan Bio-Leather (Cactus Leather). Lining: Microfiber daur ulang lembut. Hardware: Logam kuningan lapis satin anti-karat.',
+                'sustainability_note' => 'Jejak karbon: 2.85 kg CO2e. 100% bebas bahan hewani (PETA-Approved Vegan).',
                 'base_price' => 1850000,
                 'compare_at_price' => 2100000,
                 'is_active' => true,
                 'is_featured' => true,
-                'weight_grams' => 650,
-                'collections' => array_filter([$bestSellersCol?->id, $woolCol?->id, $saleCol?->id]),
+                'weight_grams' => 950,
+                'collections' => array_filter([$bestSellersCol?->id, $leatherCol?->id]),
                 'variants' => [
                     [
-                        'color_name' => 'Natural Grey (Cream Sole)',
-                        'color_hex' => '#888582',
-                        'sizes' => ['39' => 4, '40' => 12, '41' => 18, '42' => 22, '43' => 10, '44' => 6],
+                        'color_name' => 'Mocha Brown',
+                        'color_hex' => '#4d372c',
+                        'sizes' => ['Standard (15")' => 16, 'Slim (14")' => 10],
                     ],
                     [
-                        'color_name' => 'Natural Black (Dark Sole)',
-                        'color_hex' => '#222222',
-                        'sizes' => ['39' => 7, '40' => 15, '41' => 20, '42' => 25, '43' => 12, '44' => 8],
+                        'color_name' => 'Onyx Black',
+                        'color_hex' => '#1c1c1c',
+                        'sizes' => ['Standard (15")' => 20, 'Slim (14")' => 12],
                     ],
                 ],
                 'images' => [
-                    ['url' => '/images/products/wool-runner-grey.png', 'order' => 1, 'is_primary' => true],
-                    ['url' => '/images/products/wool-runner-black.png', 'order' => 2, 'is_primary' => false],
-                ],
-            ],
-            [
-                'category_id' => $menLoungers?->id ?? 1,
-                'name' => "Sepatu Pria Canvas Cruiser Slip On",
-                'slug' => 'mens-canvas-cruiser-slip-on',
-                'short_description' => 'Slip-on klasik yang mudah dipakai dari kanvas katun organik kuat dan tahan lama.',
-                'description' => '<p>Sepatu slip-on harian yang sangat fleksibel. Mudah dilepas dan dipakai, dilengkapi bantalan penyangga lengkung kaki serta kanvas sejuk yang semakin lembut setiap kali dipakai.</p>',
-                'material_info' => 'Upper 100% kanvas katun organik, sol luar karet alam, insole EVA daur ulang.',
-                'sustainability_note' => 'Jejak karbon: 4.10 kg CO2e.',
-                'base_price' => 1450000,
-                'compare_at_price' => null,
-                'is_active' => true,
-                'is_featured' => true,
-                'weight_grams' => 580,
-                'collections' => array_filter([$bestSellersCol?->id, $newArrivalsCol?->id]),
-                'variants' => [
-                    [
-                        'color_name' => 'Warm White',
-                        'color_hex' => '#ded7cd',
-                        'sizes' => ['39' => 5, '40' => 10, '41' => 15, '42' => 14, '43' => 8, '44' => 4],
-                    ],
-                    [
-                        'color_name' => 'Blizzard White',
-                        'color_hex' => '#ffffff',
-                        'sizes' => ['39' => 6, '40' => 11, '41' => 16, '42' => 19, '43' => 7, '44' => 3],
-                    ],
-                ],
-                'images' => [
-                    ['url' => '/images/products/canvas-cruiser-white.png', 'order' => 1, 'is_primary' => true],
-                    ['url' => '/images/products/cruiser-slipon-blizzard.png', 'order' => 2, 'is_primary' => false],
-                ],
-            ],
-            [
-                'category_id' => $menLoungers?->id ?? 1,
-                'name' => "Sepatu Pria Runner NZ Slip On",
-                'slug' => 'mens-runner-nz-slip-on',
-                'short_description' => 'Sneaker slip-on rajut bertekstur memadukan kenyamanan kaus kaki dengan bantalan harian.',
-                'description' => '<p>Langsung pakai dan melangkah. Runner NZ Slip On membalut kaki Anda dengan kerah rajut elastis yang pas dan sol tebu alami SweetFoam® untuk kenyamanan jalan tanpa tekanan.</p>',
-                'material_info' => 'Upper rajut ribbed berteknologi tinggi dari serat eucalyptus dan nilon daur ulang.',
-                'sustainability_note' => 'Jejak karbon: 4.60 kg CO2e.',
-                'base_price' => 1650000,
-                'compare_at_price' => 1850000,
-                'is_active' => true,
-                'is_featured' => true,
-                'weight_grams' => 600,
-                'collections' => array_filter([$bestSellersCol?->id, $newArrivalsCol?->id]),
-                'variants' => [
-                    [
-                        'color_name' => 'Mushroom Taupe',
-                        'color_hex' => '#b2a496',
-                        'sizes' => ['39' => 4, '40' => 9, '41' => 12, '42' => 16, '43' => 6, '44' => 2],
-                    ],
-                    [
-                        'color_name' => 'Anthracite Charcoal',
-                        'color_hex' => '#444240',
-                        'sizes' => ['39' => 7, '40' => 14, '41' => 18, '42' => 20, '43' => 9, '44' => 5],
-                    ],
-                    [
-                        'color_name' => 'Oatmeal Natural',
-                        'color_hex' => '#ded4c5',
-                        'sizes' => ['40' => 5, '41' => 8, '42' => 11, '43' => 4],
-                    ],
-                ],
-                'images' => [
-                    ['url' => '/images/products/runner-nz-mushroom.png', 'order' => 1, 'is_primary' => true],
-                    ['url' => '/images/products/runner-nz-anthracite.png', 'order' => 2, 'is_primary' => false],
-                    ['url' => '/images/products/runner-nz-oat.png', 'order' => 3, 'is_primary' => false],
-                ],
-            ],
-            [
-                'category_id' => $menMizzles?->id ?? 1,
-                'name' => "Sepatu Pria Wool Runner-up Mizzle",
-                'slug' => 'mens-wool-runner-up-mizzle',
-                'short_description' => 'Sneaker high-top tahan percikan air dari bahan wol merino ZQ pelindung genangan.',
-                'description' => '<p>Jaga kaki tetap kering dan hangat dalam kondisi cuaca apapun. Dilengkapi teknologi bio-based Puddle Guard® penangkal air dan sol tapak karet alam anti-selip di segala medan.</p>',
-                'material_info' => 'Upper wol merino ZQ dengan perlakuan ECO Puddle Guard®. Outsole karet alam bergerigi untuk segala cuaca.',
-                'sustainability_note' => 'Jejak karbon: 6.80 kg CO2e.',
-                'base_price' => 2350000,
-                'compare_at_price' => null,
-                'is_active' => true,
-                'is_featured' => false,
-                'weight_grams' => 750,
-                'collections' => array_filter([$woolCol?->id]),
-                'variants' => [
-                    [
-                        'color_name' => 'True Black (Black Sole)',
-                        'color_hex' => '#1f1f1f',
-                        'sizes' => ['40' => 8, '41' => 14, '42' => 16, '43' => 7, '44' => 3],
-                    ],
-                    [
-                        'color_name' => 'Dappled Grey',
-                        'color_hex' => '#6b6967',
-                        'sizes' => ['40' => 5, '41' => 9, '42' => 12, '43' => 6],
-                    ],
-                ],
-                'images' => [
-                    ['url' => '/images/products/wool-runner-black.png', 'order' => 1, 'is_primary' => true],
-                    ['url' => '/images/products/wool-runner-grey.png', 'order' => 2, 'is_primary' => false],
+                    ['url' => '/images/products/executive-briefcase-brown.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/executive-briefcase-black.png', 'order' => 2, 'is_primary' => false],
                 ],
             ],
 
             // ----------------------------------------------------
-            // WOMEN SHOES
+            // 3. MEN'S URBAN TECHNICAL SLING PACK
             // ----------------------------------------------------
             [
-                'category_id' => $womenFlats?->id ?? 1,
-                'name' => "Sepatu Wanita Tree Lounger",
-                'slug' => 'womens-tree-lounger',
-                'short_description' => 'Sepatu slip-on serat eucalyptus yang sejuk, praktis tanpa kaus kaki, dan empuk.',
-                'description' => '<p>Sepatu flat slip-on kasual terbaik untuk bepergian dan santai akhir pekan. Serat pohon eucalyptus yang selembut sutra menjaga kaki tetap sejuk dan segar sepanjang hari.</p>',
-                'material_info' => 'Upper serat eucalyptus bersertifikasi FSC, sol tebu SweetFoam®, insole berlapisan wol merino lembut.',
-                'sustainability_note' => 'Jejak karbon: 3.90 kg CO2e.',
-                'base_price' => 1550000,
-                'compare_at_price' => 1750000,
+                'category_id' => $menSling?->id ?? 1,
+                'name' => "Tas Selempang Pria Urban Technical Sling",
+                'slug' => 'mens-urban-sling-pack',
+                'short_description' => 'Sling bag ringkas multifungsi berfitur weatherproof untuk mobilitas aktif harian dan gadget penting.',
+                'description' => '<p>Sling bag minimalis modern yang siap menemani rutinitas kota Anda. Muat untuk tablet hingga 11 inci, dompet, kunci, dan powerbank dengan sistem strap quick-release Fidlock® magnetik yang praktis.</p>',
+                'material_info' => 'Material: Cordura® EcoMade Fabric tahan gesek. Gesper magnet: Quick-release Fidlock®. Ritsleting anti-maling terlindung.',
+                'sustainability_note' => 'Jejak karbon: 1.65 kg CO2e. Bebas emisi karbon 100% melalui offset iklim tersertifikasi.',
+                'base_price' => 890000,
+                'compare_at_price' => 990000,
                 'is_active' => true,
                 'is_featured' => true,
-                'weight_grams' => 450,
-                'collections' => array_filter([$bestSellersCol?->id, $newArrivalsCol?->id, $treeCol?->id]),
-                'variants' => [
-                    [
-                        'color_name' => 'Dusty Mauve',
-                        'color_hex' => '#9d7370',
-                        'sizes' => ['36' => 6, '37' => 14, '38' => 18, '39' => 20, '40' => 12, '41' => 4],
-                    ],
-                    [
-                        'color_name' => 'Warm Terracotta',
-                        'color_hex' => '#b87358',
-                        'sizes' => ['36' => 4, '37' => 10, '38' => 15, '39' => 16, '40' => 8, '41' => 2],
-                    ],
-                ],
-                'images' => [
-                    ['url' => '/images/products/tree-lounger-pink.png', 'order' => 1, 'is_primary' => true],
-                    ['url' => '/images/products/tree-lounger-terracotta.png', 'order' => 2, 'is_primary' => false],
-                ],
-            ],
-            [
-                'category_id' => $womenRunning?->id ?? 1,
-                'name' => "Sepatu Lari Wanita Tree Dasher 2",
-                'slug' => 'womens-tree-dasher-2',
-                'short_description' => 'Sepatu lari performa tinggi dirancang dengan serat alami bernapas yang sejuk.',
-                'description' => '<p>Dibuat untuk lari pagi, olahraga 5K, dan rutinitas aktif di perkotaan. Dilengkapi upper anatomis tanpa jahitan, bantalan tumit empuk, dan midsole SweetFoam® alami untuk daya pantul maksimal.</p>',
-                'material_info' => 'Upper rajut serat pohon eucalyptus, midsole SweetFoam® berbahan tebu, outsole karet alam FSC.',
-                'sustainability_note' => 'Jejak karbon: 6.90 kg CO2e.',
-                'base_price' => 2150000,
-                'compare_at_price' => null,
-                'is_active' => true,
-                'is_featured' => true,
-                'weight_grams' => 620,
+                'weight_grams' => 420,
                 'collections' => array_filter([$newArrivalsCol?->id, $bestSellersCol?->id]),
                 'variants' => [
                     [
-                        'color_name' => 'Sage Frost',
-                        'color_hex' => '#7d8d7e',
-                        'sizes' => ['36' => 5, '37' => 12, '38' => 20, '39' => 18, '40' => 10, '41' => 3],
+                        'color_name' => 'Matte Black',
+                        'color_hex' => '#1a1a1a',
+                        'sizes' => ['One Size (6L)' => 28],
                     ],
                     [
-                        'color_name' => 'Ocean Navy',
-                        'color_hex' => '#324a5e',
-                        'sizes' => ['36' => 4, '37' => 9, '38' => 14, '39' => 15, '40' => 7],
+                        'color_name' => 'Urban Grey',
+                        'color_hex' => '#6e6e6e',
+                        'sizes' => ['One Size (6L)' => 15],
+                    ],
+                    [
+                        'color_name' => 'Olive Green',
+                        'color_hex' => '#4a5445',
+                        'sizes' => ['One Size (6L)' => 12],
                     ],
                 ],
                 'images' => [
-                    ['url' => '/images/products/tree-dasher-sage.png', 'order' => 1, 'is_primary' => true],
-                    ['url' => '/images/products/tree-dasher-navy.png', 'order' => 2, 'is_primary' => false],
-                ],
-            ],
-            [
-                'category_id' => $womenSneakers?->id ?? 1,
-                'name' => "Sepatu Wanita Tree Runner Go",
-                'slug' => 'womens-tree-runner-go',
-                'short_description' => 'Sepatu jalan santai ringan harian dengan serat pohon eucalyptus yang sejuk bernapas.',
-                'description' => '<p>Sepatu andalan untuk segala aktivitas. Empuk, selembut awan, dapat dicuci dengan mesin, dan dibuat secara berkelanjutan untuk kenyamanan kerja hingga akhir pekan.</p>',
-                'material_info' => 'Serat eucalyptus FSC, midsole tebu alami SweetFoam®.',
-                'sustainability_note' => 'Jejak karbon: 4.40 kg CO2e.',
-                'base_price' => 1750000,
-                'compare_at_price' => 1950000,
-                'is_active' => true,
-                'is_featured' => true,
-                'weight_grams' => 540,
-                'collections' => array_filter([$bestSellersCol?->id, $treeCol?->id]),
-                'variants' => [
-                    [
-                        'color_name' => 'Sky Blue (White Sole)',
-                        'color_hex' => '#5c778a',
-                        'sizes' => ['36' => 8, '37' => 16, '38' => 22, '39' => 20, '40' => 14, '41' => 6],
-                    ],
-                    [
-                        'color_name' => 'Pure Blizzard White',
-                        'color_hex' => '#ffffff',
-                        'sizes' => ['36' => 6, '37' => 12, '38' => 19, '39' => 18, '40' => 10, '41' => 4],
-                    ],
-                ],
-                'images' => [
-                    ['url' => '/images/products/tree-runner-blue.png', 'order' => 1, 'is_primary' => true],
-                    ['url' => '/images/products/tree-runner-white.png', 'order' => 2, 'is_primary' => false],
-                ],
-            ],
-            [
-                'category_id' => $womenSlipOns?->id ?? 1,
-                'name' => "Sepatu Wanita Canvas Cruiser Slip On",
-                'slug' => 'womens-canvas-cruiser-slip-on',
-                'short_description' => 'Slip-on kanvas katun organik bersih dan minimalis dengan bantalan penopang kaki.',
-                'description' => '<p>Siluet slip-on klasik yang tampil modern dengan 100% kanvas katun organik, nyaman dipakai langsung tanpa masa penyesuaian. Kasual, bersih, dan membal.</p>',
-                'material_info' => 'Upper 100% kanvas katun organik, insole SweetFoam®.',
-                'sustainability_note' => 'Jejak karbon: 3.85 kg CO2e.',
-                'base_price' => 1450000,
-                'compare_at_price' => null,
-                'is_active' => true,
-                'is_featured' => true,
-                'weight_grams' => 520,
-                'collections' => array_filter([$bestSellersCol?->id, $newArrivalsCol?->id]),
-                'variants' => [
-                    [
-                        'color_name' => 'Warm White',
-                        'color_hex' => '#ded7cd',
-                        'sizes' => ['36' => 6, '37' => 14, '38' => 20, '39' => 18, '40' => 12, '41' => 5],
-                    ],
-                ],
-                'images' => [
-                    ['url' => '/images/products/canvas-cruiser-white.png', 'order' => 1, 'is_primary' => true],
-                ],
-            ],
-            [
-                'category_id' => $womenSlipOns?->id ?? 1,
-                'name' => "Sepatu Wanita Cruiser Slip On",
-                'slug' => 'womens-cruiser-slip-on',
-                'short_description' => 'Sneaker slip-on rajut tanpa jahitan untuk kemudahan pemakaian dan kenyamanan ringan.',
-                'description' => '<p>Siluet slip-on abadi dalam balutan warna putih Blizzard. Ringan, lentur, dan siap menemani langkah Anda ke mana pun hari membawa.</p>',
-                'material_info' => 'Upper rajut engineered dengan sol tebu SweetFoam®.',
-                'sustainability_note' => 'Jejak karbon: 4.15 kg CO2e.',
-                'base_price' => 1650000,
-                'compare_at_price' => null,
-                'is_active' => true,
-                'is_featured' => true,
-                'weight_grams' => 530,
-                'collections' => array_filter([$bestSellersCol?->id, $newArrivalsCol?->id]),
-                'variants' => [
-                    [
-                        'color_name' => 'Blizzard White',
-                        'color_hex' => '#ffffff',
-                        'sizes' => ['36' => 5, '37' => 12, '38' => 18, '39' => 16, '40' => 9, '41' => 3],
-                    ],
-                ],
-                'images' => [
-                    ['url' => '/images/products/cruiser-slipon-blizzard.png', 'order' => 1, 'is_primary' => true],
-                ],
-            ],
-            [
-                'category_id' => $womenSlipOns?->id ?? 1,
-                'name' => "Sepatu Wanita Runner NZ Slip On",
-                'slug' => 'womens-runner-nz-slip-on',
-                'short_description' => 'Sneaker slip-on rajut bergaris dengan peredam kejut benturan premium.',
-                'description' => '<p>Rasakan sensasi berjalan di atas awan dengan Runner NZ Slip On. Kerah rajut elastis yang fleksibel pas seperti kulit kedua sementara SweetFoam® meredam getaran langkah dengan mudah.</p>',
-                'material_info' => 'Upper rajut bergaris dari serat pohon eucalyptus FSC.',
-                'sustainability_note' => 'Jejak karbon: 4.50 kg CO2e.',
-                'base_price' => 1750000,
-                'compare_at_price' => null,
-                'is_active' => true,
-                'is_featured' => true,
-                'weight_grams' => 560,
-                'collections' => array_filter([$bestSellersCol?->id, $newArrivalsCol?->id]),
-                'variants' => [
-                    [
-                        'color_name' => 'Mushroom Taupe',
-                        'color_hex' => '#b2a496',
-                        'sizes' => ['36' => 7, '37' => 15, '38' => 20, '39' => 18, '40' => 11, '41' => 4],
-                    ],
-                    [
-                        'color_name' => 'Anthracite Charcoal',
-                        'color_hex' => '#444240',
-                        'sizes' => ['36' => 6, '37' => 12, '38' => 17, '39' => 15, '40' => 10, '41' => 3],
-                    ],
-                ],
-                'images' => [
-                    ['url' => '/images/products/runner-nz-mushroom.png', 'order' => 1, 'is_primary' => true],
-                    ['url' => '/images/products/runner-nz-anthracite.png', 'order' => 2, 'is_primary' => false],
+                    ['url' => '/images/products/urban-sling-black.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/urban-sling-grey.png', 'order' => 2, 'is_primary' => false],
+                    ['url' => '/images/products/urban-sling-olive.png', 'order' => 3, 'is_primary' => false],
                 ],
             ],
 
             // ----------------------------------------------------
-            // APPAREL & ACCESSORIES
+            // 4. MEN'S WEEKEND TRAVEL DUFFLE 35L
             // ----------------------------------------------------
             [
-                'category_id' => $menTees?->id ?? 1,
-                'name' => "Kaos Pria Sea Tee Classic",
-                'slug' => 'mens-sea-tee-classic',
-                'short_description' => 'Kaos harian lembut dan sejuk dari perpaduan katun organik dan serat alami cangkang kepiting.',
-                'description' => '<p>Kenalkan kaos alami paling inovatif di dunia. Dipadukan dengan Kitosan (serat terbarukan dari cangkang kepiting) dan katun Pima Peru organik agar tetap segar lebih lama secara alami.</p>',
-                'material_info' => '65% Katun Pima Peru Organik, 35% SeaCell™ Lyocell dengan Kitosan.',
-                'sustainability_note' => 'Jejak karbon: 6.30 kg CO2e. 100% alami dan bebas mikroplastik.',
-                'base_price' => 650000,
-                'compare_at_price' => 750000,
+                'category_id' => $menDuffle?->id ?? 1,
+                'name' => "Tas Travel Pria Weekend Duffle 35L",
+                'slug' => 'mens-weekend-travel-duffle',
+                'short_description' => 'Duffle bag kapasitas luas dengan kompartemen sepatu terpisah dan strap empuk ergonomis.',
+                'description' => '<p>Teman bepergian akhir pekan dan sesi gym yang sempurna. Dilengkapi kantong sepatu berventilasi khusus, saku paspor tersembunyi, serta pegangan kulit kokoh yang nyaman di genggaman.</p>',
+                'material_info' => 'Bahan: Kanvas daur ulang tahan cuaca dengan aksen kulit nabati. Kompartemen sepatu: Lapisan antibakteri tahan air.',
+                'sustainability_note' => 'Jejak karbon: 4.10 kg CO2e. Dirancang awet dan bergaransi servis seumur hidup.',
+                'base_price' => 1690000,
+                'compare_at_price' => 1890000,
                 'is_active' => true,
-                'is_featured' => false,
-                'weight_grams' => 250,
-                'collections' => array_filter([$newArrivalsCol?->id, $saleCol?->id]),
+                'is_featured' => true,
+                'weight_grams' => 1100,
+                'collections' => array_filter([$bestSellersCol?->id, $saleCol?->id]),
                 'variants' => [
                     [
-                        'color_name' => 'Natural White',
-                        'color_hex' => '#ffffff',
-                        'sizes' => ['S' => 10, 'M' => 20, 'L' => 25, 'XL' => 15],
+                        'color_name' => 'Charcoal Black',
+                        'color_hex' => '#282828',
+                        'sizes' => ['35L (Weekend)' => 20, '45L (Overnight)' => 10],
                     ],
                     [
-                        'color_name' => 'Classic Charcoal',
-                        'color_hex' => '#2b2b2b',
-                        'sizes' => ['S' => 8, 'M' => 18, 'L' => 20, 'XL' => 12],
+                        'color_name' => 'Navy Slate',
+                        'color_hex' => '#2d3b4e',
+                        'sizes' => ['35L (Weekend)' => 14, '45L (Overnight)' => 8],
+                    ],
+                    [
+                        'color_name' => 'Olive Moss',
+                        'color_hex' => '#485242',
+                        'sizes' => ['35L (Weekend)' => 12],
                     ],
                 ],
                 'images' => [
-                    ['url' => '/images/products/wool-runner-black.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/travel-duffle-black.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/travel-duffle-navy.png', 'order' => 2, 'is_primary' => false],
+                    ['url' => '/images/products/travel-duffle-olive.png', 'order' => 3, 'is_primary' => false],
                 ],
             ],
+
+            // ----------------------------------------------------
+            // 5. MEN'S SAGE CANVAS DAYPACK 18L
+            // ----------------------------------------------------
             [
-                'category_id' => $menSocks?->id ?? 1,
-                'name' => "Kaos Kaki Trino™ Tubers Crew",
-                'slug' => 'trino-tubers-crew-socks',
-                'short_description' => 'Kaos kaki crew harian yang bernapas dari perpaduan serat pohon eucalyptus dan wol merino.',
-                'description' => '<p>Kaos kaki ternyaman di dunia. Dirancang dengan benang Trino™ eksklusif kami yang memadukan serat pohon eucalyptus sejuk dan wol merino ZQ lembut.</p>',
-                'material_info' => '50% TENCEL™ Lyocell, 35% Wol Merino ZQ, 12% Nilon Daur Ulang, 3% Spandex.',
-                'sustainability_note' => 'Jejak karbon: 1.20 kg CO2e.',
-                'base_price' => 250000,
+                'category_id' => $menBackpacks?->id ?? 1,
+                'name' => "Ransel Pria Sage Canvas Daypack 18L",
+                'slug' => 'mens-sage-commuter-daypack',
+                'short_description' => 'Ransel kanvas organik berstruktur kokoh dan sejuk di punggung untuk aktivitas santai maupun kerja.',
+                'description' => '<p>Daypack serbaguna dengan bantalan punggung berpori sejuk dan kompartemen laptop 15 inci. Desain minimalis tak lekang oleh waktu yang cocok dipadukan dengan berbagai gaya pakaian.</p>',
+                'material_info' => 'Bahan Utama: 100% Organic Heavyweight Duck Canvas 16oz. Tali bahu: Busa bio SweetFoam® ramah bumi.',
+                'sustainability_note' => 'Jejak karbon: 2.70 kg CO2e. Menggunakan pewarna alami bebas racun (non-toxic vegetable dye).',
+                'base_price' => 1350000,
                 'compare_at_price' => null,
                 'is_active' => true,
-                'is_featured' => false,
-                'weight_grams' => 100,
-                'collections' => array_filter([$bestSellersCol?->id]),
+                'is_featured' => true,
+                'weight_grams' => 780,
+                'collections' => array_filter([$newArrivalsCol?->id, $bestSellersCol?->id, $urbanCol?->id]),
                 'variants' => [
                     [
-                        'color_name' => 'Heather Grey',
-                        'color_hex' => '#888582',
-                        'sizes' => ['S/M' => 30, 'L/XL' => 40],
+                        'color_name' => 'Sage Green',
+                        'color_hex' => '#7d8d7e',
+                        'sizes' => ['18L (Standard)' => 24],
                     ],
                     [
-                        'color_name' => 'Natural Black',
-                        'color_hex' => '#212121',
-                        'sizes' => ['S/M' => 25, 'L/XL' => 35],
+                        'color_name' => 'Charcoal Grey',
+                        'color_hex' => '#3d3d3d',
+                        'sizes' => ['18L (Standard)' => 16],
                     ],
                 ],
                 'images' => [
-                    ['url' => '/images/products/wool-runner-grey.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/sage-daypack-green.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/sage-daypack-charcoal.png', 'order' => 2, 'is_primary' => false],
                 ],
             ],
+
+            // ----------------------------------------------------
+            // 6. MEN'S UTILITY ORGANIC CANVAS TOTE
+            // ----------------------------------------------------
             [
-                'category_id' => $bags?->id ?? 1,
-                'name' => "Tas fifa Anytime Tote Bag",
-                'slug' => 'fifa-anytime-tote-bag',
-                'short_description' => 'Tote bag kanvas katun organik kokoh untuk belanja, pantai, dan perjalanan harian.',
-                'description' => '<p>Kapasitas lapang, tali bahu diperkuat, dan kantong internal untuk barang esensial Anda. Dibuat dari 100% kanvas katun organik tebal untuk menggantikan plastik sekali pakai selamanya.</p>',
-                'material_info' => '100% Kanvas Katun Organik Tebal (14oz).',
-                'sustainability_note' => 'Jejak karbon: 2.10 kg CO2e.',
-                'base_price' => 450000,
-                'compare_at_price' => 550000,
+                'category_id' => $menTote?->id ?? 1,
+                'name' => "Tote Bag Pria Utility Organic Canvas",
+                'slug' => 'mens-heavyweight-canvas-tote',
+                'short_description' => 'Tote bag kanvas tebal dengan saku botol air internal dan resleting YKK kuat.',
+                'description' => '<p>Tote bag pria berkapasitas lega yang dirancang tangguh untuk membawa laptop, buku, botol minum, dan perlengkapan harian dengan rapi dan terorganisir.</p>',
+                'material_info' => 'Bahan: Heavy Cotton Canvas 18oz Organik & Leather Handle.',
+                'sustainability_note' => 'Jejak karbon: 1.80 kg CO2e.',
+                'base_price' => 950000,
+                'compare_at_price' => 1150000,
                 'is_active' => true,
                 'is_featured' => false,
-                'weight_grams' => 350,
-                'collections' => array_filter([$newArrivalsCol?->id]),
+                'weight_grams' => 600,
+                'collections' => array_filter([$ecoCanvasCol?->id, $bestSellersCol?->id]),
                 'variants' => [
                     [
-                        'color_name' => 'Natural Canvas',
-                        'color_hex' => '#e8e2d5',
-                        'sizes' => ['One Size' => 50],
+                        'color_name' => 'Sand Cream',
+                        'color_hex' => '#e5dec5',
+                        'sizes' => ['One Size' => 20],
+                    ],
+                    [
+                        'color_name' => 'Washed Black',
+                        'color_hex' => '#2a2a2a',
+                        'sizes' => ['One Size' => 18],
                     ],
                 ],
                 'images' => [
-                    ['url' => '/images/products/canvas-cruiser-white.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/canvas-tote-cream.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/canvas-tote-black.png', 'order' => 2, 'is_primary' => false],
+                ],
+            ],
+
+            // ----------------------------------------------------
+            // 7. WOMEN'S CLASSIC CANVAS & LEATHER TOTE
+            // ----------------------------------------------------
+            [
+                'category_id' => $womenTote?->id ?? 2,
+                'name' => "Tote Bag Wanita Classic Canvas & Leather",
+                'slug' => 'womens-classic-canvas-tote',
+                'short_description' => 'Tote bag feminin elegan berpadu kanvas katun organik dan aksen tali kulit nabati murni.',
+                'description' => '<p>Tas jinjing esensial untuk wanita modern. Memiliki proporsi sempurna untuk membawa laptop 14 inci, tablet, pouch kosmetik, dan kebutuhan harian dengan kenyamanan maksimal.</p>',
+                'material_info' => 'Bahan: 100% GOTS Certified Organic Cotton Canvas. Tali: Vegetable-tanned leather Italia.',
+                'sustainability_note' => 'Jejak karbon: 2.10 kg CO2e. 100% biodegradable and eco-friendly.',
+                'base_price' => 1190000,
+                'compare_at_price' => 1390000,
+                'is_active' => true,
+                'is_featured' => true,
+                'weight_grams' => 650,
+                'collections' => array_filter([$newArrivalsCol?->id, $bestSellersCol?->id, $ecoCanvasCol?->id]),
+                'variants' => [
+                    [
+                        'color_name' => 'Warm Cream',
+                        'color_hex' => '#f0ece1',
+                        'sizes' => ['One Size (16L)' => 30],
+                    ],
+                    [
+                        'color_name' => 'Terracotta Rust',
+                        'color_hex' => '#a65846',
+                        'sizes' => ['One Size (16L)' => 15],
+                    ],
+                    [
+                        'color_name' => 'Midnight Black',
+                        'color_hex' => '#1f1f1f',
+                        'sizes' => ['One Size (16L)' => 20],
+                    ],
+                ],
+                'images' => [
+                    ['url' => '/images/products/canvas-tote-cream.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/canvas-tote-terracotta.png', 'order' => 2, 'is_primary' => false],
+                    ['url' => '/images/products/canvas-tote-black.png', 'order' => 3, 'is_primary' => false],
+                ],
+            ],
+
+            // ----------------------------------------------------
+            // 8. WOMEN'S CRESCENT SHOULDER HOBO BAG
+            // ----------------------------------------------------
+            [
+                'category_id' => $womenShoulder?->id ?? 2,
+                'name' => "Tas Bahu Wanita Crescent Hobo Bag",
+                'slug' => 'womens-crescent-shoulder-bag',
+                'short_description' => 'Bentuk bulan sabit ikonik yang anggun, dibuat dari kulit sintetis apel (apple leather) ramah lingkungan.',
+                'description' => '<p>Tas bahu berestetika tinggi yang memeluk bahu Anda dengan pas. Dibuat dari AppleSkin™ — inovasi material nabati dari limbah industri apel yang lentur, tahan air, dan bertekstur mewah.</p>',
+                'material_info' => 'Bahan: AppleSkin™ (Bio-based vegan leather dari kulit apel). Hardware: Gold-tone satin finish.',
+                'sustainability_note' => 'Jejak karbon: 1.95 kg CO2e. Mengurangi limbah pertanian buah apel secara signifikan.',
+                'base_price' => 1590000,
+                'compare_at_price' => null,
+                'is_active' => true,
+                'is_featured' => true,
+                'weight_grams' => 490,
+                'collections' => array_filter([$newArrivalsCol?->id, $bestSellersCol?->id, $leatherCol?->id]),
+                'variants' => [
+                    [
+                        'color_name' => 'Oat Cream',
+                        'color_hex' => '#ede7dc',
+                        'sizes' => ['Medium' => 24, 'Mini' => 12],
+                    ],
+                    [
+                        'color_name' => 'Warm Brown',
+                        'color_hex' => '#6e4a35',
+                        'sizes' => ['Medium' => 18, 'Mini' => 8],
+                    ],
+                    [
+                        'color_name' => 'Noir Black',
+                        'color_hex' => '#1a1a1a',
+                        'sizes' => ['Medium' => 20],
+                    ],
+                ],
+                'images' => [
+                    ['url' => '/images/products/crescent-shoulder-cream.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/crescent-shoulder-brown.png', 'order' => 2, 'is_primary' => false],
+                    ['url' => '/images/products/crescent-shoulder-black.png', 'order' => 3, 'is_primary' => false],
+                ],
+            ],
+
+            // ----------------------------------------------------
+            // 9. WOMEN'S FLAP CROSSBODY BAG
+            // ----------------------------------------------------
+            [
+                'category_id' => $womenCrossbody?->id ?? 2,
+                'name' => "Tas Selempang Wanita Flap Crossbody Bag",
+                'slug' => 'womens-soft-mauve-crossbody',
+                'short_description' => 'Tas selempang elegan warna pastel beraksen emas dengan kompartemen ganda terorganisir.',
+                'description' => '<p>Pilihan tas selempang serbaguna untuk brunch santai, kencan makan malam, hingga jalan-jalan liburan. Tali bahu dapat disesuaikan panjangnya untuk model sling maupun shoulder bag.</p>',
+                'material_info' => 'Bahan: Ultra-soft Vegan Nappa Leather. Lining: Poliester satin daur ulang.',
+                'sustainability_note' => 'Jejak karbon: 1.82 kg CO2e.',
+                'base_price' => 1490000,
+                'compare_at_price' => 1690000,
+                'is_active' => true,
+                'is_featured' => true,
+                'weight_grams' => 520,
+                'collections' => array_filter([$bestSellersCol?->id, $leatherCol?->id, $saleCol?->id]),
+                'variants' => [
+                    [
+                        'color_name' => 'Blush Mauve',
+                        'color_hex' => '#9d7370',
+                        'sizes' => ['Compact' => 22],
+                    ],
+                    [
+                        'color_name' => 'Honey Tan',
+                        'color_hex' => '#b28659',
+                        'sizes' => ['Compact' => 18],
+                    ],
+                    [
+                        'color_name' => 'Pitch Black',
+                        'color_hex' => '#1c1c1c',
+                        'sizes' => ['Compact' => 14],
+                    ],
+                ],
+                'images' => [
+                    ['url' => '/images/products/leather-crossbody-mauve.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/leather-crossbody-tan.png', 'order' => 2, 'is_primary' => false],
+                    ['url' => '/images/products/leather-crossbody-black.png', 'order' => 3, 'is_primary' => false],
+                ],
+            ],
+
+            // ----------------------------------------------------
+            // 10. WOMEN'S MINI URBAN BACKPACK
+            // ----------------------------------------------------
+            [
+                'category_id' => $womenMiniBackpacks?->id ?? 2,
+                'name' => "Ransel Wanita Mini Urban Backpack",
+                'slug' => 'womens-petite-leather-backpack',
+                'short_description' => 'Ransel modis nan praktis berbahan kulit nabati tahan cipratan air untuk outfit harian casual-chic.',
+                'description' => '<p>Kombinasi sempurna antara kepraktisan backpack dan keanggunan tas fashion. Dilengkapi saku belakang anti-pencurian untuk smartphone dan dompet berharga Anda.</p>',
+                'material_info' => 'Bahan: Vegan Smooth Leather tahan gores dengan resleting logam halus.',
+                'sustainability_note' => 'Jejak karbon: 2.20 kg CO2e.',
+                'base_price' => 1390000,
+                'compare_at_price' => 1550000,
+                'is_active' => true,
+                'is_featured' => true,
+                'weight_grams' => 600,
+                'collections' => array_filter([$newArrivalsCol?->id, $urbanCol?->id]),
+                'variants' => [
+                    [
+                        'color_name' => 'Blush Mauve',
+                        'color_hex' => '#9d7370',
+                        'sizes' => ['Mini (10L)' => 18],
+                    ],
+                    [
+                        'color_name' => 'Midnight Black',
+                        'color_hex' => '#212121',
+                        'sizes' => ['Mini (10L)' => 22],
+                    ],
+                ],
+                'images' => [
+                    ['url' => '/images/products/leather-crossbody-mauve.png', 'order' => 1, 'is_primary' => true],
+                    ['url' => '/images/products/commuter-backpack-black.png', 'order' => 2, 'is_primary' => false],
                 ],
             ],
         ];
 
-        // 4. Seed Products, Variants, Images & Reviews
+        // 4. Insert Products, Variants, Images & Reviews
         foreach ($productsData as $data) {
-            $product = Product::updateOrCreate(
-                ['slug' => $data['slug']],
-                [
-                    'category_id' => $data['category_id'],
-                    'name' => $data['name'],
-                    'short_description' => $data['short_description'],
-                    'description' => $data['description'],
-                    'material_info' => $data['material_info'],
-                    'sustainability_note' => $data['sustainability_note'],
-                    'base_price' => $data['base_price'],
-                    'compare_at_price' => $data['compare_at_price'],
-                    'is_active' => $data['is_active'],
-                    'is_featured' => $data['is_featured'],
-                    'weight_grams' => $data['weight_grams'],
-                ]
-            );
+            $collections = $data['collections'] ?? [];
+            $variants = $data['variants'] ?? [];
+            $images = $data['images'] ?? [];
+            unset($data['collections'], $data['variants'], $data['images']);
 
-            // Sync collections
-            if (!empty($data['collections'])) {
-                $product->collections()->sync($data['collections']);
+            $product = Product::updateOrCreate(['slug' => $data['slug']], $data);
+
+            // Sync Collections
+            if (!empty($collections)) {
+                $product->collections()->sync($collections);
             }
 
             // Sync Images
             $product->images()->delete();
-            foreach ($data['images'] as $img) {
+            foreach ($images as $img) {
                 ProductImage::create([
                     'product_id' => $product->id,
+                    'variant_id' => null,
                     'image_path' => $img['url'],
-                    'order' => $img['order'],
                     'is_primary' => $img['is_primary'],
+                    'order' => $img['order'],
                 ]);
             }
 
             // Sync Variants
             $product->variants()->delete();
-            $varIndex = 1;
-            foreach ($data['variants'] as $varGroup) {
-                foreach ($varGroup['sizes'] as $size => $stock) {
-                    $sku = 'FIF-' . str_pad($product->id, 3, '0', STR_PAD_LEFT) . '-' . strtoupper(substr(Str::slug($varGroup['color_name']), 0, 4)) . '-' . $size . '-' . $varIndex;
+            foreach ($variants as $v) {
+                foreach ($v['sizes'] as $size => $stock) {
                     ProductVariant::create([
                         'product_id' => $product->id,
-                        'sku' => $sku,
-                        'color_name' => $varGroup['color_name'],
-                        'color_hex' => $varGroup['color_hex'],
+                        'sku' => strtoupper(Str::slug($product->name . '-' . $v['color_name'] . '-' . $size)),
+                        'color_name' => $v['color_name'],
+                        'color_hex' => $v['color_hex'],
                         'size' => (string) $size,
-                        'stock' => (int) $stock,
+                        'stock' => $stock,
                         'price_override' => null,
                         'is_active' => true,
                     ]);
-                    $varIndex++;
                 }
             }
 
-            // Seed Sample Verified Reviews for each product
-            $user = User::first();
-            if ($user && $product->reviews()->count() === 0) {
-                Review::create([
-                    'product_id' => $product->id,
-                    'user_id' => $user->id,
-                    'rating' => 5,
-                    'title' => 'Sepatu paling nyaman yang pernah saya pakai!',
-                    'comment' => 'Materialnya sangat sejuk di kaki dan solnya empuk luar biasa. Dipakai jalan seharian tidak membuat pegal sama sekali.',
-                    'is_approved' => true,
-                ]);
-                Review::create([
-                    'product_id' => $product->id,
-                    'user_id' => $user->id,
-                    'rating' => 5,
-                    'title' => 'Sangat berkualitas dan ramah lingkungan',
-                    'comment' => 'Desainnya clean, minimalis, dan sangat cocok dipadukan dengan celana apapun. Worth every penny!',
-                    'is_approved' => true,
-                ]);
+            // Dummy Reviews
+            if ($product->reviews()->count() === 0) {
+                $reviews = [
+                    [
+                        'rating' => 5,
+                        'title' => 'Tas terbaik yang pernah saya miliki!',
+                        'comment' => 'Kualitas jahitan sangat rapi, bahannya tebal tapi ringan saat dipakai seharian. Kompartemen laptopnya juga sangat empuk.',
+                        'is_approved' => true,
+                    ],
+                    [
+                        'rating' => 5,
+                        'title' => 'Sangat fungsional dan estetik',
+                        'comment' => 'Modelnya minimalis dan ramah lingkungan. Cocok sekali untuk kuliah dan kerja harian.',
+                        'is_approved' => true,
+                    ],
+                    [
+                        'rating' => 4,
+                        'title' => 'Bahan premium dan tahan air',
+                        'comment' => 'Pernah kena gerimis dan bagian dalam tetap kering sempurna. Pengiriman biteship juga sangat cepat!',
+                        'is_approved' => true,
+                    ],
+                ];
+
+                $user = User::first();
+                foreach ($reviews as $rev) {
+                    Review::create([
+                        'product_id' => $product->id,
+                        'user_id' => $user?->id ?? 1,
+                        'rating' => $rev['rating'],
+                        'title' => $rev['title'],
+                        'comment' => $rev['comment'],
+                        'is_approved' => $rev['is_approved'],
+                    ]);
+                }
             }
         }
-
-        echo "ProductSeeder completed: " . count($productsData) . " rich products with transparent PNGs and variants seeded.\n";
     }
 }
