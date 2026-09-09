@@ -114,14 +114,14 @@
             @endif
         </a>
 
-        <!-- Quick Add Trigger Button (Solid Dark Pill - Appears on Hover on Desktop Only) -->
+        <!-- Quick Add Trigger Button (Solid Cream Pill - Appears on Hover on Desktop Only) -->
         @if ($availableVariants->isNotEmpty())
             <div x-show="!quickAddOpen"
                  class="quick-add-wrap absolute inset-x-0 bottom-3.5 z-20 hidden lg:flex justify-center px-4"
                  :class="isHovered ? 'quick-add-visible' : ''">
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = true"
-                        class="w-full max-w-[210px] py-2.5 sm:py-3 px-5 text-center text-[11px] sm:text-[12px] font-extrabold uppercase tracking-wider rounded-full shadow-lg bg-[#212121] hover:bg-black text-white transition duration-150 flex items-center justify-center cursor-pointer select-none active:scale-95">
+                        class="w-full max-w-[210px] py-2.5 sm:py-3 px-5 text-center text-[11px] sm:text-[12px] font-extrabold uppercase tracking-wider rounded-full shadow-md bg-[#f5f4f0] hover:bg-[#e8e5dc] text-[#212121] border border-[#dedad0] hover:border-[#cfc9bd] transition duration-150 flex items-center justify-center cursor-pointer select-none active:scale-95">
                     <span>+ TAMBAH CEPAT</span>
                 </button>
             </div>
@@ -150,7 +150,7 @@
                         <button type="button" 
                                 @click.stop.prevent="$store.cart.addItem({{ $v->id }}, 1); quickAddOpen = false;"
                                 {{ $v->stock_quantity <= 0 ? 'disabled' : '' }}
-                                class="py-2 sm:py-2.5 px-1 text-center text-xs sm:text-[13px] font-bold rounded-lg sm:rounded-xl border transition min-h-[38px] flex items-center justify-center cursor-pointer select-none {{ $v->stock_quantity <= 0 ? 'bg-stone-50 text-stone-300 border-stone-100 line-through cursor-not-allowed opacity-50' : 'bg-white text-charcoal border-stone-200 hover:border-charcoal hover:bg-charcoal hover:text-white shadow-2xs active:scale-95' }}"
+                                class="py-2 sm:py-2.5 px-1 text-center text-xs sm:text-[13px] font-bold rounded-lg sm:rounded-xl border transition min-h-[38px] flex items-center justify-center cursor-pointer select-none {{ $v->stock_quantity <= 0 ? 'bg-stone-50 text-stone-300 border-stone-100 line-through cursor-not-allowed opacity-50' : 'bg-[#f5f4f0] text-[#212121] border-[#dedad0] hover:border-[#212121] hover:bg-[#212121] hover:text-white shadow-2xs active:scale-95' }}"
                                 title="{{ $v->stock_quantity <= 0 ? 'Stok Habis' : 'Pilih ' . $v->size . ' (Stok: ' . $v->stock_quantity . ')' }}">
                             {{ $v->size }}
                         </button>
@@ -205,7 +205,7 @@
             <div class="pt-2 lg:hidden">
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = !quickAddOpen"
-                        class="w-full py-2.5 px-4 rounded-full text-[11px] font-black uppercase tracking-wider text-white bg-[#212121] hover:bg-black min-h-[38px] flex items-center justify-center cursor-pointer shadow-xs active:scale-95 transition">
+                        class="w-full py-2.5 px-4 rounded-full text-[11px] font-black uppercase tracking-wider text-[#212121] bg-[#f5f4f0] hover:bg-[#e8e5dc] border border-[#dedad0] min-h-[38px] flex items-center justify-center cursor-pointer shadow-2xs active:scale-95 transition">
                     <span x-text="quickAddOpen ? '✕ Tutup Pilihan' : '+ Tambah Cepat'">+ Tambah Cepat</span>
                 </button>
             </div>
