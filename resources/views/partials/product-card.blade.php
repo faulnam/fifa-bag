@@ -108,18 +108,18 @@
             @endif
         </a>
 
-        <!-- Quick Add Trigger Button (Visible on mobile, Hover on desktop) -->
+        <!-- Quick Add Trigger Button (Appears on Hover on Desktop & Touch on Mobile) -->
         @if ($availableVariants->isNotEmpty())
-            <div class="absolute inset-x-3 bottom-2.5 z-20 flex justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-200">
+            <div class="absolute inset-x-0 bottom-3.5 z-20 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto px-4">
                 <button type="button" 
                         @click.stop.prevent="quickAddOpen = !quickAddOpen"
-                        class="w-full sm:w-auto px-3.5 py-1.5 text-center text-[10px] sm:text-[11px] font-bold uppercase tracking-wider rounded-full shadow-md bg-charcoal text-canvas hover:bg-black transition backdrop-blur-xs flex items-center justify-center gap-1">
-                    <span x-text="quickAddOpen ? 'Tutup Ukuran' : '+ Tambah Cepat'"></span>
+                        class="w-full max-w-[200px] py-2 sm:py-2.5 px-4 text-center text-[10px] sm:text-[11px] font-bold uppercase tracking-wider rounded-full shadow-md bg-white hover:bg-neutral-50 text-charcoal border border-charcoal/80 transition-all duration-150 flex items-center justify-center">
+                    <span x-text="quickAddOpen ? 'TUTUP' : '+ TAMBAH CEPAT'"></span>
                 </button>
             </div>
         @endif
 
-        <!-- Quick Add Size Selector Popover -->
+        <!-- Quick Add Size Selector Popover (Card Overlay with 4-Column Grid) -->
         @if ($availableVariants->isNotEmpty())
             <div x-show="quickAddOpen" 
                  x-transition:enter="transition ease-out duration-200"
@@ -128,18 +128,18 @@
                  x-transition:leave="transition ease-in duration-150"
                  x-transition:leave-start="opacity-100 translate-y-0"
                  x-transition:leave-end="opacity-0 translate-y-2"
-                 class="absolute inset-x-2 bottom-2 z-30 p-2.5 bg-canvas/98 backdrop-blur-md rounded-card border border-sand shadow-lg"
+                 class="absolute inset-x-2.5 bottom-2.5 z-30 p-3.5 bg-white rounded-2xl border border-sand/80 shadow-2xl"
                  style="display: none;">
-                <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-sand/60">
-                    <span class="text-[9px] font-bold uppercase tracking-wider text-charcoal">Pilih Ukuran</span>
-                    <button type="button" @click.stop="quickAddOpen = false" class="text-stone hover:text-charcoal text-[11px] font-bold leading-none p-1">✕</button>
+                <div class="flex items-center justify-between mb-2.5">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-charcoal">PILIH UKURAN</span>
+                    <button type="button" @click.stop="quickAddOpen = false" class="text-stone hover:text-charcoal text-sm leading-none p-1 font-bold">✕</button>
                 </div>
-                <div class="flex flex-wrap gap-1 max-h-28 overflow-y-auto pt-0.5">
+                <div class="grid grid-cols-4 gap-1.5 max-h-36 overflow-y-auto">
                     @foreach ($availableVariants as $v)
                         <button type="button" 
                                 @click.stop.prevent="$store.cart.addItem({{ $v->id }}, 1); quickAddOpen = false;"
                                 {{ $v->stock_quantity <= 0 ? 'disabled' : '' }}
-                                class="py-1 px-2.5 text-center text-[10px] font-bold rounded-sm border transition flex items-center justify-center {{ $v->stock_quantity <= 0 ? 'bg-sand/30 text-stone border-sand/30 line-through cursor-not-allowed opacity-50' : 'bg-canvas text-charcoal border-sand hover:bg-charcoal hover:text-canvas' }}"
+                                class="py-2 text-center text-xs font-bold rounded-lg border transition min-h-[38px] flex items-center justify-center {{ $v->stock_quantity <= 0 ? 'bg-sand/30 text-stone border-sand/30 line-through cursor-not-allowed opacity-50' : 'bg-white text-charcoal border-sand/90 hover:border-charcoal hover:bg-charcoal hover:text-white shadow-xs' }}"
                                 title="{{ $v->stock_quantity <= 0 ? 'Stok Habis' : 'Stok: ' . $v->stock_quantity }}">
                             {{ $v->size }}
                         </button>
